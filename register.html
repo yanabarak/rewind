@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
+    <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body class="overflow-hidden sign-up-page">
+    <div class="d-flex justify-content-center position-fixed w-100 h-100 flex-column bg-white" id="spinerWrap"
+        style="z-index: 10000;">
+        <div class="spinner-border mx-auto sec-color" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+    </div>
+    <div class="container-fluid min-vh-100">
+        <div class="wrapper d-flex align-items-stretch flex-column flex-md-row min-vh-100">
+            <div class="row ms-auto bg-white right-content min-vh-100 d-flex justify-content-center">
+                <div class="login-background">
+                    <img src="./img/login_bg.jpg" alt="Image for background">
+                </div>
+                <div class="sign-up-block col-auto">
+                    <div class="row mb-70">
+                        <svg class="logo icon-logo-green col-auto p-0" width="103" height="72">
+                            <use href="./img/logo.svg#icon-logo-green"></use>
+                        </svg>
+                    </div>
+                    <nav class="breadcrumb-ellipse row d-flex align-items-center">
+                        <a href="#" class="link col-auto base-link">
+                            <svg class="icon icon-Arrow" width="24" height="24">
+                                <use href="./img/icons.svg#icon-Arrow"></use>
+                            </svg></a>
+                        <div class="ellipse ms-auto col-auto" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link" id="nav-email-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-email" type="button" role="tab" aria-controls="nav-email"
+                                aria-selected="true" href="#"><span>Step 1</span>
+                            </a>
+                            <a class="nav-item nav-link" id="nav-code-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-code" type="button" role="tab" aria-controls="nav-code"
+                                aria-selected="false" href="#"><span>Step 2</span></a>
+                            <a class="nav-item nav-link" id="nav-pass-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-pass" type="button" role="tab" aria-controls="nav-pass"
+                                aria-selected="false" href="#"><span>Step 3</span></a>
+                            <a class="nav-item nav-link" id="nav-details-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details"
+                                aria-selected="false" href="#"><span>Step 4</span></a>
+                            <a class="nav-item nav-link" id="nav-company-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-company" type="button" role="tab" aria-controls="nav-company"
+                                aria-selected="false" href="#"><span>Step
+                                    5</span></a>
+                            <a class="nav-item nav-link active" id="nav-address-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-address" type="button" role="tab" aria-controls="nav-address"
+                                aria-selected="false" href="#"><span>Step 6</span></a>
+                        </div>
+                    </nav>
+                    <div class="tab-content row" id="nav-tabContent">
+                        <div class="tab-pane fade" id="nav-email" role="tabpanel" aria-labelledby="nav-email-tab">
+                            <h4 class="fw-bold  mt-65 mb-40 row">Sign Up</h4>
+                            <form action="" class="signup" id="signup-step1">
+                                <div class="row justify-content-between mb-40">
+                                    <button class="social-buttons w-auto rounded-pill">
+                                        <svg class="icon icon-Microsoft" width="24" height="24">
+                                            <use href="./img/icons.svg#icon-Google"></use>
+                                        </svg>
+                                        Google</button>
+                                    <button class="social-buttons w-auto rounded-pill"><svg class="icon icon-Microsoft"
+                                            width="24" height="24">
+                                            <use href="./img/icons.svg#icon-Apple"></use>
+                                        </svg>Apple ID</button><button class="social-buttons w-auto rounded-pill"><svg
+                                            class="icon icon-Microsoft" width="24" height="24">
+                                            <use href="./img/icons.svg#icon-Microsoft"></use>
+                                        </svg>Microsoft</button>
+                                </div>
+                                <div class="row  mb-40">
+                                    <p class="title text-center"><span class="py-1 bg-white ">Or Continue
+                                            With</span>
+                                    </p>
+                                </div>
+
+                                <div class="row mb-24">
+                                    <label for="email" class="form-label p-0 black-color">Email</label>
+                                    <input type="text" class="form-control default" id="email">
+                                </div>
+                                <div class="row mb-30">
+                                    <a class="button-green rounded-pill w-100" href="#">Next</a>
+                                </div>
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <a href="#" class="link base-link col-auto">Already Have An Account?</a>
+                                    <button type="button" class="button-secondary button-login col-auto">Log In</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="nav-code" role="tabpanel" aria-labelledby="nav-code-tab">
+                            <h4 class="fw-bold mt-40 mb-30 verification-text row">Enter the verification code we’ve
+                                sent to your email.</h4>
+                            <form action="" class="signup" id="signup-step2">
+                                <div class="row justify-content-between mb-40">
+                                    <input type="text" class="form-control default text-code" maxlength="1"><input
+                                        type="text" class="form-control default text-code" maxlength="1"><input
+                                        type="text" class="form-control default text-code" maxlength="1"><input
+                                        type="text" class="form-control default text-code" maxlength="1">
+                                </div>
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <a href="#" class="link base-link col-auto">Haven’t received a code yet?</a>
+                                    <button type="button" class="button-secondary button-login col-auto">Send A New
+                                        Code</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="nav-pass" role="tabpanel" aria-labelledby="nav-pass-tab">
+                            <h4 class="fw-bold mt-65 mb-30 verification-text row">Choose Your Password</h4>
+                            <form action="" class="signup" id="signup-step3">
+                                <div class="row mb-24">
+                                    <label for="password" class="form-label p-0 black-color">Password</label>
+                                    <div class="position-relative p-0">
+                                        <input type="password" class="form-control default" id="password"
+                                            placeholder=" "><span toggle="#password" class="field-icon toggle-password">
+                                            <svg class="icon icon-Eye" width="22" height="16">
+                                                <use href="./img/icons.svg#icon-Eye"></use>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row mb-24">
+                                    <label for="password2" class="form-label p-0 black-color">Verify Password</label>
+                                    <div class="position-relative p-0">
+                                        <input type="password" class="form-control default" id="password2"
+                                            placeholder=" ">
+                                        <span toggle="#password2" class="field-icon toggle-password">
+                                            <svg class="icon icon-Eye" width="22" height="16">
+                                                <use href="./img/icons.svg#icon-Eye"></use>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row mb-30">
+                                    <a class="button-green rounded-pill w-100" href="./register2.html" disabled>Next</a>
+                                </div>
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <a href="#" class="link base-link col-auto">Already Have An Account?</a>
+                                    <button type="button" class="button-secondary button-login col-auto">Log In</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
+                            <h4 class="fw-bold mt-65 mb-30 verification-text row">Enter your details</h4>
+                            <form action="" class="signup" id="signup-step4">
+                                <div class="row mb-24">
+                                    <label for="fullName" class="form-label p-0 black-color">Full Name</label>
+                                    <input type="text" class="form-control default" id="fullName">
+                                </div>
+                                <div class="row mb-24">
+                                    <label for="phone" class="form-label p-0 black-color">Phone Number</label>
+                                    <input type="tel" class="form-control default" id="phone">
+                                </div>
+                                <div class="row mb-40">
+                                    <label for="fileElem" class="form-label p-0 black-color">ID Scan</label>
+                                    <label class="drop-area">
+                                        <span><span class="info">
+                                                <svg class="icon icon-upload-cloud" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-upload-cloud"></use>
+                                                </svg>
+                                                <b>upload a file </b>or drag and
+                                                drop</span>
+                                            <span class="limit">PNG, JPG, GIF up to 10MB</span>
+                                        </span>
+                                        <input type="file" id="fileElem" accept="image/*"
+                                            onchange="handleFiles(this.files)">
+                                        <span id="gallery"></span>
+                                    </label>
+                                </div>
+                                <div class="row mb-30">
+                                    <a class="button-green rounded-pill w-100" href="./register2.html" disabled>Next</a>
+                                </div>
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <a href="#" class="link base-link col-auto">Already Have An Account?</a>
+                                    <button type="button" class="button-secondary button-login col-auto">Log
+                                        In</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-company" role="tabpanel" aria-labelledby="nav-company-tab">
+                            <h4 class="fw-bold mt-65 mb-30 verification-text row">Company Details</h4>
+                            <form action="" class="signup" id="signup-step5">
+                                <div class="row mb-24">
+                                    <label for="companyName" class="form-label p-0 black-color">Company Name
+                                        (Optional)</label>
+                                    <input type="text" class="form-control default" id="companyName">
+                                </div>
+                                <div class="row mb-24">
+                                    <label for="registrationID" class="form-label p-0 black-color">Registration
+                                        ID</label>
+                                    <input type="number" class="form-control default" id="registrationID">
+                                </div>
+                                <div class="row mb-24">
+                                    <label for="fieldBus" class="form-label p-0 black-color">Field Of Business</label>
+                                    <input type="text" class="form-control default" id="fieldBus">
+                                </div>
+                                <div class="row mb-24">
+                                    <label for="fileElem" class="form-label p-0 black-color">Upload Incorporation
+                                        Documents</label>
+                                    <label class="drop-area">
+                                        <span><span class="info">
+                                                <svg class="icon icon-upload-cloud" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-upload-cloud"></use>
+                                                </svg>
+                                                <b>upload a file </b>or drag and
+                                                drop</span>
+                                            <span class="limit">PNG, JPG, GIF up to 10MB</span>
+                                        </span>
+                                        <input type="file" id="fileElem" accept="image/*"
+                                            onchange="handleFiles(this.files)">
+                                        <span id="gallery"></span>
+                                    </label>
+                                </div>
+                                <div class="row mb-24 text-center ">
+                                    <a href="#" class="link text-black">skip this step</a>
+                                </div>
+                                <div class="row mb-30">
+                                    <a class="button-green rounded-pill w-100" href="./register2.html" disabled>Next</a>
+                                </div>
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <a href="#" class="link base-link col-auto">Already Have An Account?</a>
+                                    <button type="button" class="button-secondary button-login col-auto">Log
+                                        In</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="tab-pane show active" id="nav-address" role="tabpanel"
+                            aria-labelledby="nav-address-tab">
+                            <h4 class="fw-bold mt-65 mb-30 verification-text row">Enter Your Address</h4>
+                            <form action="" class="signup" id="signup-step6">
+                                <div class="row mb-24">
+                                    <label for="companyName" class="form-label p-0 black-color">Street</label>
+                                    <input type="text" class="form-control default" id="companyName">
+                                </div>
+                                <div class="row mb-24 gap-3">
+                                    <div class="col row"><label for="City"
+                                            class="form-label p-0 black-color">City</label>
+                                        <input type="number" class="form-control default" id="City">
+                                    </div>
+                                    <div class="col row"><label for="Country"
+                                            class="form-label p-0 black-color">Country</label>
+                                        <select class="form-control default selectpicker" id="Country" title=" ">
+                                            <option>Israel</option>
+                                            <option>India</option>
+                                            <option>Ukraine</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <h4 class="fw-bold mb-24 verification-text row">Company Address (Optional)</h4>
+                                <div class="row mb-24">
+                                    <label for="companyName" class="form-label p-0 black-color">Street</label>
+                                    <input type="text" class="form-control default" id="companyName">
+                                </div>
+                                <div class="row mb-24 gap-3">
+                                    <div class="col row"><label for="City"
+                                            class="form-label p-0 black-color">City</label>
+                                        <input type="number" class="form-control default" id="City">
+                                    </div>
+                                    <div class="col row"><label for="Country"
+                                            class="form-label p-0 black-color">Country</label>
+                                        <select class="form-control default selectpicker" id="Country" title=" ">
+                                            <option>Israel</option>
+                                            <option>India</option>
+                                            <option>Ukraine</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-30">
+                                    <a class="button-green rounded-pill w-100" href="./register2.html" disabled>Next</a>
+                                </div>
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <a href="#" class="link base-link col-auto">Already Have An Account?</a>
+                                    <button type="button" class="button-secondary button-login col-auto">Log
+                                        In</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+                </script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap-select.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+
+</html>

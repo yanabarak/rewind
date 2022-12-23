@@ -1,0 +1,87 @@
+.social-buttons {
+  min-width: 137px;
+  height: 40px;
+  background: #f6f6f7;
+  font-weight: 700;
+  font-size: 16px;
+  border: 0px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: all 500ms linear;
+  &:hover {
+    background: #ccc;
+  }
+}
+
+.button-green {
+  padding: 16px;
+  height: 40px;
+  background-color: var(--green);
+  border-radius: 32px;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 500ms linear;
+  border: 0px;
+  text-decoration: none;
+  &:disabled,
+  &[disabled] {
+    background-color: var(--green-20) !important;
+    color: var(--green-50) !important;
+    border: 0px;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: #319b2d;
+    color: #ffffff;
+    border: 0px;
+  }
+  &:active {
+    background-color: #117d0e;
+    color: #ffffff;
+    border: 0px;
+  }
+}
+
+.button-secondary {
+  padding: 0 24px;
+  height: 40px;
+  width: fit-content;
+  background-color: var(--black-10);
+  border-radius: 32px;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  transition: all 500ms linear;
+  border: 0px;
+  text-decoration: none;
+  &:disabled,
+  &[disabled] {
+    background-color: #f6f6f7 !important;
+    color: #b2b7ba !important;
+    border: 0px;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: #dcdcdc;
+    color: var(--black);
+    border: 0px;
+  }
+  &:active {
+    background-color: #c7c7c7;
+    color: var(--black);
+    border: 0px;
+  }
+}
