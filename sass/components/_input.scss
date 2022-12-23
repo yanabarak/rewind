@@ -39,26 +39,34 @@ input[type='password']:placeholder-shown + span svg {
   stroke: transparent;
 }
 .toggle-password {
-  display: flex;
-  position: absolute;
-  right: 17px;
-  top: 50%;
-  transform: translateY(-50%);
-  &.eye-slash:before {
-    content: '';
-    width: 2px;
-    height: 25px;
-    background: #2c8e30;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    box-shadow: 0px 0 0 2px var(--black-1);
+  & .icon-Eye-off {
+    stroke: transparent;
+  }
+  &.eye-slash .icon-Eye-off {
+    fill: #2c8e30;
+    stroke: transparent;
+    // content: '';
+    // width: 2px;
+    // height: 25px;
+    // background: #2c8e30;
+    // display: block;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%) rotate(-45deg);
+    // box-shadow: 0px 0 0 2px var(--black-1);
+  }
+  &.eye-slash .icon-Eye {
+    stroke: transparent;
   }
   svg {
     stroke: #2c8e30;
     fill: transparent;
     transition: all 300ms linear;
+    display: flex;
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
