@@ -99,11 +99,38 @@ jQuery(document).ready(function ($) {
 
   $('.selectpicker').selectpicker();
 
-  // navigation on registration page. Should be deleted after implementing logic
+  // navigation on registration page. Can be deleted after implementing logic
 
   $('.button-next').click(function () {
-    const nextTabLinkEl = $('#nav-tab .active').closest('a').next('a')[0];
+    const nextTabLinkEl = $('#nav-tab .active').closest('.nav-link').next('.nav-link')[0];
     const nextTab = new bootstrap.Tab(nextTabLinkEl);
     nextTab.show();
+
+    if ($('.active').index() == 0) {
+      $('.nav-prev').addClass('invisible');
+    } else $('.nav-prev').removeClass('invisible');
+  });
+
+  $('.nav-prev').click(function () {
+    const prevTabLinkEl = $('#nav-tab .active').closest('.nav-link').prev('.nav-link')[0];
+    const prevTab = new bootstrap.Tab(prevTabLinkEl);
+    prevTab.show();
+
+    if ($('.active').index() == 0) {
+      $('.nav-prev').addClass('invisible');
+    } else $('.nav-prev').removeClass('invisible');
+  });
+
+  var triggerTabList = [].slice.call(document.querySelectorAll('#nav-tab a'));
+  triggerTabList.forEach(function (triggerEl) {
+    var tabTrigger = new bootstrap.Tab(triggerEl);
+
+    triggerEl.addEventListener('click', function (event) {
+      event.preventDefault();
+      tabTrigger.show();
+      if ($('.active').index() == 0) {
+        $('.nav-prev').addClass('invisible');
+      } else $('.nav-prev').removeClass('invisible');
+    });
   });
 });
