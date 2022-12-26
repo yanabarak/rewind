@@ -210,6 +210,12 @@ div.form-control.default .dropdown-toggle.text-code {
   align-items: center;
   text-align: center;
 }
+@media screen and (max-width: 480px) {
+  input.form-control.default,
+div.form-control.default .dropdown-toggle {
+    font-size: 16px;
+  }
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

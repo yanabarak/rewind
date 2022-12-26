@@ -69,7 +69,7 @@
                             aria-labelledby="nav-email-tab">
                             <h4 class="fw-bold  mt-65 mb-40 row">Sign Up</h4>
                             <form action="" class="signup" id="signup-step1">
-                                <div class="row justify-content-between mb-40">
+                                <div class="row justify-content-around gap-2 gap-sm-0 justify-content-sm-between mb-40">
                                     <button class="social-buttons w-auto rounded-pill">
                                         <svg class="icon icon-Microsoft" width="24" height="24">
                                             <use href="./img/icons.svg#icon-Google"></use>
@@ -94,7 +94,7 @@
                                     <input type="text" class="form-control default" id="email">
                                 </div>
                                 <div class="row mb-30">
-                                    <a class="button-green rounded-pill w-100" href="#">Next</a>
+                                    <a class="button-green rounded-pill w-100  button-next" href="#">Next</a>
                                 </div>
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <a href="#" class="link base-link col-auto">Already Have An Account?</a>
@@ -113,7 +113,8 @@
                                         type="text" class="form-control default text-code" maxlength="1"><input
                                         type="text" class="form-control default text-code" maxlength="1">
                                 </div>
-                                <div class="row d-flex justify-content-between align-items-center">
+                                <div
+                                    class="row d-flex justify-content-around justify-content-sm-between align-items-center gap-2 gap-sm-0">
                                     <a href="#" class="link base-link col-auto">Haven’t received a code yet?</a>
                                     <button type="button" class="button-secondary button-login col-auto">Send A New
                                         Code</button>
@@ -129,10 +130,10 @@
                                     <div class="position-relative p-0">
                                         <input type="password" class="form-control default" id="password"
                                             placeholder=" "><span toggle="#password" class="field-icon toggle-password">
-                                            <svg class="icon icon-Eye" width="22" height="16">
+                                            <svg class="icon icon-Eye" width="24" height="24">
                                                 <use href="./img/icons.svg#icon-Eye"></use>
                                             </svg>
-                                            <svg class="icon icon-Eye-off" width="22" height="22">
+                                            <svg class="icon icon-Eye-off" width="24" height="24">
                                                 <use href="./img/icons.svg#icon-Eye-off"></use>
                                             </svg>
                                         </span>
@@ -143,17 +144,18 @@
                                     <div class="position-relative p-0">
                                         <input type="password" class="form-control default" id="password2"
                                             placeholder=" ">
-                                        <span toggle="#password2" class="field-icon toggle-password">
-                                            <svg class="icon icon-Eye" width="22" height="16">
+                                        <span toggle="#password2" class="field-icon toggle-password"><svg
+                                                class="icon icon-Eye" width="24" height="24">
                                                 <use href="./img/icons.svg#icon-Eye"></use>
-                                            </svg><svg class="icon icon-Eye-off" width="22" height="22">
+                                            </svg>
+                                            <svg class="icon icon-Eye-off" width="24" height="24">
                                                 <use href="./img/icons.svg#icon-Eye-off"></use>
                                             </svg>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="row mb-30">
-                                    <a class="button-green rounded-pill w-100" href="./register2.html" disabled>Next</a>
+                                    <a class="button-green rounded-pill w-100  button-next" href="#">Next</a>
                                 </div>
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <a href="#" class="link base-link col-auto">Already Have An Account?</a>
@@ -184,13 +186,12 @@
                                                 drop</span>
                                             <span class="limit">PNG, JPG, GIF up to 10MB</span>
                                         </span>
-                                        <input type="file" id="fileElem" accept="image/*"
-                                            onchange="handleFiles(this.files)">
+                                        <input type="file" id="fileElem" class="fileElem" accept="image/*">
                                         <span id="gallery"></span>
                                     </label>
                                 </div>
                                 <div class="row mb-30">
-                                    <a class="button-green rounded-pill w-100" href="./register2.html" disabled>Next</a>
+                                    <a class="button-green rounded-pill w-100  button-next" href="#">Next</a>
                                 </div>
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <a href="#" class="link base-link col-auto">Already Have An Account?</a>
@@ -230,8 +231,7 @@
                                                 drop</span>
                                             <span class="limit">PNG, JPG, GIF up to 10MB</span>
                                         </span>
-                                        <input type="file" id="fileElem" accept="image/*"
-                                            onchange="handleFiles(this.files)">
+                                        <input type="file" class="fileElem" id="fileElem" accept="image/*">
                                         <span id="gallery"></span>
                                     </label>
                                 </div>
@@ -239,7 +239,7 @@
                                     <a href="#" class="link text-black">skip this step</a>
                                 </div>
                                 <div class="row mb-30">
-                                    <a class="button-green rounded-pill w-100" href="./register2.html" disabled>Next</a>
+                                    <a class="button-green rounded-pill w-100  button-next" href="#">Next</a>
                                 </div>
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <a href="#" class="link base-link col-auto">Already Have An Account?</a>
@@ -291,7 +291,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-30">
-                                    <a class="button-green rounded-pill w-100" href="./register2.html" disabled>Next</a>
+                                    <a class="button-green rounded-pill w-100 button-next" href="#">Next</a>
                                 </div>
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <a href="#" class="link base-link col-auto">Already Have An Account?</a>

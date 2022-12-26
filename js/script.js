@@ -22,6 +22,7 @@ jQuery(document).ready(function ($) {
   // ************************ Drag and drop ***************** //
   function dragsDocument(element) {
     let dropArea = element;
+
     // Prevent default drag behaviors
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
       dropArea.addEventListener(eventName, preventDefaults, false);
@@ -38,6 +39,7 @@ jQuery(document).ready(function ($) {
 
     // Handle dropped files
     dropArea.addEventListener('drop', handleDrop, false);
+    element.getElementsByClassName('fileElem')[0].addEventListener('change', handleFiles, false);
 
     function preventDefaults(e) {
       e.preventDefault();
@@ -52,17 +54,19 @@ jQuery(document).ready(function ($) {
       dropArea.classList.remove('highlight');
     }
 
-    function handleDrop(e) {
-      var dt = e.dataTransfer;
-      var files = dt.files;
-
-      handleFiles(files);
-    }
-
     function handleFiles(files) {
+      if (files.target) {
+        files = files.target.files;
+      }
       files = [...files];
       files.forEach(uploadFile);
       files.forEach(previewFile);
+    }
+
+    function handleDrop(e) {
+      var dt = e.dataTransfer;
+      var files = dt.files;
+      handleFiles(files);
     }
 
     function previewFile(file) {
@@ -94,4 +98,12 @@ jQuery(document).ready(function ($) {
   }
 
   $('.selectpicker').selectpicker();
+
+  // navigation on registration page. Should be deleted after implementing logic
+
+  $('.button-next').click(function () {
+    const nextTabLinkEl = $('#nav-tab .active').closest('a').next('a')[0];
+    const nextTab = new bootstrap.Tab(nextTabLinkEl);
+    nextTab.show();
+  });
 });

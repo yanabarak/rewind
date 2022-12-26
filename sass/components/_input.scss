@@ -15,7 +15,6 @@ div.form-control.default .dropdown-toggle {
     border: 1px solid var(--green);
     outline: transparent !important;
   }
-
   &.text-code {
     height: 84px;
     width: 84px;
@@ -25,6 +24,9 @@ div.form-control.default .dropdown-toggle {
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
   }
 }
 input::-webkit-outer-spin-button,
