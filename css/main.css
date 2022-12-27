@@ -279,17 +279,20 @@ input[type=password]:placeholder-shown + span svg {
   color: var(--bs-link-hover-color);
 }
 
-body.sign-up-page {
+body.sign-up-page,
+body.login-page {
   position: relative;
 }
-body.sign-up-page .right-content {
+body.sign-up-page .right-content,
+body.login-page .right-content {
   width: calc(50% + 37px);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px 0 0 50px;
   min-width: 600px;
 }
 @media screen and (max-width: 768px) {
-  body.sign-up-page .right-content {
+  body.sign-up-page .right-content,
+body.login-page .right-content {
     width: 90%;
     margin: 20px auto;
     border-radius: 50px;
@@ -297,7 +300,8 @@ body.sign-up-page .right-content {
   }
 }
 @media screen and (max-width: 480px) {
-  body.sign-up-page .right-content {
+  body.sign-up-page .right-content,
+body.login-page .right-content {
     width: 100%;
     border-radius: 0px;
     padding: 0px;
@@ -306,13 +310,15 @@ body.sign-up-page .right-content {
   }
 }
 
-.sign-up-block {
+.sign-up-block,
+.login-block {
   padding: 15px;
   width: 450px;
   margin-top: 20px;
 }
 @media screen and (min-height: 900px) {
-  .sign-up-block {
+  .sign-up-block,
+.login-block {
     margin-top: 15%;
   }
 }
