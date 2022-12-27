@@ -6,7 +6,7 @@ div.form-control.default .dropdown-toggle {
   background: var(--black-1);
   border: 1px solid var(--green-20);
   border-radius: 4px;
-  color: #2c8e30;
+  color: var(--input-green);
   font-weight: 400;
   font-size: 14px;
   line-height: calc(19 / 14);
@@ -45,7 +45,7 @@ input[type='password']:placeholder-shown + span svg {
     stroke: transparent;
   }
   &.eye-slash .icon-Eye-off {
-    fill: #2c8e30;
+    fill: var(--input-green);
     stroke: transparent;
     // content: '';
     // width: 2px;
@@ -62,7 +62,7 @@ input[type='password']:placeholder-shown + span svg {
     stroke: transparent;
   }
   svg {
-    stroke: #2c8e30;
+    stroke: var(--input-green);
     fill: transparent;
     transition: all 300ms linear;
     display: flex;

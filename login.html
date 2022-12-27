@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
+    <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body class="overflow-hidden sign-up-page">
+    <div class="d-flex justify-content-center position-fixed w-100 h-100 flex-column bg-white" id="spinerWrap"
+        style="z-index: 10000;">
+        <div class="spinner-border mx-auto sec-color" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+    </div>
+    <div class="container-fluid min-vh-100">
+        <div class="wrapper d-flex align-items-stretch flex-column flex-md-row min-vh-100">
+            <div class="row ms-auto bg-white right-content min-vh-100 d-flex justify-content-center">
+                <div class="login-background">
+                    <img src="./img/login_bg.jpg" alt="Image for background">
+                </div>
+                <div class="sign-up-block col-auto">
+                    <div class="row mb-70">
+                        <svg class="logo icon-logo-green col-auto p-0" width="103" height="72">
+                            <use href="./img/logo.svg#icon-logo-green"></use>
+                        </svg>
+                    </div>
+                    <h4 class="fw-bold  mt-65 mb-40 row">Log In</h4>
+                    <form action="" class="signup" id="signup-step1">
+                        <div class="row justify-content-around gap-2 gap-sm-0 justify-content-sm-between mb-40">
+                            <button class="social-buttons w-auto rounded-pill">
+                                <svg class="icon icon-Microsoft" width="24" height="24">
+                                    <use href="./img/icons.svg#icon-Google"></use>
+                                </svg>
+                                Google</button>
+                            <button class="social-buttons w-auto rounded-pill"><svg class="icon icon-Microsoft"
+                                    width="24" height="24">
+                                    <use href="./img/icons.svg#icon-Apple"></use>
+                                </svg>Apple ID</button><button class="social-buttons w-auto rounded-pill"><svg
+                                    class="icon icon-Microsoft" width="24" height="24">
+                                    <use href="./img/icons.svg#icon-Microsoft"></use>
+                                </svg>Microsoft</button>
+                        </div>
+                        <div class="row  mb-40">
+                            <p class="title text-center"><span class="py-1 bg-white ">OR</span>
+                            </p>
+                        </div>
+
+                        <div class="row mb-24">
+                            <label for="email" class="form-label p-0 black-color">Email</label>
+                            <input type="text" class="form-control default" id="email">
+                        </div>
+
+                        <div class="row mb-24">
+                            <label for="password" class="form-label p-0 black-color">Password</label>
+                            <div class="position-relative p-0">
+                                <input type="password" class="form-control default" id="password" placeholder=" "><span
+                                    toggle="#password" class="field-icon toggle-password">
+                                    <svg class="icon icon-Eye" width="24" height="24">
+                                        <use href="./img/icons.svg#icon-Eye"></use>
+                                    </svg>
+                                    <svg class="icon icon-Eye-off" width="24" height="24">
+                                        <use href="./img/icons.svg#icon-Eye-off"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mb-24">
+                            <div class="remember-input-group col-auto p-0">
+                                <input type="checkbox" name="remember" id="remember" class="visually-hidden">
+                                <label for="remember" class="remember-label d-flex align-items-center">
+                                    <span class="remember-check d-flex justify-content-center align-items-center">
+                                        <svg width="12" height="8.67">
+                                            <use href="./img/icons.svg#icon-Check"></use>
+                                        </svg>
+                                    </span>
+                                    Remember me</label>
+                            </div>
+                            <div class="col-auto ms-auto"><a href="#" class="reset-pass">Forgot Your Password?</a></div>
+                        </div>
+                        <div class="row mb-30">
+                            <a class="button-green rounded-pill w-100  button-next" href="#">Next</a>
+                        </div>
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <a href="#" class="link base-link fw-bold dark col-auto">Don't Have An Account?</a>
+                            <button type="button" class="button-secondary button-login col-auto">Sign In</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap-select.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+
+</html>

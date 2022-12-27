@@ -80,6 +80,8 @@ ol {
   --primary-header-color: #303030;
   --second-header-color: #ffffff;
   --primary-link-color: #ffffff;
+  --input-green: #2c8e30;
+  --bs-link-hover-color: #2c8e30;
   --green: #39a935;
   --green-50: #9cd49a;
   --green-20: rgba(57, 169, 53, 0.2);
@@ -188,7 +190,7 @@ div.form-control.default .dropdown-toggle {
   background: var(--black-1);
   border: 1px solid var(--green-20);
   border-radius: 4px;
-  color: #2c8e30;
+  color: var(--input-green);
   font-weight: 400;
   font-size: 14px;
   line-height: 1.3571428571;
@@ -243,14 +245,14 @@ input[type=password]:placeholder-shown + span svg {
   stroke: transparent;
 }
 .toggle-password.eye-slash .icon-Eye-off {
-  fill: #2c8e30;
+  fill: var(--input-green);
   stroke: transparent;
 }
 .toggle-password.eye-slash .icon-Eye {
   stroke: transparent;
 }
 .toggle-password svg {
-  stroke: #2c8e30;
+  stroke: var(--input-green);
   fill: transparent;
   transition: all 300ms linear;
   display: flex;
@@ -267,6 +269,14 @@ input[type=password]:placeholder-shown + span svg {
   color: var(--black-50);
   font-weight: 300;
   padding: 0px;
+}
+.base-link.dark,
+.base-link:link.dark {
+  color: var(--bs-body-color);
+}
+.base-link:hover,
+.base-link:link:hover {
+  color: var(--bs-link-hover-color);
 }
 
 body.sign-up-page {
@@ -416,7 +426,7 @@ body.sign-up-page .right-content {
   width: 100%;
   height: 106px;
   background: #f9f9f9;
-  border: 1px dashed #2c8e30;
+  border: 1px dashed var(--input-green);
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -463,4 +473,33 @@ body.sign-up-page .right-content {
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+.remember-check {
+  width: 18px;
+  height: 18px;
+  background: #f6f6f7;
+  border: 1px solid rgba(57, 169, 53, 0.2);
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.remember-check svg {
+  fill: transparent;
+}
+
+#remember:checked + label > span {
+  border: none;
+  background-color: var(--input-green);
+}
+
+#remember:checked + label > span svg {
+  fill: #fff;
+}
+
+.reset-pass {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
 }/*# sourceMappingURL=main.css.map */

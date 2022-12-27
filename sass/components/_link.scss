@@ -5,4 +5,10 @@
   color: var(--black-50);
   font-weight: 300;
   padding: 0px;
+  &.dark {
+    color: var(--bs-body-color);
+  }
+  &:hover {
+    color: var(--bs-link-hover-color);
+  }
 }

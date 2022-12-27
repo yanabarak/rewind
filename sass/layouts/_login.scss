@@ -143,7 +143,7 @@ body.sign-up-page {
   width: 100%;
   height: 106px;
   background: #f9f9f9;
-  border: 1px dashed #2c8e30;
+  border: 1px dashed var(--input-green);
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -190,4 +190,33 @@ body.sign-up-page {
     min-width: 100%;
     min-height: 100%;
   }
+}
+
+// login page
+
+.remember-check {
+  width: 18px;
+  height: 18px;
+  background: #f6f6f7;
+  border: 1px solid rgba(57, 169, 53, 0.2);
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  & svg {
+    fill: transparent;
+  }
+}
+
+#remember:checked + label > span {
+  border: none;
+  background-color: var(--input-green);
+}
+#remember:checked + label > span svg {
+  fill: #fff;
+}
+.reset-pass {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
 }
