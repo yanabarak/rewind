@@ -1,3 +1,16 @@
+if ($('table[data-height]').length) {
+  $('table[data-height]').each(function () {
+    let height =
+      $(this).closest('.table-container').height() -
+      $(this).closest('.table-container').find('.row').outerHeight(true) -
+      32;
+    if ($(this).closest('.table-container').hasClass('pb-32')) {
+      height = height - 130;
+    }
+    $(this).attr('data-height', height);
+  });
+}
+
 jQuery(document).ready(function ($) {
   //switch off preloader
   function spinerOff() {
@@ -132,5 +145,219 @@ jQuery(document).ready(function ($) {
         $('.nav-prev').addClass('invisible');
       } else $('.nav-prev').removeClass('invisible');
     });
+  });
+
+  // initial for toggle menu
+  function drawStuff() {
+    if ($(window).width() < 992) {
+      $('.asidebar').addClass('collapse').removeClass('fliph left sidebar');
+      $('.asidebar').attr('id', 'navigation');
+      $('.animated-hamburger').removeClass('open');
+    } else if ($(window).width() >= 992) {
+      $('.asidebar').addClass('no-anim');
+      $('.asidebar').removeClass('collapse');
+      $('.asidebar').addClass('sidebar left');
+      $('.asidebar').attr('id', '');
+      setTimeout(() => $('.asidebar').removeClass('no-anim'), 500);
+    }
+    $('.navbar-toggler-button').on('click', function () {
+      $('.animated-hamburger').toggleClass('open');
+    });
+  }
+
+  drawStuff();
+  $(window).resize(function () {
+    drawStuff();
+  });
+
+  // add vh for mobile (needs for responsive, when bar with url hidding)
+  if ($(window).width() < 768) {
+    (function init100vh() {
+      function setHeight() {
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      setHeight();
+      window.addEventListener('resize', setHeight);
+    })();
+  }
+
+  // main chart
+  function mainChart() {
+    let maxDay = 14;
+    let datas = [
+      { x: 0, y: 30, date: '1/1/22' },
+      { x: 1, y: 18, date: '2/1/22' },
+      { x: 2, y: 39, date: '3/1/22' },
+      { x: 3, y: 70, date: '4/1/22' },
+      { x: 4, y: 79, date: '5/1/22' },
+      { x: 5, y: 65, date: '6/1/22' },
+      { x: 6, y: 90, date: '7/1/22' },
+      { x: 7, y: 30, date: '8/1/22' },
+      { x: 8, y: 60, date: '9/1/22' },
+      { x: 9, y: 60, date: '10/1/22' },
+      { x: 10, y: 50, date: '11/1/22' },
+      { x: 11, y: 79, date: '12/1/22' },
+      { x: 12, y: 65, date: '13/1/22' },
+      { x: 13, y: 90, date: '14/1/22' },
+    ];
+
+    var ctx = document.getElementById('mainChart').getContext('2d');
+
+    const footer = tooltipItems => {
+      console.log(tooltipItems[0].label);
+      return `${labels1[tooltipItems[0].label % 7]}, ${tooltipItems[0].raw.date}`;
+    };
+
+    const title = tooltipItems => {
+      return '$' + tooltipItems[0].formattedValue;
+    };
+    let labels1 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    var gradient = ctx.createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, 'rgba(205,242,205,1)');
+    gradient.addColorStop(1, 'rgba(205,242,205,0)');
+
+    let mainSettings = {
+      type: 'line',
+      data: {
+        labels: [...Array(maxDay).keys()],
+        datasets: [
+          {
+            fill: true,
+            backgroundColor: gradient,
+            borderColor: '#55D168',
+            borderWidth: 3,
+            pointRadius: 0,
+            pointHoverRadius: 10,
+            hitRadius: 5,
+            data: datas,
+            pointStyle: function (context) {
+              var img = new Image(20, 20);
+              img.src = './img/ellipse_chart.png';
+              return img;
+            },
+          },
+        ],
+      },
+      interaction: {
+        intersect: false,
+      },
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            backgroundColor: '#fff',
+            titleFont: {
+              weight: 'bold',
+              size: 14,
+              family: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+            },
+            titleColor: '#000',
+            footerFont: {
+              weight: 'normal',
+              size: 12,
+              family: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+            },
+            footerColor: '#000',
+            displayColors: false,
+            bodyFont: { size: 0 },
+            padding: 11,
+            cornerRadius: 8,
+            borderColor: '#E1E1E1',
+            borderWidth: 1,
+            callbacks: {
+              footer: footer,
+              title: title,
+            },
+          },
+          parsing: {
+            xAxisKey: 'x',
+          },
+        },
+        responsive: true,
+        tension: 0.5,
+        scales: {
+          y: {
+            min: 0,
+            max: 100,
+            ticks: {
+              stepSize: 20,
+              callback: function (value, index, ticks) {
+                return '$' + value;
+              },
+              color: '#000000',
+              font: {
+                size: 14,
+                family: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+              },
+            },
+            border: {
+              color: '#ff000000',
+            },
+            grid: {
+              color: '#E8E9EA',
+              borderCapStyle: 'round',
+              borderDash: [9, 9],
+              tickColor: '#ff000000',
+              borderWidth: 0,
+              lineWidth: 2,
+            },
+          },
+          x: {
+            scales: {
+              type: 'linear',
+            },
+            grid: {
+              display: false,
+              borderWidth: 0,
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 14,
+                family: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+              },
+              callback: function (value, index, ticks) {
+                return labels1[value % 7];
+              },
+            },
+          },
+        },
+      },
+    };
+    let chart = new Chart(ctx, mainSettings);
+    // here the functions for updating
+    $('.btn').click(function () {
+      function addData(chart, label, data) {
+        chart.data.labels.push(label);
+        chart.data.datasets.forEach(dataset => {
+          dataset.data.push(data);
+        });
+        chart.update();
+      }
+
+      function removeData(chart) {
+        chart.data.labels.pop();
+        chart.data.datasets.forEach(dataset => {
+          dataset.data.pop();
+        });
+        chart.update();
+      }
+    });
+  }
+
+  if ($('#mainChart').length) {
+    mainChart();
+  }
+
+  // search in table from default input
+  $('#table_search').keyup(function () {
+    $('.search-input').val($('#table_search').val());
+    var $search = $('.bootstrap-table').find('.search-input');
+    var e = $.Event('keyup');
+    $search.trigger(e);
   });
 });

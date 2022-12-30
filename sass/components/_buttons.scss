@@ -16,6 +16,7 @@
 }
 
 .button-green {
+  width: fit-content;
   padding: 16px;
   height: 40px;
   background-color: var(--green);
@@ -47,6 +48,9 @@
     background-color: #117d0e;
     color: #ffffff;
     border: 0px;
+  }
+  svg {
+    fill: currentColor;
   }
 }
 
@@ -83,5 +87,53 @@
     background-color: #c7c7c7;
     color: var(--black);
     border: 0px;
+  }
+}
+
+.btn-group.btn-row {
+  background: #f9f9f9;
+  border-radius: 30px;
+  padding: 4px;
+  display: flex;
+  @media screen and (min-width: 1500px) {
+    gap: 16px;
+  }
+  .btn {
+    height: 30px;
+    background: transparent;
+    border-radius: 23px !important;
+    border: 0px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #868b91;
+    font-size: 14px;
+    transition: all 500ms linear;
+    @media screen and (min-width: 1500px) {
+      min-width: 74px;
+    }
+    &:disabled,
+    &[disabled] {
+      background-color: var(--green-20) !important;
+      color: var(--green-50) !important;
+      border: 0px;
+      pointer-events: none;
+      cursor: default;
+      text-decoration: none;
+    }
+    &:hover,
+    &.active {
+      background-color: #36c233;
+      color: #ffffff;
+      border: 0px;
+    }
+    &.active {
+      font-weight: 700;
+    }
+    &:active {
+      background-color: #117d0e;
+      color: #ffffff;
+      border: 0px;
+    }
   }
 }

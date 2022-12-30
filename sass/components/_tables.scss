@@ -1,0 +1,20 @@
+.bootstrap-table .fixed-table-container .table.striped-table th:first-child > div,
+.bootstrap-table .fixed-table-container .table.striped-table td:first-child {
+  padding-left: 24px;
+}
+.fixed-table-container .table.striped-table th > div {
+  padding-bottom: 8px;
+}
+.classic.striped-table.table.table-striped th div {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  color: #b2b7ba;
+}
+.bootstrap-table .fixed-table-container.fixed-height .table.striped-table thead th,
+.bootstrap-table .fixed-table-container.fixed-height:not(.has-footer) {
+  border-bottom: 0px solid transparent;
+}
+.bootstrap-table {
+  padding: 0px;
+}
