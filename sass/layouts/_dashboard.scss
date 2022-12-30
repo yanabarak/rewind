@@ -12,8 +12,18 @@ main {
   }
 }
 .block-more-half {
-  // max-width: calc(58.33333333% - 16px);
+  max-width: calc(58.33333333% - 16px);
   min-width: calc(58.33333333% - 16px);
+  @media screen and (max-width: 992px) {
+    max-width: unset;
+  }
+}
+.block-more-half + * {
+  max-width: calc(100% - 58.33333333% + 16px);
+  min-width: calc(100% - 58.33333333% + 16px);
+  @media screen and (max-width: 992px) {
+    max-width: unset;
+  }
 }
 .main-info {
   .price {
