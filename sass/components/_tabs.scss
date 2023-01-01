@@ -1,0 +1,34 @@
+.nav.basic-style {
+  .nav-link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--black-50);
+    padding: 8px 16px 16px;
+    transition: all 500ms linear;
+    position: relative;
+    &::after {
+      content: '';
+      display: flex;
+      width: calc(100% - 1px);
+      height: 4px;
+      background-color: var(--green-20);
+      border-radius: 2px;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      transition: all 500ms linear;
+    }
+    &.active {
+      font-weight: 700;
+      color: var(----bs-body-color);
+      &::after {
+        background-color: var(--green);
+      }
+    }
+  }
+}
+
+// #buyModalTabsContent .tab-pane.show {
+//   display: flex;
+// }

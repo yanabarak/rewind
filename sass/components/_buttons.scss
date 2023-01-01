@@ -52,6 +52,10 @@
   svg {
     fill: currentColor;
   }
+  &.btn-number {
+    width: 40px;
+    padding: 0px;
+  }
 }
 
 .button-secondary {
@@ -135,5 +139,45 @@
       color: #ffffff;
       border: 0px;
     }
+  }
+}
+
+.status-button {
+  padding: 4px 8px;
+  height: 27px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.58;
+  width: fit-content;
+  &.pending {
+    background: rgba(244, 207, 74, 0.2);
+    color: #cdbe37;
+  }
+  &.approved {
+    background: rgba(151, 234, 112, 0.2);
+    color: #9bce89;
+  }
+  &.notapproved {
+    background: rgba(255, 169, 164, 0.2);
+    color: #ff9797;
+  }
+  @media screen and (max-width: 1200px) {
+    min-width: 120px;
+    text-align: center;
+  }
+}
+
+.sell-table,
+.buy-table {
+  min-width: 170px;
+  height: 32px;
+  &:disabled,
+  &[disabled] {
+    background: #e8e9ea !important;
+    color: #b2b7ba !important;
+  }
+  @media screen and (max-width: 1200px) {
+    min-width: 100px;
   }
 }

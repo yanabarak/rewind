@@ -7,6 +7,9 @@ if ($('table[data-height]').length) {
     if ($(this).closest('.table-container').hasClass('pb-32')) {
       height = height - 130;
     }
+    if ($(this).closest('.table-container').find('.search-wrap').length) {
+      height = height + 50;
+    }
     $(this).attr('data-height', height);
   });
 }
@@ -353,6 +356,97 @@ jQuery(document).ready(function ($) {
     mainChart();
   }
 
+  // small charts
+  if ($('canvas.small-graph').length) {
+    $('canvas.small-graph').each(function () {
+      let datas = [
+        { x: 0, y: Math.floor(Math.random() * 100), date: '1/1/22' },
+        { x: 1, y: Math.floor(Math.random() * 100), date: '2/1/22' },
+        { x: 2, y: Math.floor(Math.random() * 100), date: '3/1/22' },
+        { x: 3, y: Math.floor(Math.random() * 100), date: '4/1/22' },
+        { x: 4, y: Math.floor(Math.random() * 100), date: '5/1/22' },
+        { x: 5, y: Math.floor(Math.random() * 100), date: '6/1/22' },
+        { x: 6, y: Math.floor(Math.random() * 100), date: '7/1/22' },
+        { x: 7, y: Math.floor(Math.random() * 100), date: '8/1/22' },
+        { x: 8, y: Math.floor(Math.random() * 100), date: '9/1/22' },
+        { x: 9, y: Math.floor(Math.random() * 100), date: '10/1/22' },
+        { x: 10, y: Math.floor(Math.random() * 100), date: '11/1/22' },
+        { x: 11, y: Math.floor(Math.random() * 100), date: '12/1/22' },
+        { x: 12, y: Math.floor(Math.random() * 100), date: '13/1/22' },
+        { x: 13, y: Math.floor(Math.random() * 100), date: '14/1/22' },
+      ];
+
+      var ctx = this.getContext('2d');
+
+      var gradient = ctx.createLinearGradient(0, 0, 0, 40);
+      gradient.addColorStop(0, 'rgba(205,242,205,1)');
+      gradient.addColorStop(1, 'rgba(205,242,205,0)');
+
+      let mainSettings = {
+        type: 'line',
+        data: {
+          labels: datas.map(a => a['date']),
+          datasets: [
+            {
+              fill: true,
+              backgroundColor: gradient,
+              borderColor: '#55D168',
+              borderWidth: 1,
+              pointRadius: 0,
+              hitRadius: 0,
+              data: datas,
+            },
+          ],
+        },
+        interaction: {
+          intersect: false,
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+            parsing: {
+              xAxisKey: 'x',
+              yAxisKey: 'y',
+            },
+          },
+          responsive: true,
+          tension: 0.5,
+          scales: {
+            y: {
+              min: 0,
+              max: 100,
+              scales: {
+                type: 'linear',
+              },
+              ticks: {
+                display: false,
+              },
+              grid: {
+                display: false,
+                borderWidth: 0,
+              },
+            },
+            x: {
+              scales: {
+                type: 'linear',
+              },
+              grid: {
+                display: false,
+                borderWidth: 0,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+          },
+        },
+      };
+      let chart = new Chart(this, mainSettings);
+    });
+  }
+
   // search in table from default input
   $('#table_search').keyup(function () {
     $('.search-input').val($('#table_search').val());
@@ -360,4 +454,63 @@ jQuery(document).ready(function ($) {
     var e = $.Event('keyup');
     $search.trigger(e);
   });
+
+  // buttons plus and minus
+
+  $('.btn-number').click(function (e) {
+    e.preventDefault();
+    fieldName = $(this).attr('data-field');
+    type = $(this).attr('data-type');
+    var input = $("input[name='" + fieldName + "']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+      if (type == 'minus') {
+        if (currentVal > input.attr('min')) {
+          input.val(currentVal - 1).change();
+        }
+        if (parseInt(input.val()) == input.attr('min')) {
+          $(this).attr('disabled', true);
+        }
+      } else if (type == 'plus') {
+        if (currentVal < input.attr('max')) {
+          input.val(currentVal + 1).change();
+        }
+        if (parseInt(input.val()) == input.attr('max')) {
+          $(this).attr('disabled', true);
+        }
+      }
+    } else {
+      input.val(0);
+    }
+  });
+
+  if ($('.pick-date').length) {
+    let DateSet = {
+      format: 'dd/mm/yyyy',
+      firstDay: 0,
+      closeOnSelect: false,
+      setOnSelect: false,
+      today: '',
+      clear: '',
+      close: 'Cancel',
+      value: '',
+      onOpen: function (context) {
+        this.value = $(this)[0]['$node'].val();
+        console.log($(this)[0]['$node'].val());
+      },
+      onClose: function (e) {
+        console.log($(this));
+      },
+      onStop: function () {
+        console.log('See ya.');
+      },
+      onSet: function (context) {
+        console.log(this.value);
+      },
+    };
+    let picker = $('.pick-date').pickadate(DateSet);
+    // DateSet.off('focus');
+    picker.off('click');
+    // editDate();
+  }
 });

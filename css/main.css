@@ -71,6 +71,10 @@ ol {
   margin-bottom: 24px;
 }
 
+.mb-20 {
+  margin-bottom: 20px;
+}
+
 .mt-65 {
   margin-top: 65px;
 }
@@ -104,8 +108,16 @@ ol {
   --main-margin: 20px;
 }
 
+.fs-12 {
+  font-size: 12px;
+}
+
 .fs-16 {
   font-size: 16px;
+}
+
+.fs-24 {
+  font-size: 24px;
 }
 
 body:not(.login-page):not(.sign-up-page) .container-fluid {
@@ -167,6 +179,10 @@ body:not(.login-page):not(.sign-up-page) .container-fluid {
 }
 .button-green svg {
   fill: currentColor;
+}
+.button-green.btn-number {
+  width: 40px;
+  padding: 0px;
 }
 
 .button-secondary {
@@ -254,6 +270,54 @@ body:not(.login-page):not(.sign-up-page) .container-fluid {
   background-color: #117d0e;
   color: #ffffff;
   border: 0px;
+}
+
+.status-button {
+  padding: 4px 8px;
+  height: 27px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.58;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.status-button.pending {
+  background: rgba(244, 207, 74, 0.2);
+  color: #cdbe37;
+}
+.status-button.approved {
+  background: rgba(151, 234, 112, 0.2);
+  color: #9bce89;
+}
+.status-button.notapproved {
+  background: rgba(255, 169, 164, 0.2);
+  color: #ff9797;
+}
+@media screen and (max-width: 1200px) {
+  .status-button {
+    min-width: 120px;
+    text-align: center;
+  }
+}
+
+.sell-table,
+.buy-table {
+  min-width: 170px;
+  height: 32px;
+}
+.sell-table:disabled, .sell-table[disabled],
+.buy-table:disabled,
+.buy-table[disabled] {
+  background: #e8e9ea !important;
+  color: #b2b7ba !important;
+}
+@media screen and (max-width: 1200px) {
+  .sell-table,
+.buy-table {
+    min-width: 100px;
+  }
 }
 
 input.form-control.default,
@@ -380,16 +444,37 @@ div.form-control.default .dropdown-toggle:hover::after, div.form-control.default
   fill: var(--green);
 }
 
-.search-wrap {
+.search-wrap,
+.date-wrap {
   position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
-.search-wrap span {
+.search-wrap span,
+.date-wrap span {
   position: absolute;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
+}
+
+.date-wrap span {
+  left: 8px;
+}
+.date-wrap input {
+  padding-left: 32px;
+}
+.date-wrap input ~ span svg {
+  fill: #9bce89;
+}
+.date-wrap input:hover, .date-wrap input:focus, .date-wrap input:active {
+  color: var(--green);
+}
+.date-wrap input:hover ~ span svg, .date-wrap input:focus ~ span svg, .date-wrap input:active ~ span svg {
+  fill: var(--green);
 }
 
 .float-right.search.btn-group {
@@ -638,6 +723,40 @@ aside.asidebar ul.navflex-column a svg {
 
 .bootstrap-table {
   padding: 0px;
+}
+
+@media (min-width: 992px) {
+  .modal-lg {
+    --bs-modal-width: 650px;
+  }
+}
+.nav.basic-style .nav-link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: var(--black-50);
+  padding: 8px 16px 16px;
+  transition: all 500ms linear;
+  position: relative;
+}
+.nav.basic-style .nav-link::after {
+  content: "";
+  display: flex;
+  width: calc(100% - 1px);
+  height: 4px;
+  background-color: var(--green-20);
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  transition: all 500ms linear;
+}
+.nav.basic-style .nav-link.active {
+  font-weight: 700;
+  color: var(----bs-body-color);
+}
+.nav.basic-style .nav-link.active::after {
+  background-color: var(--green);
 }
 
 body.sign-up-page,
@@ -992,4 +1111,13 @@ main {
 
 .empty-dash {
   flex-direction: column;
+}
+
+span.small-graph {
+  height: 33px;
+  width: 90px;
+}
+
+hr.black-10 {
+  border-color: var(--black-10);
 }/*# sourceMappingURL=main.css.map */

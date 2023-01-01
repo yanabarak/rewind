@@ -1,0 +1,16 @@
+.empty-dash > .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.empty-dash {
+  flex-direction: column;
+}
+span.small-graph {
+  height: 33px;
+  width: 90px;
+}
+hr.black-10 {
+  border-color: var(--black-10);
+}

@@ -119,8 +119,10 @@ div.form-control.default .dropdown-toggle {
     }
   }
 }
-.search-wrap {
+.search-wrap,
+.date-wrap {
   position: relative;
+  height: fit-content;
   span {
     position: absolute;
     left: 16px;
@@ -130,7 +132,26 @@ div.form-control.default .dropdown-toggle {
     align-items: center;
   }
 }
+.date-wrap {
+  span {
+    left: 8px;
+  }
+  input {
+    padding-left: 32px;
+    & ~ span svg {
+      fill: #9bce89;
+    }
 
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--green);
+      & ~ span svg {
+        fill: var(--green);
+      }
+    }
+  }
+}
 .float-right.search.btn-group {
   display: none;
 }

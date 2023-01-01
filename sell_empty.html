@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css">
+    <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body class="overflow-hidden sell-page">
+    <div class="d-flex justify-content-center position-fixed w-100 h-100 flex-column bg-white" id="spinerWrap"
+        style="z-index: 10000;">
+        <div class="spinner-border mx-auto sec-color" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+    </div>
+    <div class="container-fluid min-vh-100">
+        <div class="wrapper d-flex align-items-stretch flex-column flex-lg-row min-vh-100">
+
+            <div class="container-fluid  d-block d-lg-none p-2 sticky-top bg-white border-bottom">
+                <button class="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="animated-hamburger"><span></span><span></span><span></span></div>
+                </button>
+            </div>
+            <aside class="sticky-top d-lg-flex flex-column flex-shrink-0 text-white sidebar left asidebar minh-100">
+                <div class="logo-container text-center">
+                    <svg class="logo icon-logo-white col-auto p-0" width="103" height="72">
+                        <use href="./img/logo.svg#icon-logo"></use>
+                    </svg>
+                </div>
+                <ul class="navflex-column mb-auto list">
+                    <li class="nav-item ">
+                        <a href="#" class="nav-link " aria-current="page">
+                            <svg class="icon icon-home me-2" width="17" height="17">
+                                <use href="./img/icons.svg#icon-home"></use>
+                            </svg>DashBoard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="icon icon-home me-2" width="17" height="17">
+                                <use href="./img/icons.svg#icon-buy"></use>
+                            </svg>Buy
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">
+                            <svg class="icon icon-home me-2" width="17" height="17">
+                                <use href="./img/icons.svg#icon-sell"></use>
+                            </svg>Sell
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="user-panel mb-0 mt-auto">
+                    <div class="image d-flex align-items-center me-4">
+                        <div class="box image rounded-circle">
+                            <img src="https://picsum.photos/640/360" alt="User Image">
+                        </div>
+                        <h6 class="text-left mb-0 long text-white d-flex flex-column">John Doe
+                            <a href="" class="text-white">View Profile</a>
+                        </h6>
+                    </div>
+                </div>
+            </aside>
+
+
+            <!-- <div class="bg-white block-main row m-0 empty-dash">
+                        <div class="col">
+                            <p class="mb-40 fs-16">you dont have anything to sell, yet.</p>
+                            <a class="button-green rounded-pill" href="#" data-bs-toggle="modal"
+                                data-bs-target="#addCertifModal" type="button">
+                                <svg class="icon icon-plus me-2" width="16" height="16">
+                                    <use href="./img/icons.svg#icon-plus"></use>
+                                </svg>
+                                Add certificate</a>
+                        </div>
+                    </div> -->
+            <main class="row w-100 m-0 gap-4" id="content">
+                <div class="row col-12 p-0 m-0 h-100">
+                    <div class="bg-white block-main row m-0 table-container p-0 h-100 empty-dash flex-column">
+                        <div class="col-12 p-32 row m-0">
+                            <div class="search-wrap">
+                                <input type="search" class="base-search w-100" id="table_search" placeholder="search">
+                                <span class="icon">
+                                    <svg class="icon icon-search" width="20" height="20">
+                                        <use href="./img/icons.svg#icon-search"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col row">
+                            <p class="mb-40 fs-16 text-center">you dont have anything to sell, yet.</p>
+                            <a class="button-green rounded-pill" href="#" data-bs-toggle="modal"
+                                data-bs-target="#addCertifModal" type="button">
+                                <svg class="icon icon-plus me-2" width="16" height="16">
+                                    <use href="./img/icons.svg#icon-plus"></use>
+                                </svg>
+                                Add certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="addCertifModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-4">
+                            Which job are you looking for?
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-30">
+                            <select class="form-control default selectpicker" id="ProjectType"
+                                title="Select Project Type">
+                                <option>Project Type 1</option>
+                                <option>Project Type 2</option>
+                                <option>Project Type 3</option>
+                                <option>Project Type 4</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mb-30">
+                            <label for="ProjectName" class="form-label p-0 black-color">Project
+                                Name</label>
+                            <select class="form-control default selectpicker" id="ProjectName"
+                                title="Select Project Name">
+                                <option>Project Name 1</option>
+                                <option>Project Name 2</option>
+                                <option>Project Name 3</option>
+                                <option>Project Name 4</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mb-30">
+                            <label for="Country" class="form-label p-0 black-color">Country</label>
+                            <select class="form-control default selectpicker" id="Country" title="Country">
+                                <option>Israel</option>
+                                <option>India</option>
+                                <option>Ukraine</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mb-30">
+                            <label for="Quantity" class="form-label p-0 black-color">Quantity</label>
+                            <input type="text" class="form-control default" id="Quantity">
+                        </div>
+                        <div class="col-12 mb-30">
+                            <label for="Price" class="form-label p-0 black-color">Price</label>
+                            <input type="text" class="form-control default" id="Price">
+                        </div>
+                        <div class="col-12 mb-30">
+                            <label for="ApprovingBody" class="form-label p-0 black-color">Approving Body</label>
+                            <input type="text" class="form-control default" id="ApprovingBody">
+                        </div>
+                        <div class="col-12 mb-30">
+                            <label for="LinkCertificate" class="form-label p-0 black-color">Link To
+                                Certificate</label>
+                            <input type="text" class="form-control default" id="LinkCertificate">
+                        </div>
+                        <div class="col-12 d-flex flex-column justify-content-end mt-2">
+                            <a class="button-green rounded-pill w-100 button-send fw-normal mb-40" href="#">Send for
+                                approval
+                                <svg class="icon icon-arrow-right ms-2" width="16" height="16">
+                                    <use href="./img/icons.svg#icon-arrow-right"></use>
+                                </svg></a>
+                            <p class="text-center fs-16 black-color px-4">after sending for approval a messsage
+                                should
+                                notify
+                                the user that his
+                                sell is being
+                                reviewed for approval
+                                that may take x days/hours/minutes</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="phoneModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h4 class="black-color col fw-bold mb-2">
+                            Validate Your Phone Number
+                        </h4>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">REWIND activities require you to validate
+                            your
+                            phone
+                            number
+                            via the SMS message you receive during the registration
+                            process. Please press the "resend" button if you cannot find it.</p>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-green rounded-pill w-100 button-send" href="#">Re-Send Validation SMS
+                            Message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap-select.js"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap-table.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.js"></script>
+
+    <script type="text/javascript" src="./js/script.js"></script>
+
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('phoneModal'))
+        myModal.show()
+    </script>
+</body>
+
+</html>
