@@ -44,21 +44,21 @@
                 <ul class="navflex-column mb-auto list">
                     <li class="nav-item active">
                         <a href="#" class="nav-link " aria-current="page">
-                            <svg class="icon icon-home me-2" width="17" height="17">
+                            <svg class="icon icon-home me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-home"></use>
                             </svg>DashBoard
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <svg class="icon icon-home me-2" width="17" height="17">
+                            <svg class="icon icon-home me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-buy"></use>
                             </svg>Buy
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <svg class="icon icon-home me-2" width="17" height="17">
+                            <svg class="icon icon-home me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-sell"></use>
                             </svg>Sell
                         </a>
@@ -70,8 +70,17 @@
                         <div class="box image rounded-circle">
                             <img src="https://picsum.photos/640/360" alt="User Image">
                         </div>
-                        <h6 class="text-left mb-0 long text-white d-flex flex-column">John Doe
-                            <a href="" class="text-white">View Profile</a>
+                        <h6 class="text-left mb-0 long text-white d-flex col h-100">
+                            <div class="d-flex flex-column col-9">John Doe
+                                <a href="" class="text-white mt-2">View Profile</a>
+                            </div>
+                            <a href="#" data-bs-target="#logoutModal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                                class="text-white col-3 d-flex justify-content-center align-items-center">
+                                <svg width="24" height="24" class="icon icon-logout">
+                                    <use href="./img/icons.svg#icon-logout"></use>
+                                </svg>
+                            </a>
+
                         </h6>
                     </div>
                 </div>
@@ -839,7 +848,32 @@
             </main>
         </div>
     </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-2">
+                            Log Out
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">You are about to log out of your account.<br>
+                            Are you sure you want to continue?</p>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
+                            href="#">Cancel</a>
 
+                        <a class="button-green rounded-pill ms-2 col" href="#">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sell Page</title>
+    <title>Buy Certificate Main Page</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,10 +15,12 @@
     <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
     <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css">
+    <link rel="stylesheet" href="./css/picker/default.css">
+    <link rel="stylesheet" href="./css/picker/default.date.css">
     <link rel="stylesheet" href="./css/main.min.css">
 </head>
 
-<body class="overflow-hidden dashbselloard-page">
+<body class="overflow-hidden buy-main-page">
     <div class="d-flex justify-content-center position-fixed w-100 h-100 flex-column bg-white" id="spinerWrap"
         style="z-index: 10000;">
         <div class="spinner-border mx-auto sec-color" role="status">
@@ -44,21 +46,21 @@
                 <ul class="navflex-column mb-auto list">
                     <li class="nav-item ">
                         <a href="#" class="nav-link " aria-current="page">
-                            <svg class="icon icon-home me-2" width="16" height="16">
+                            <svg class="icon icon-buy me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-home"></use>
                             </svg>DashBoard
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="#" class="nav-link">
-                            <svg class="icon icon-home me-2" width="16" height="16">
+                            <svg class="icon icon-buy me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-buy"></use>
                             </svg>Buy
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <svg class="icon icon-home me-2" width="16" height="16">
+                            <svg class="icon icon-buy me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-sell"></use>
                             </svg>Sell
                         </a>
@@ -103,33 +105,22 @@
 
                         <div class="col-12 p-0 row m-0">
                             <div class="row col mb-24 m-4 p-0">
-                                <h6 class="fw-bold p-0 col-auto">Uploaded Certificates</h5>
-
-                                    <a class="button-green rounded-pill ms-auto" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#addCertifModal" type="button">
-                                        <svg class="icon icon-plus me-2" width="16" height="16">
-                                            <use href="./img/icons.svg#icon-plus"></use>
-                                        </svg>
-                                        Add certificate</a>
+                                <h6 class="fw-bold p-0 col-auto">Trending</h5>
                             </div>
                             <table data-toggle="table" class="classic striped-table add-height"
                                 data-filter-control="true" data-height="450" data-search="true"
                                 data-classes='table table-striped table-borderless default-search'>
                                 <thead>
                                     <tr>
-                                        <th data-filter-control-placeholder="Type" data-field="Type" data-width="200px">
+                                        <th data-filter-control-placeholder="Type" data-field="Type">
                                             Type</th>
                                         <th data-filter-control-placeholder="Name" data-field="Name">
                                             Name</th>
                                         <th data-filter-control-placeholder="Country" data-field="Country">
                                             Country</th>
-                                        <th data-filter-control-placeholder="Quantity" data-field="Quantity">
-                                            Quantity</th>
                                         <th data-filter-control-placeholder="Current value 1D"
                                             data-field="Current value 1D">
                                             Current value 1D</th>
-                                        <th data-filter-control-placeholder="Status" data-field="Status">
-                                            Status</th>
                                         <th data-filter-control-placeholder="Buttons" data-field="Buttons"
                                             data-width="203px">
                                         </th>
@@ -142,7 +133,6 @@
                                             </svg>Forest - ERB</td>
                                         <td>Some info here</td>
                                         <td>Israel</td>
-                                        <td>65</td>
                                         <td>
                                             <div class="d-flex">
                                                 <span
@@ -158,13 +148,8 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="status-button pending">
-                                                Pending approval
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" data-bs-toggle="modal"
-                                                data-bs-target="#sellModal" type="button">Sell</a></td>
+                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                                data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
                                     <tr>
                                         <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
@@ -172,68 +157,6 @@
                                             </svg>Forest - ERB</td>
                                         <td>Some info here</td>
                                         <td>Israel</td>
-                                        <td>65</td>
-                                        <td>
-                                            <div class="d-flex">
-                                                <span
-                                                    class="d-flex flex-column align-items-end justify-content-space-between">
-                                                    <span class="price fw-bold">$56.4</span>
-                                                    <span class="statistic-price statistic-increase d-flex  ms-1">
-                                                        <svg class="icon icon-increase me-1" width="16" height="16">
-                                                            <use href="./img/icons.svg#icon-increase"></use>
-                                                        </svg> -0.38%</span>
-                                                </span>
-                                                <span class="small-graph ms-2">
-                                                    <canvas class="small-graph"></canvas>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="status-button approved">
-                                                Approved
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" disabled>Sell</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="d-flex">
-                                                <svg class="icon icon-Forest-ERB me-2" width="32" height="32">
-                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
-                                                </svg>Forest - ERB</span>
-                                        </td>
-                                        <td>Some info here</td>
-                                        <td>Israel</td>
-                                        <td>65</td>
-                                        <td>
-                                            <div class="d-flex">
-                                                <span
-                                                    class="d-flex flex-column align-items-end justify-content-space-between">
-                                                    <span class="price fw-bold">$56.4</span>
-                                                    <span class="statistic-price statistic-increase d-flex  ms-1">
-                                                        <svg class="icon icon-increase me-1" width="16" height="16">
-                                                            <use href="./img/icons.svg#icon-increase"></use>
-                                                        </svg> -0.38%</span>
-                                                </span>
-                                                <span class="small-graph ms-2">
-                                                    <canvas class="small-graph"></canvas>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="status-button notapproved">
-                                                Approved
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" disabled>Sell</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
-                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
-                                            </svg>Forest - ERB</td>
-                                        <td>Some info here</td>
-                                        <td>Israel</td>
-                                        <td>65</td>
                                         <td>
                                             <div class="d-flex">
                                                 <span
@@ -249,13 +172,8 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="status-button pending">
-                                                Pending approval
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" data-bs-toggle="modal"
-                                                data-bs-target="#sellModal" type="button">Sell</a></td>
+                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                                data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
                                     <tr>
                                         <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
@@ -263,68 +181,6 @@
                                             </svg>Forest - ERB</td>
                                         <td>Some info here</td>
                                         <td>Israel</td>
-                                        <td>65</td>
-                                        <td>
-                                            <div class="d-flex">
-                                                <span
-                                                    class="d-flex flex-column align-items-end justify-content-space-between">
-                                                    <span class="price fw-bold">$56.4</span>
-                                                    <span class="statistic-price statistic-increase d-flex  ms-1">
-                                                        <svg class="icon icon-increase me-1" width="16" height="16">
-                                                            <use href="./img/icons.svg#icon-increase"></use>
-                                                        </svg> -0.38%</span>
-                                                </span>
-                                                <span class="small-graph ms-2">
-                                                    <canvas class="small-graph"></canvas>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="status-button approved">
-                                                Approved
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" disabled>Sell</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="d-flex">
-                                                <svg class="icon icon-Forest-ERB me-2" width="32" height="32">
-                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
-                                                </svg>Forest - ERB</span>
-                                        </td>
-                                        <td>Some info here</td>
-                                        <td>Israel</td>
-                                        <td>65</td>
-                                        <td>
-                                            <div class="d-flex">
-                                                <span
-                                                    class="d-flex flex-column align-items-end justify-content-space-between">
-                                                    <span class="price fw-bold">$56.4</span>
-                                                    <span class="statistic-price statistic-increase d-flex  ms-1">
-                                                        <svg class="icon icon-increase me-1" width="16" height="16">
-                                                            <use href="./img/icons.svg#icon-increase"></use>
-                                                        </svg> -0.38%</span>
-                                                </span>
-                                                <span class="small-graph ms-2">
-                                                    <canvas class="small-graph"></canvas>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="status-button notapproved">
-                                                Approved
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" disabled>Sell</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
-                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
-                                            </svg>Forest - ERB</td>
-                                        <td>Some info here</td>
-                                        <td>Israel</td>
-                                        <td>65</td>
                                         <td>
                                             <div class="d-flex">
                                                 <span
@@ -340,13 +196,8 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="status-button pending">
-                                                Pending approval
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" data-bs-toggle="modal"
-                                                data-bs-target="#sellModal" type="button">Sell</a></td>
+                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                                data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
                                     <tr>
                                         <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
@@ -354,15 +205,14 @@
                                             </svg>Forest - ERB</td>
                                         <td>Some info here</td>
                                         <td>Israel</td>
-                                        <td>65</td>
                                         <td>
                                             <div class="d-flex">
                                                 <span
                                                     class="d-flex flex-column align-items-end justify-content-space-between">
                                                     <span class="price fw-bold">$56.4</span>
-                                                    <span class="statistic-price statistic-increase d-flex  ms-1">
-                                                        <svg class="icon icon-increase me-1" width="16" height="16">
-                                                            <use href="./img/icons.svg#icon-increase"></use>
+                                                    <span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                        <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                            <use href="./img/icons.svg#icon-decrease"></use>
                                                         </svg> -0.38%</span>
                                                 </span>
                                                 <span class="small-graph ms-2">
@@ -370,31 +220,23 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="status-button approved">
-                                                Approved
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" disabled>Sell</a></td>
+                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                                data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <span class="d-flex">
-                                                <svg class="icon icon-Forest-ERB me-2" width="32" height="32">
-                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
-                                                </svg>Forest - ERB</span>
-                                        </td>
+                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                            </svg>Forest - ERB</td>
                                         <td>Some info here</td>
                                         <td>Israel</td>
-                                        <td>65</td>
                                         <td>
                                             <div class="d-flex">
                                                 <span
                                                     class="d-flex flex-column align-items-end justify-content-space-between">
                                                     <span class="price fw-bold">$56.4</span>
-                                                    <span class="statistic-price statistic-increase d-flex  ms-1">
-                                                        <svg class="icon icon-increase me-1" width="16" height="16">
-                                                            <use href="./img/icons.svg#icon-increase"></use>
+                                                    <span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                        <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                            <use href="./img/icons.svg#icon-decrease"></use>
                                                         </svg> -0.38%</span>
                                                 </span>
                                                 <span class="small-graph ms-2">
@@ -402,12 +244,8 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="status-button notapproved">
-                                                Approved
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green sell-table" disabled>Sell</a></td>
+                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                                data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
 
                                 </tbody>
@@ -416,76 +254,6 @@
                     </div>
                 </div>
             </main>
-        </div>
-    </div>
-
-    <div class="modal fade" id="addCertifModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-4">
-                <div class="modal-body p-0 row">
-                    <div class="row col-12 p-0 m-0">
-                        <h5 class="black-color col fw-bold mb-4">
-                            Add certificate
-                        </h5>
-                        <button type="button"
-                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
-                            data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form class="row col-12 p-0 m-0">
-                        <div class="col-12 mb-30">
-                            <select class="form-control default selectpicker" id="ProjectType"
-                                title="Select Project Type">
-                                <option>Project Type 1</option>
-                                <option>Project Type 2</option>
-                                <option>Project Type 3</option>
-                                <option>Project Type 4</option>
-                            </select>
-                        </div>
-                        <div class="col-12 mb-30">
-                            <label for="ProjectName" class="form-label p-0 black-color">Project
-                                Name</label>
-                            <input type="text" class="form-control default" id="ProjectName">
-                        </div>
-                        <div class="col-12 mb-30">
-                            <label for="Country" class="form-label p-0 black-color">Country</label>
-                            <select class="form-control default selectpicker" id="Country" title="Country">
-                                <option>Israel</option>
-                                <option>India</option>
-                                <option>Ukraine</option>
-                            </select>
-                        </div>
-                        <div class="col-12 mb-30">
-                            <label for="Quantity" class="form-label p-0 black-color">Quantity</label>
-                            <input type="text" class="form-control default" id="Quantity">
-                        </div>
-                        <div class="col-12 mb-30">
-                            <label for="Price" class="form-label p-0 black-color">Price</label>
-                            <input type="text" class="form-control default" id="Price">
-                        </div>
-                        <div class="col-12 mb-30">
-                            <label for="ApprovingBody" class="form-label p-0 black-color">Approving Body</label>
-                            <input type="text" class="form-control default" id="ApprovingBody">
-                        </div>
-                        <div class="col-12 mb-30">
-                            <label for="LinkCertificate" class="form-label p-0 black-color">Link To Certificate</label>
-                            <input type="text" class="form-control default" id="LinkCertificate">
-                        </div>
-                        <div class="col-12 d-flex flex-column justify-content-end mt-2">
-                            <a class="button-green rounded-pill w-100 button-send fw-normal mb-40" href="#">Send for
-                                approval
-                                <svg class="icon icon-arrow-right ms-2" width="16" height="16">
-                                    <use href="./img/icons.svg#icon-arrow-right"></use>
-                                </svg></a>
-                            <p class="text-center fs-16 black-color px-4">after sending for approval a messsage should
-                                notify
-                                the user that his
-                                sell is being
-                                reviewed for approval
-                                that may take x days/hours/minutes</p>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -518,7 +286,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="sellModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="buyModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content p-32">
                 <div class="modal-body p-0 row">
@@ -526,7 +294,7 @@
                         <h5 class="black-color col fw-bold mb-20">
                             <svg class="icon icon-Forest-ERB me-2" width="32" height="32">
                                 <use href="./img/icons.svg#icon-Forest-ERB"></use>
-                            </svg>Sell Forest- ARB
+                            </svg>Buy Forest- ARB
                         </h5>
                         <button type="button"
                             class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
@@ -547,27 +315,131 @@
                         <hr class="m-0">
                     </div>
                     <form class="row col-12 p-0 m-0">
-                        <div class="col-12 mb-24 row d-flex align-items-center">
-                            <div class="col-3"><label for="QTY" class="fs-16">QTY</label></div>
-                            <div class="col-9 d-flex">
-                                <span class="input-group-prepend col-auto">
-                                    <button type="button" class="btn button-green btn-number" data-type="minus"
-                                        data-field="QTY"><svg class="icon icon-Minus-Icon" width="24" height="24">
-                                            <use href="./img/icons.svg#icon-Minus-Icon"></use>
-                                        </svg>
-                                    </button>
-                                </span>
-                                <input type="text" class="form-control default mx-2 w-50 text-center fw-bold" name="QTY"
-                                    id="QTY" min="0" max="100" value="75" onchange="QTY.value = QTY.value">
-                                <span class="input-group-append col-auto">
-                                    <button type="button" class="btn button-green btn-number" data-type="plus"
-                                        data-field="QTY">
-                                        <svg class="icon icon-Plus-Icon" width="24" height="24">
-                                            <use href="./img/icons.svg#icon-Plus-Icon"></use>
-                                        </svg>
-                                    </button>
-                                </span>
+                        <div class="col-12">
+                            <ul class="nav basic-style row mx-0 mb-30" id="buyModalTabs" role="tablist">
+                                <li class="nav-item col text-center p-0" role="presentation">
+                                    <a class="nav-link active" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy"
+                                        type="button" role="tab" aria-controls="buy" aria-selected="true">Buy</a>
+                                </li>
+                                <li class="nav-item col text-center p-0" role="presentation">
+                                    <a class="nav-link" id="bid-tab" data-bs-toggle="tab" data-bs-target="#bid"
+                                        type="button" role="tab" aria-controls="bid" aria-selected="false">Place
+                                        Bid</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content mb-24" id="buyModalTabsContent">
+                                <div class="tab-pane fade show active row" id="buy" role="tabpanel"
+                                    aria-labelledby="buy-tab">
+                                    <div class="col-12 row align-items-center  d-flex pe-0">
+                                        <div class="col-3"><label for="QTY" class="fs-16">QTY</label></div>
+                                        <div class="col-6 d-flex">
+                                            <span class="input-group-prepend col-auto">
+                                                <button type="button" class="btn button-green btn-number"
+                                                    data-type="minus" data-field="QTY"><svg class="icon icon-Minus-Icon"
+                                                        width="24" height="24">
+                                                        <use href="./img/icons.svg#icon-Minus-Icon"></use>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                            <input type="text"
+                                                class="form-control default mx-2 w-50 text-center fw-bold" name="QTY"
+                                                id="QTY" min="0" max="100" value="75" onchange="QTY.value = QTY.value">
+                                            <span class="input-group-append col-auto">
+                                                <button type="button" class="btn button-green btn-number"
+                                                    data-type="plus" data-field="QTY">
+                                                    <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                                        <use href="./img/icons.svg#icon-Plus-Icon"></use>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="col-3 pe-0">
+                                            <a class="button-secondary rounded-pill w-100" href="#"><svg
+                                                    class="icon icon-Repeat me-2" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-Repeat"></use>
+                                                </svg> Cost</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade row" id="bid" role="tabpanel" aria-labelledby="bid-tab">
+                                    <div class="col-12 row align-items-center mb-24 d-flex pe-0">
+                                        <div class="col-3"><label for="Rate" class="fs-16">Rate</label></div>
+                                        <div class="col-6 d-flex">
+                                            <span class="input-group-prepend col-auto">
+                                                <button type="button" class="btn button-green btn-number"
+                                                    data-type="minus" data-field="Rate"><svg
+                                                        class="icon icon-Minus-Icon" width="24" height="24">
+                                                        <use href="./img/icons.svg#icon-Minus-Icon"></use>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                            <input type="text"
+                                                class="form-control default mx-2 w-50 text-center fw-bold" name="Rate"
+                                                id="Rate" min="0" max="100" value="75"
+                                                onchange="Rate.value = Rate.value">
+                                            <span class="input-group-append col-auto">
+                                                <button type="button" class="btn button-green btn-number"
+                                                    data-type="plus" data-field="Rate">
+                                                    <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                                        <use href="./img/icons.svg#icon-Plus-Icon"></use>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row align-items-center mb-24 d-flex pe-0">
+                                        <div class="col-3"><label for="Amount" class="fs-16">Amount</label></div>
+                                        <div class="col-6 d-flex">
+                                            <span class="input-group-prepend col-auto">
+                                                <button type="button" class="btn button-green btn-number"
+                                                    data-type="minus" data-field="Amount"><svg
+                                                        class="icon icon-Minus-Icon" width="24" height="24">
+                                                        <use href="./img/icons.svg#icon-Minus-Icon"></use>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                            <input type="text"
+                                                class="form-control default mx-2 w-50 text-center fw-bold" name="Amount"
+                                                id="Amount" min="0" max="100" value="75"
+                                                onchange="Amount.value = Amount.value">
+                                            <span class="input-group-append col-auto">
+                                                <button type="button" class="btn button-green btn-number"
+                                                    data-type="plus" data-field="Amount">
+                                                    <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                                        <use href="./img/icons.svg#icon-Plus-Icon"></use>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="col-3 pe-0">
+                                            <a class="button-secondary rounded-pill w-100" href="#"><svg
+                                                    class="icon icon-Repeat me-2" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-Repeat"></use>
+                                                </svg> Cost</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 row align-items-center  d-flex pe-0">
+                                        <div class="col-4"><label for="Expiration" class="fs-16">Expiration date</label>
+                                        </div>
+                                        <div class="col-6 d-flex">
+                                            <div class="date-wrap">
+                                                <input type="text"
+                                                    class="form-control pick-date datepicker_inline pick-date-modal default fs-16 fw-bold"
+                                                    placeholder=" " name="Expiration" id="Expiration">
+
+                                                <span class="icon">
+                                                    <svg class="icon icon-calendar" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-calendar"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
+
                         </div>
                         <div class="col-12 mb-24">
                             <hr class="m-0">
@@ -578,13 +450,97 @@
                                     class="ms-2 fw-bold fs-24">817.5</span></div>
                         </div>
                         <div class="row col-12 m-0">
-                            <a class="button-green rounded-pill w-100" href="#">Sell</a>
+                            <a class="button-green rounded-pill w-100" href="#" data-bs-target="#cardModal"
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Buy</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content p-32">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col-7 fw-bold mb-20">
+                            Payment information is required before proceeding
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-20">
+                            <label for="Card" class="form-label p-0 black-color">Credit Card</label>
+                            <div class="input-wrap">
+                                <input type="text" class="form-control default" id="Card"
+                                    placeholder="xxx xxx xxxx xxxx">
+                                <span class="icon">
+                                    <svg class="icon icon-credit_card" width="24" height="24">
+                                        <use href="./img/icons.svg#icon-credit_card"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="Name" class="form-label p-0 black-color">Name</label>
+                            <input type="text" class="form-control default" id="Name" placeholder="Cardholder Name">
+                        </div>
+                        <div class="col-12 d-flex justify-content-between mb-20">
+                            <div class="col-auto fs-16 d-flex flex-column justify-content-end align-items-start">
+                                <label for="Expiry" class="form-label p-0 black-color">Expiry</label>
+                                <div class="row m-0">
+                                    <input type="text" class="form-control default w-66" id="Expiry" placeholder="MM">
+                                    <input type="text" class="form-control default w-66 ms-2" placeholder="YYYY">
+                                </div>
+                            </div>
+                            <div class="col-auto fs-16 d-flex flex-column justify-content-center align-items-start">
+                                <label for="CVV" class="form-label p-0 black-color">CVV</label>
+                                <div class="row m-0">
+                                    <input type="text" class="form-control default w-66" id="CVV" placeholder="CVV">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-12 m-0">
+                            <a class="button-green rounded-pill w-100 mb-2" href="#">Save Payment Details</a>
+                            <a class="button-green rounded-pill w-100 button-secondary" data-bs-dismiss="modal"
+                                aria-label="Close" href="#">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="phoneModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h4 class="black-color col fw-bold mb-2">
+                            Validate Your Phone Number
+                        </h4>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">REWIND activities require you to validate your
+                            phone
+                            number
+                            via the SMS message you receive during the registration
+                            process. Please press the "resend" button if you cannot find it.</p>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-green rounded-pill w-100 button-send" href="#">Re-Send Validation SMS
+                            Message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content p-4">
@@ -618,8 +574,11 @@
     <script type="text/javascript" src="./js/bootstrap/bootstrap-select.js"></script>
     <script type="text/javascript" src="./js/bootstrap/bootstrap-table.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.js"></script>
+    <script src="./js/picker/picker.js"></script>
+    <script src="./js/picker/picker.date.js"></script>
 
     <script type="text/javascript" src="./js/script.js"></script>
+
 </body>
 
 </html>

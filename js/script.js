@@ -483,7 +483,10 @@ jQuery(document).ready(function ($) {
       input.val(0);
     }
   });
-
+  $('#Expiration_root').click(function (e) {
+    e.preventDefault();
+    console.log('test');
+  });
   if ($('.pick-date').length) {
     let DateSet = {
       format: 'dd/mm/yyyy',
@@ -492,25 +495,28 @@ jQuery(document).ready(function ($) {
       setOnSelect: false,
       today: '',
       clear: '',
-      close: 'Cancel',
+      close: 'Confirm Expiration Date',
       value: '',
-      onOpen: function (context) {
-        this.value = $(this)[0]['$node'].val();
-        console.log($(this)[0]['$node'].val());
-      },
-      onClose: function (e) {
-        console.log($(this));
-      },
-      onStop: function () {
-        console.log('See ya.');
-      },
-      onSet: function (context) {
-        console.log(this.value);
+      weekdaysShort: ['s', 'm', 't', 'w', 't', 'f', 's'],
+      title: 'Select expiration date',
+
+      onOpen: function () {
+        this['$node'].value = this['$node'].val();
       },
     };
     let picker = $('.pick-date').pickadate(DateSet);
-    // DateSet.off('focus');
     picker.off('click');
-    // editDate();
+  }
+  if ($('.edit-input').length) {
+    $('.edit-input').each(function () {
+      $(this).click(function (e) {
+        let input = $(this).closest('.row').find('.editable-input');
+        if (input.attr('readonly') == 'readonly') {
+          input.attr('readonly', false);
+          input.focus();
+        } else input.attr('readonly', true);
+        $(this).toggleClass('button-secondary button-green');
+      });
+    });
   }
 });
