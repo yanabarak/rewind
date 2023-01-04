@@ -10,6 +10,9 @@ if ($('table[data-height]').length) {
     if ($(this).closest('.table-container').find('.search-wrap').length) {
       height = height + 50;
     }
+    if (height <= 0) {
+      height = '';
+    }
     $(this).attr('data-height', height);
   });
 }
@@ -520,3 +523,13 @@ jQuery(document).ready(function ($) {
     });
   }
 });
+
+function priceSorter(a, b) {
+  var aa = a;
+  var bb = b;
+  if (aa.indexOf('$') + 1) {
+    aa = a.replace('$', '');
+    bb = b.replace('$', '');
+  }
+  return aa - bb;
+}

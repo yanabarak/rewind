@@ -31,6 +31,11 @@
   transition: all 500ms linear;
   border: 0px;
   text-decoration: none;
+
+  &.green-50 {
+    background-color: var(--green-50) !important;
+    color: #fff !important;
+  }
   &:disabled,
   &[disabled] {
     background-color: var(--green-20) !important;
@@ -200,4 +205,23 @@
   padding: 0.25em 0.25em;
   color: #000;
   background-size: 14px;
+}
+
+.label.btn {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0 6px;
+  height: 24px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  min-width: 58px;
+  &.sale {
+    background: #3dcfcf;
+  }
 }

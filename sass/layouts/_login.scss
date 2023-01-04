@@ -1,6 +1,16 @@
 body.sign-up-page,
 body.login-page {
   position: relative;
+  background-image: url('./../img/login_bg_new.jpg');
+  background-size: cover;
+  background-position: left center;
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url('./../img/login_bg_new@2x.jpg');
+  }
+  @media screen and (max-width: 768px) {
+    background-image: unset;
+  }
+
   .right-content {
     width: calc(50% + 37px);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -30,31 +40,6 @@ body.login-page {
   @media screen and (min-height: 900px) {
     margin-top: 15%;
   }
-}
-.login-background {
-  position: absolute;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-  padding: 0px;
-  z-index: -1;
-  overflow: hidden;
-  width: calc(50% + 37px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-}
-.login-background img {
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
 }
 .ellipse {
   position: relative;

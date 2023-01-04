@@ -18,3 +18,45 @@
 .bootstrap-table {
   padding: 0px;
 }
+#portfolio .bootstrap-table.bootstrap5 {
+  box-shadow: 0px 4px 4px #e6f2f2;
+  border-radius: 30px;
+}
+.rounded-shadow > tbody > tr:first-child > td:first-child {
+  border-top-left-radius: 32px;
+}
+.rounded-shadow > tbody > tr:first-child > td:last-child {
+  border-top-right-radius: 32px;
+}
+.rounded-shadow > tbody > tr:last-child > td:first-child {
+  border-bottom-left-radius: 32px;
+}
+.rounded-shadow > tbody > tr:last-child > td:last-child {
+  border-bottom-right-radius: 32px;
+}
+
+.bootstrap-table .fixed-table-container .table.classic thead .th-inner.sortable.both::after,
+.bootstrap-table .fixed-table-container .table.classic thead .th-inner.sortable.both.desc:after,
+.bootstrap-table .fixed-table-container .table.classic thead .th-inner.sortable.both.asc:after {
+  content: '\f0d7';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 20px;
+  color: #545454;
+  font-size: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.bootstrap-table .fixed-table-container .table.classic thead .th-inner.sortable.both:after {
+  content: '\f0dc';
+  color: #bfbfbf;
+}
+
+.bootstrap-table .fixed-table-container .table.classic thead .th-inner.sortable.both.asc:after {
+  content: '\f0d8';
+}
+.bootstrap-table .fixed-table-container .table.classic thead .th-inner.sortable.both {
+  position: relative;
+  background-image: none;
+}
