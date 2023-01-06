@@ -1,6 +1,9 @@
 main {
   background-color: #f3f7f7;
   padding: 32px;
+  @media screen and (max-width: 992px) {
+    padding: 16px;
+  }
 }
 
 .block-main {
@@ -9,6 +12,9 @@ main {
   overflow: hidden;
   &:not(.p-0) {
     padding: 32px;
+    @media screen and (max-width: 992px) {
+      padding: 16px;
+    }
   }
 }
 .block-more-half {

@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private User Details</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css">
+    <link rel="stylesheet" href="./css/picker/default.css">
+    <link rel="stylesheet" href="./css/picker/default.date.css">
+    <link rel="stylesheet" href="./css/cropme/cropme.css">
+    <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body class="overflow-hidden user-details-page">
+    <div class="d-flex justify-content-center position-fixed w-100 h-100 flex-column bg-white" id="spinerWrap"
+        style="z-index: 10000;">
+        <div class="spinner-border mx-auto sec-color" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+    </div>
+    <div class="container-fluid min-vh-100">
+        <div class="wrapper d-flex align-items-stretch flex-column flex-lg-row min-vh-100">
+
+            <div class="container-fluid  d-block d-lg-none p-2 sticky-top bg-white border-bottom">
+                <button class="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="animated-hamburger"><span></span><span></span><span></span></div>
+                </button>
+            </div>
+            <aside class="sticky-top d-lg-flex flex-column flex-shrink-0 text-white sidebar left asidebar minh-100">
+                <div class="logo-container text-center">
+                    <svg class="logo icon-logo-white col-auto p-0" width="103" height="72">
+                        <use href="./img/logo.svg#icon-logo"></use>
+                    </svg>
+                </div>
+                <ul class="navflex-column mb-auto list">
+                    <li class="nav-item ">
+                        <a href="#" class="nav-link " aria-current="page">
+                            <svg class="icon icon-buy me-2" width="16" height="16">
+                                <use href="./img/icons.svg#icon-home"></use>
+                            </svg>DashBoard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="icon icon-buy me-2" width="16" height="16">
+                                <use href="./img/icons.svg#icon-buy"></use>
+                            </svg>Buy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="icon icon-buy me-2" width="16" height="16">
+                                <use href="./img/icons.svg#icon-sell"></use>
+                            </svg>Sell
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="user-panel mb-0 mt-auto">
+                    <div class="image d-flex align-items-center me-4">
+                        <div class="box image rounded-circle">
+                            <img src="https://picsum.photos/640/360" alt="User Image">
+                        </div>
+                        <h6 class="text-left mb-0 long text-white d-flex col h-100">
+                            <div class="d-flex flex-column col-9">John Doe
+                                <a href="" class="text-white mt-2">View Profile</a>
+                            </div>
+                            <a href="#" data-bs-target="#logoutModal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                                class="text-white col-3 d-flex justify-content-center align-items-center">
+                                <svg width="24" height="24" class="icon icon-logout">
+                                    <use href="./img/icons.svg#icon-logout"></use>
+                                </svg>
+                            </a>
+
+                        </h6>
+                    </div>
+                </div>
+            </aside>
+
+
+            <main class="row w-100 m-0 gap-4" id="content">
+                <div class="row col-12 p-0 m-0 h-100">
+                    <div class="bg-white block-main row m-0 table-container h-100 flex-column">
+                        <div class="">
+                            <div class="row col-12 mb-70 p-0">
+                                <h6 class="fw-bold col-auto">Profile</h6>
+                            </div>
+                            <div class="col row pe-0">
+                                <ul class="nav basic-style row mx-0 p-0 mb-30 mw-1000" id="detailsTabs" role="tablist">
+                                    <li class="nav-item col text-center p-0" role="presentation">
+                                        <a class="nav-link active" id="details-tab" data-bs-toggle="tab"
+                                            data-bs-target="#details" type="button" role="tab" aria-controls="details"
+                                            aria-selected="true">My Details</a>
+                                    </li>
+                                    <li class="nav-item col text-center p-0" role="presentation">
+                                        <a class="nav-link" id="payment-tab" data-bs-toggle="tab"
+                                            data-bs-target="#payment" type="button" role="tab" aria-controls="payment"
+                                            aria-selected="false" tabindex="-1">Manage Payment</a>
+                                    </li>
+                                    <li class="nav-item col text-center p-0" role="presentation">
+                                        <a class="nav-link" id="portfolio-tab" data-bs-toggle="tab"
+                                            data-bs-target="#portfolio" type="button" role="tab"
+                                            aria-controls="portfolio" aria-selected="false" tabindex="-1">My
+                                            Portfolio</a>
+                                    </li>
+                                    <li class="nav-item col text-center p-0" role="presentation">
+                                        <a class="nav-link" id="transaction-tab" data-bs-toggle="tab"
+                                            data-bs-target="#transaction" type="button" role="tab"
+                                            aria-controls="transaction" aria-selected="false"
+                                            tabindex="-1">Transaction</a>
+                                    </li>
+                                    <li class="nav-item col text-center p-0" role="presentation">
+                                        <a class="nav-link" id="log-tab" data-bs-toggle="tab" data-bs-target="#log"
+                                            type="button" role="tab" aria-controls="log" aria-selected="false"
+                                            tabindex="-1">Activity
+                                            log</a>
+                                    </li>
+                                </ul>
+                                <div id="detailsTabsContent" class="tab-content mb-24 pe-0">
+                                    <div class="tab-pane fade show active row" id="details" role="tabpanel"
+                                        aria-labelledby="details-tab">
+                                        <div class="row col-12 d-flex justify-content-between align-items-end pe-0 ">
+                                            <div class="col-12 col-lg row p-0 w-525" id="details-user">
+                                                <div class="row col-12 mb-24">
+                                                    <p class="fw-bold fs-16">Profile Picture</p>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7 image d-flex align-items-center">
+                                                        <div class="box image rounded-circle">
+                                                            <img src="https://picsum.photos/640/360" alt="User Image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-5 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-secondary"
+                                                            data-bs-target="#profilePictureModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">Change
+                                                            Picture</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7">
+                                                        <p class="col fw-bold fs-16 mb-3">Name</p>
+                                                        <input type="text"
+                                                            class="default col text-black-50 fs-16 editable-input"
+                                                            value="John Doe" readonly="true">
+                                                    </div>
+                                                    <div class="col-5 d-flex align-items-center justify-content-end">
+                                                        <button type="button"
+                                                            class="btn button-secondary edit-input px-4">Change
+                                                            Name</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7">
+                                                        <p class="col fw-bold fs-16 mb-3">Email</p>
+                                                        <p class="col text-black-50 fs-16">JohnDoe@gmail.com</p>
+                                                    </div>
+                                                    <div class="col-5 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-secondary"
+                                                            data-bs-target="#emailModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">Change
+                                                            Email</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7">
+                                                        <p class="col fw-bold fs-16 mb-3">Address</p>
+                                                        <p class="col text-black-50 fs-16">1234 Street, Israel</p>
+                                                    </div>
+                                                    <div class="col-5 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-secondary"
+                                                            data-bs-target="#addressModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">Change
+                                                            Address</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col">
+                                                        <p class="col fw-bold fs-16 mb-3">Phone Number</p>
+                                                        <p class="col text-black-50 fs-16">+952-1234567899</p>
+                                                    </div>
+                                                    <div class="col-auto d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-secondary me-4 ms-auto"
+                                                            data-bs-target="#changePhoneModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">Change</button>
+                                                        <!-- <button type="button"
+                                                            class="btn status-button approved fs-16 fw-normal button-secondary">
+                                                            <svg class="icon icon-thumbs-up me-2" width="16"
+                                                                height="16">
+                                                                <use href="./img/icons.svg#icon-thumbs-up"></use>
+                                                            </svg>validated</button> -->
+                                                        <button type="button"
+                                                            class="btn status-button pending fs-16 fw-normal button-secondary"
+                                                            data-bs-target="#phoneModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">
+                                                            <svg class="icon icon-alert-circle me-2" width="16"
+                                                                height="16">
+                                                                <use href="./img/icons.svg#icon-alert-circle"></use>
+                                                            </svg>Pending Validation</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7">
+                                                        <p class="col fw-bold fs-16 mb-30">User ID</p>
+                                                        <label class="drop-area full">
+                                                            <span class="fileElem"></span>
+                                                            <span id="gallery">
+                                                                <img src="https://picsum.photos/640/360"
+                                                                    alt="User Image">
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Information about company -->
+                                            <div class="col-12 col-lg row p-0 w-525" id="details-company">
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-6">
+                                                        <p class="col fw-bold fs-16 mb-3">Company Name</p>
+
+                                                        <input type="text"
+                                                            class="default col text-black-50 fs-16 editable-input"
+                                                            value="Give Me Money Ltd" readonly="true">
+                                                    </div>
+                                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                                        <button type="button"
+                                                            class="btn button-secondary edit-input px-4">Change
+                                                            Company Name</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7">
+                                                        <p class="col fw-bold fs-16 mb-3">Registration ID</p>
+                                                        <p class="col text-black-50 fs-16">6983315135888</p>
+                                                    </div>
+                                                    <div class="col-5 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-secondary"
+                                                            disabled>Change</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7">
+                                                        <p class="col fw-bold fs-16 mb-3">Field Of Business</p>
+                                                        <p class="col text-black-50 fs-16">Finances</p>
+                                                    </div>
+                                                    <div class="col-5 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-secondary">Change
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7">
+                                                        <p class="col fw-bold fs-16 mb-3">Company Address</p>
+                                                        <p class="col text-black-50 fs-16">1234 Street, Israel</p>
+                                                    </div>
+                                                    <div class="col-5 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-secondary"
+                                                            data-bs-target="#addressCompanyModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">Change
+                                                            Address</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-7">
+                                                        <p class="col fw-bold fs-16 mb-30">Incorporation Document</p>
+                                                        <label class="drop-area full">
+
+                                                            <span class="fileElem"></span>
+                                                            <span id="gallery">
+                                                                <img src="https://picsum.photos/640/360"
+                                                                    alt="User Image">
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-5 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-secondary"
+                                                            data-bs-target="#incorporationDocumentModal"
+                                                            data-bs-toggle="modal" data-bs-dismiss="modal">Change
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade row" id="payment" role="tabpanel"
+                                        aria-labelledby="payment-tab">
+                                        <div class="row col-12 d-flex justify-content-between align-items-start pe-0 ">
+                                            <div class="col-12 col-lg row p-0 w-525" id="credit-card">
+                                                <div class="row col-12 mb-40">
+                                                    <div class="col-6 d-flex align-items-center">
+                                                        <p class="col fw-bold fs-16">Credit Card</p>
+                                                    </div>
+                                                    <!-- <div class="col-6 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-green px-4"
+                                                            data-bs-target="#cardModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">
+                                                            <svg class="icon icon-plus me-2" width="16" height="16">
+                                                                <use href="./img/icons.svg#icon-plus"></use>
+                                                            </svg>
+                                                            Add Credit
+                                                            Card</button>
+                                                    </div> -->
+                                                </div>
+                                                <!--  No Credit Card -->
+                                                <!-- <div class="row col-12 mb-40">
+                                                    <div
+                                                        class="col-12 d-flex align-items-center justify-content-center">
+                                                        <p
+                                                            class="fs-16 empty-field w-100 text-center d-flex align-items-center justify-content-center">
+                                                            No Credit Card</p>
+
+                                                    </div>
+                                                </div> -->
+
+
+                                                <div class="row col-12 mb-3">
+                                                    <div class="col-6 d-flex align-items-center">
+                                                        <div class="col-auto me-4">
+                                                            <svg class="icon icon-credit_card green-icon" width="24"
+                                                                height="24">
+                                                                <use href="./img/icons.svg#icon-credit_card"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p class=" black-color fs-16 mb-2">XXXX XXXX XXXX 8254</p>
+                                                            <p class="black-color fs-16">John Doe</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 d-flex align-items-top justify-content-end">
+                                                        <button type="button" class="btn button-secondary px-4"
+                                                            data-bs-target="#cardModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">Edit Credit Card</button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg row p-0 w-525" id="bank-account">
+                                                <div class="row col-12 mb-40">
+                                                    <div class="col-6 d-flex align-items-center">
+                                                        <p class="col fw-bold fs-16">Bank account</p>
+                                                    </div>
+                                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                                        <button type="button" class="btn button-green px-4"
+                                                            data-bs-target="#bankModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">
+                                                            <svg class="icon icon-plus me-2" width="16" height="16">
+                                                                <use href="./img/icons.svg#icon-plus"></use>
+                                                            </svg>
+                                                            Add Bank account</button>
+                                                    </div>
+                                                </div>
+                                                <!-- No bank -->
+                                                <div class="row col-12 mb-40">
+                                                    <div
+                                                        class="col-12 d-flex align-items-center justify-content-center">
+                                                        <p
+                                                            class="fs-16 empty-field w-100 text-center d-flex align-items-center justify-content-center">
+                                                            No Bank Account</p>
+
+                                                    </div>
+                                                </div>
+                                                <!-- 
+                                                <div class="row col-12 mb-3">
+                                                    <div class="col-6">
+                                                        <div class="col-12 mb-24">
+                                                            <p class=" black-color fs-20 fw-bold mb-2">Bank Name</p>
+                                                            <p class="fs-16 text-black-50">Hapoalim</p>
+                                                        </div>
+                                                        <div class="col-12 mb-24">
+                                                            <p class=" black-color fs-20 fw-bold mb-2">BIC</p>
+                                                            <p class="fs-16 text-black-50">BCYPBCYP2N</p>
+                                                        </div>
+                                                        <div class="col-12 mb-24">
+                                                            <p class=" black-color fs-20 fw-bold mb-2">IBAN</p>
+                                                            <p class="fs-16 text-black-50">IL170108000000012612345</p>
+                                                        </div>
+                                                        <div class="col-12 mb-24">
+                                                            <p class=" black-color fs-20 fw-bold mb-2">Bank Country</p>
+                                                            <p class="fs-16 text-black-50">ISRAEL</p>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <p class=" black-color fs-20 fw-bold mb-2">Beneficiary Name
+                                                            </p>
+                                                            <p class="fs-16 text-black-50">John Snow</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 d-flex align-items-top justify-content-end">
+                                                        <button type="button" class="btn button-secondary px-4"
+                                                            data-bs-target="#bankModal" data-bs-toggle="modal"
+                                                            data-bs-dismiss="modal">Edit Bank account</button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row col-12 mb-24">
+                                                    <div class="col-12">
+                                                        <hr class="black-10 my-0">
+                                                    </div>
+                                                </div> -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade row" id="portfolio" role="tabpanel"
+                                        aria-labelledby="portfolio-tab">
+                                        <div class="col row p-0 table-container">
+                                            <div class="row col-12 mb-40">
+                                                <div class="col-6 d-flex align-items-center">
+                                                    <p class="col fw-bold fs-16">My Certificates</p>
+                                                </div>
+                                            </div>
+                                            <div class="row col-12  mb-24">
+                                                <table data-toggle="table" class="classic striped-table add-height"
+                                                    data-filter-control="true" data-height="450"
+                                                    data-classes='table table-striped table-borderless rounded-shadow'>
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-filter-control-placeholder="Name" data-field="Name"
+                                                                data-sortable="true">
+                                                                Name</th>
+                                                            <th data-filter-control-placeholder="Quantity"
+                                                                data-field="Quantity" data-sortable="true"
+                                                                data-sorter="priceSorter">
+                                                                Quantity</th>
+                                                            <th data-filter-control-placeholder="Type" data-field="Type"
+                                                                data-sortable="true">
+                                                                Type</th>
+                                                            <th data-filter-control-placeholder="Value"
+                                                                data-field="Value" data-sortable="true"
+                                                                data-sorter="priceSorter">
+                                                                Current Value</th>
+                                                            <th data-filter-control-placeholder="Status"
+                                                                data-field="Status">
+                                                                Status</th>
+                                                            <th data-filter-control-placeholder="Remove"
+                                                                data-width="200px" data-field="Remove">Remove
+                                                                Certificate
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>21</td>
+                                                            <td>Type</td>
+                                                            <td>$23.4</td>
+                                                            <td><a href="" class="label btn sale">For Sale</a></td>
+                                                            <td><a href="#" class="button-secondary sell-table"
+                                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                                    type="button">Remove</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>121</td>
+                                                            <td>Type</td>
+                                                            <td>$53.4</td>
+                                                            <td><a href="" class="label btn sale">For Sale</a></td>
+                                                            <td><a href="#" class="button-secondary sell-table"
+                                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                                    type="button">Remove</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>211</td>
+                                                            <td>Type</td>
+                                                            <td>$83.4</td>
+                                                            <td><a href="" class="label btn sale">For Sale</a></td>
+                                                            <td><a href="#" class="button-secondary sell-table"
+                                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                                    type="button">Remove</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>2</td>
+                                                            <td>Type</td>
+                                                            <td>$123.4</td>
+                                                            <td><a href="" class="label btn sale">For Sale</a></td>
+                                                            <td><a href="#" class="button-secondary sell-table"
+                                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                                    type="button">Remove</a></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-12 row ">
+                                                <p class="total fw-bold fs-16 w-100">Total Value: $234</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade row" id="transaction" role="tabpanel"
+                                        aria-labelledby="transaction-tab">
+                                        <div class="col row p-0 table-container">
+                                            <div class="row col-12 mb-40">
+                                                <div class="col-6 d-flex align-items-center">
+                                                    <p class="col fw-bold fs-16">Transactions History</p>
+                                                </div>
+                                            </div>
+                                            <div class="row col-12  mb-24">
+                                                <table data-toggle="table" class="classic striped-table "
+                                                    data-filter-control="true"
+                                                    data-classes='table table-striped table-borderless rounded-shadow'>
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-filter-control-placeholder="Name" data-field="Name"
+                                                                data-sortable="true">
+                                                                Name</th>
+                                                            <th data-filter-control-placeholder="Date" data-field="Date"
+                                                                data-sortable="true">
+                                                                Date</th>
+                                                            <th data-filter-control-placeholder="Amount"
+                                                                data-field="Amount" data-sortable="true"
+                                                                data-sorter="priceSorter">
+                                                                Amount</th>
+                                                            <th data-filter-control-placeholder="Type"
+                                                                data-field="Type">
+                                                                Type</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>10/03/2022</td>
+                                                            <td>$23.4</td>
+                                                            <td><a data-bs-toggle="modal"
+                                                                    data-bs-target="#transactionDetailsModal" href="#"
+                                                                    type="button" class="label btn sale">Sale</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>10/03/2022</td>
+                                                            <td>$23.4</td>
+                                                            <td><a data-bs-toggle="modal"
+                                                                    data-bs-target="#transactionDetailsModal" href="#"
+                                                                    type="button" class="label btn sale">Sale</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>10/03/2022</td>
+                                                            <td>$23.4</td>
+                                                            <td><a data-bs-toggle="modal"
+                                                                    data-bs-target="#transactionDetailsModal" href="#"
+                                                                    type="button" class="label btn sale">Sale</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>10/03/2022</td>
+                                                            <td>$23.4</td>
+                                                            <td><a data-bs-toggle="modal"
+                                                                    data-bs-target="#transactionDetailsModal" href="#"
+                                                                    type="button" class="label btn sale">Sale</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Forest - ERB</td>
+                                                            <td>10/03/2022</td>
+                                                            <td>$23.4</td>
+                                                            <td><a data-bs-toggle="modal"
+                                                                    data-bs-target="#transactionDetailsModal" href="#"
+                                                                    type="button" class="label btn sale">Sale</a></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade row" id="log" role="tabpanel" aria-labelledby="log-tab">
+
+                                        <div class="col row p-0">
+                                            <div class="row col-12 mb-50 ">
+                                                <div class="ms-auto col-auto">
+                                                    <div class="btn-group btn-row" role="group"
+                                                        aria-label="Basic example">
+                                                        <button type="button" class="btn active" data-days="1">1
+                                                            Day</button>
+                                                        <button type="button" class="btn" data-days="7">1
+                                                            Week</button>
+                                                        <button type="button" class="btn" data-days="30">1
+                                                            Month</button>
+                                                        <button type="button" class="btn" data-days="180">6
+                                                            Month</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row col-12 green-scroll">
+                                                <div class="block-day row">
+                                                    <p class="fw-bold fs-20 black-color title-day mb-3">Today</p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">2:35 PM</span>
+                                                        <span class="fw-bold">A Livestock - ERB type</span> certificate
+                                                        has been uploaded
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">9:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">10:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">11:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                </div>
+                                                <div class="block-day row">
+                                                    <p class="fw-bold fs-20 black-color title-day mb-3">Yesterday</p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">2:35 PM</span>
+                                                        <span class="fw-bold">A Livestock - ERB type</span> certificate
+                                                        has been uploaded
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">9:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">10:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">11:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                </div>
+                                                <div class="block-day row">
+                                                    <p class="fw-bold fs-20 black-color title-day mb-3">wed 14, Dec</p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">2:35 PM</span>
+                                                        <span class="fw-bold">A Livestock - ERB type</span> certificate
+                                                        has been uploaded
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">9:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">10:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                    <p class="log-line fs-16">
+                                                        <span class="text-green-50">11:35 AM</span> A quantity of 45
+                                                        <span class="fw-bold"></span>Forest - ERB</span> type
+                                                        certificates has been Sold
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="profilePictureModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-3">
+                            Change Profile Picture
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+
+                        <div class="row mx-0 mb-24">
+                            <label for="fileElem" class="form-label p-0 black-color">Upload New Profile Picture</label>
+                            <label class="drop-area">
+                                <span><span class="info">
+                                        <svg class="icon icon-upload-cloud" width="32" height="32">
+                                            <use href="./img/icons.svg#icon-upload-cloud"></use>
+                                        </svg>
+                                        <b>upload a file </b>or drag and
+                                        drop</span>
+                                    <span class="limit">PNG, JPG, GIF up to 10MB</span>
+                                </span>
+                                <input type="file" class="fileElem" id="fileElem" accept="image/*">
+                                <span id="gallery"></span>
+                            </label>
+                        </div>
+                        <div class="col-12 d-flex flex-column justify-content-end">
+                            <a class="button-green rounded-pill w-100 crop-image-modal" href="#"
+                                data-modal-target="#profilePictureModalCrop">Upload</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="profilePictureModalCrop" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-3">
+                            Change Profile Picture
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="row mx-0 mb-70">
+                            <div id="container-crop"></div>
+                        </div>
+                        <div class="col-12 d-flex flex-column justify-content-end">
+                            <a class="button-green rounded-pill w-100 crop-image-finish" href="#">Crop Picture</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="phoneModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h4 class="black-color col fw-bold mb-2">
+                            Validate Your Phone Number
+                        </h4>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">REWIND activities require you to validate your
+                            phone
+                            number
+                            via the SMS message you receive during the registration
+                            process. Please press the "resend" button if you cannot find it.</p>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-green rounded-pill w-100 button-send" href="#">Re-Send Validation SMS
+                            Message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="emailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-3">
+                            Change Email
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="row col-12 p-0 mx-0 mb-24">
+                        <p class="text-left text-secondary fs-16">Your email address will need to be validated again
+                            once you change it. To proceed, please enter a new email address</p>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-30">
+                            <label for="Email" class="form-label p-0 black-color">New Email</label>
+                            <input type="text" class="form-control default" id="Email">
+                        </div>
+                        <div class="col-12 d-flex flex-column justify-content-end mt-2">
+                            <a class="button-green rounded-pill w-100" href="#">Send Validation Link</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="changePhoneModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-3">
+                            Change Phone Number
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="row col-12 p-0 mx-0 mb-24">
+                        <p class="text-left text-secondary fs-16">Your phone number will need to be validated again once
+                            you change it. To proceed, please enter a new phone number:</p>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-30">
+                            <label for="Phone" class="form-label p-0 black-color">New Phone Number</label>
+                            <input type="text" class="form-control default" id="Phone">
+                        </div>
+                        <div class="col-12 d-flex flex-column justify-content-end mt-2">
+                            <a class="button-green rounded-pill w-100" href="#">Send Validation SMS</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addressModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-3">
+                            Change Address
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+
+                        <div class="row mx-0 mb-24">
+                            <label for="Street" class="form-label p-0 black-color">Street</label>
+                            <input type="text" class="form-control default" id="Street">
+                        </div>
+                        <div class="row mx-0 mb-24 gap-3">
+                            <div class="col row"><label for="City" class="form-label p-0 black-color">City</label>
+                                <input type="number" class="form-control default" id="City">
+                            </div>
+                            <div class="col row"><label for="Country" class="form-label p-0 black-color">Country</label>
+                                <select class="form-control default selectpicker" id="Country" title=" ">
+                                    <option>Israel</option>
+                                    <option>India</option>
+                                    <option>Ukraine</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex flex-column justify-content-end mt-2">
+                            <a class="button-green rounded-pill w-100" href="#">Send Validation Link</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addressCompanyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-3">
+                            Change Company Address
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+
+                        <div class="row mx-0 mb-24">
+                            <label for="Street" class="form-label p-0 black-color">Street</label>
+                            <input type="text" class="form-control default" id="Street">
+                        </div>
+                        <div class="row mx-0 mb-24 gap-3">
+                            <div class="col row"><label for="City" class="form-label p-0 black-color">City</label>
+                                <input type="number" class="form-control default" id="City">
+                            </div>
+                            <div class="col row"><label for="Country" class="form-label p-0 black-color">Country</label>
+                                <select class="form-control default selectpicker" id="Country" title=" ">
+                                    <option>Israel</option>
+                                    <option>India</option>
+                                    <option>Ukraine</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex flex-column justify-content-end mt-2">
+                            <a class="button-green rounded-pill w-100" href="#">Send Validation Link</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="incorporationDocumentModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-3">
+                            Change Incorporation Document
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+
+                        <div class="row mx-0 mb-24">
+                            <label for="fileElem" class="form-label p-0 black-color">Upload Incorporation
+                                Documents</label>
+                            <label class="drop-area">
+                                <span><span class="info">
+                                        <svg class="icon icon-upload-cloud" width="32" height="32">
+                                            <use href="./img/icons.svg#icon-upload-cloud"></use>
+                                        </svg>
+                                        <b>upload a file </b>or drag and
+                                        drop</span>
+                                    <span class="limit">PNG, JPG, GIF up to 10MB</span>
+                                </span>
+                                <input type="file" class="fileElem" id="fileElem" accept="image/*">
+                                <span id="gallery"></span>
+                            </label>
+                        </div>
+                        <div class="col-12 d-flex flex-column justify-content-end">
+                            <a class="button-green rounded-pill w-100" href="#">Upload</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-32">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col-7 fw-bold mb-20">
+                            Add Credit Card Details
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-20">
+                            <label for="Card" class="form-label p-0 black-color">Credit Card</label>
+                            <div class="input-wrap">
+                                <input type="text" class="form-control default" id="Card"
+                                    placeholder="xxx xxx xxxx xxxx">
+                                <span class="icon">
+                                    <svg class="icon icon-credit_card" width="24" height="24">
+                                        <use href="./img/icons.svg#icon-credit_card"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-20">
+                            <label for="Name" class="form-label p-0 black-color">Name</label>
+                            <input type="text" class="form-control default" id="Name" placeholder="Cardholder Name">
+                        </div>
+                        <div class="col-12 d-flex justify-content-between mb-20">
+                            <div class="col-auto fs-16 d-flex flex-column justify-content-end align-items-start">
+                                <label for="Expiry" class="form-label p-0 black-color">Expiry</label>
+                                <div class="row m-0">
+                                    <input type="text" class="form-control default w-66" id="Expiry" placeholder="MM">
+                                    <input type="text" class="form-control default w-66 ms-2" placeholder="YYYY">
+                                </div>
+                            </div>
+                            <div class="col-auto fs-16 d-flex flex-column justify-content-center align-items-start">
+                                <label for="CVV" class="form-label p-0 black-color">CVV</label>
+                                <div class="row m-0">
+                                    <input type="text" class="form-control default w-66" id="CVV" placeholder="CVV">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-12 m-0">
+                            <a class="button-green rounded-pill w-100 mb-2" href="#">Save Credit Card</a>
+                            <a class="button-green rounded-pill w-100 button-secondary" data-bs-dismiss="modal"
+                                aria-label="Close" href="#">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="bankModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-32">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-20">
+                            Enter Your Bank Account Details
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-24">
+                            <label for="BankName" class="form-label p-0 black-color">Bank Name</label>
+                            <input type="text" class="form-control default" id="BankName">
+                        </div>
+                        <div class="col-12 mb-24">
+                            <label for="BIC" class="form-label p-0 black-color">BIC</label>
+                            <input type="text" class="form-control default" id="BIC">
+                        </div>
+                        <div class="col-12 mb-24">
+                            <label for="IBAN" class="form-label p-0 black-color">IBAN</label>
+                            <input type="text" class="form-control default" id="IBAN">
+                        </div>
+                        <div class="col-12 mb-24">
+                            <label for="BankCountry" class="form-label p-0 black-color">Bank Country</label>
+                            <input type="text" class="form-control default" id="BankCountry">
+                        </div>
+                        <div class="col-12 mb-50">
+                            <label for="BeneficiaryName" class="form-label p-0 black-color">Beneficiary Name</label>
+                            <input type="text" class="form-control default" id="BeneficiaryName">
+                        </div>
+                        <div class="row col-12 m-0">
+                            <a class="button-green rounded-pill w-100 mb-2" href="#">Save Bank Account</a>
+                            <a class="button-green rounded-pill w-100 button-secondary" data-bs-dismiss="modal"
+                                aria-label="Close" href="#">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-2">
+                            Log Out
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">You are about to log out of your account.<br>
+                            Are you sure you want to continue?</p>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
+                            href="#">Cancel</a>
+
+                        <a class="button-green rounded-pill ms-2 col" href="#">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-2">
+                            Before You Press Delete
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">As soon as the certificate is removed from
+                            Rewind, it will be registered under your name/company name, as specified by
+                            your user account.</p>
+                    </div>
+
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <input type="checkbox" name="remember" id="remember" class="visually-hidden">
+                        <label for="remember" class="remember-label d-flex align-items-center">
+                            <span class="remember-check d-flex justify-content-center align-items-center">
+                                <svg width="12" height="8.67">
+                                    <use href="./img/icons.svg#icon-Check"></use>
+                                </svg>
+                            </span>
+                            I Agree for those terms</label>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
+                            href="#">Cancel</a>
+
+                        <a class="button-green rounded-pill ms-2 col" href="#">Delete Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="transactionDetailsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-32">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-24">
+                            Transaction Details
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-24">
+                            <div class="transaction-info-block row w-100">
+                                <p class="col-12 fw-bold fs-16 mb-24">Details</p>
+                                <p class="col-12 fs-16 mb-3">Transaction date: <span class="fw-bold">Wed, 14 Nov</span>
+                                </p>
+                                <p class="col-12 fs-16 mb-3">Certificate type: <span class="fw-bold">Forest - ARB</span>
+                                </p>
+                                <p class="col-12 fs-16 mb-3">Amount: <span class="fw-bold">$986.3</span></p>
+                            </div>
+                            <div class="transaction-info-block row w-100">
+                                <p class="col-12 fw-bold fs-16 mb-24">From</p>
+                                <p class="col-12 fs-16 mb-3">Name: <span class="fw-bold">John Snow</span>
+                                </p>
+                                <p class="col-12 fs-16 mb-3">IP Address: <span class="fw-bold">23.21.234.342</span>
+                                </p>
+                                <p class="col-12 fs-16 mb-3">Bank Name: <span class="fw-bold">citi bank</span></p>
+                                <p class="col-12 fs-16 mb-3">Bank Account: <span class="fw-bold">XXXX 1234</span></p>
+                            </div>
+                            <div class="transaction-info-block row w-100">
+                                <p class="col-12 fw-bold fs-16 mb-24">To</p>
+                                <p class="col-12 fs-16 mb-3">Name: <span class="fw-bold">Ella Liberman</span>
+                                </p>
+                                <p class="col-12 fs-16 mb-3">IP Address: <span class="fw-bold">23.21.234.342</span>
+                                </p>
+                                <p class="col-12 fs-16 mb-3">Bank Name: <span class="fw-bold">Jerusalem Bank</span></p>
+                                <p class="col-12 fs-16 mb-3">Bank Account: <span class="fw-bold">XXXX 1234</span></p>
+                            </div>
+                        </div>
+                        <div class="row col-12 m-0">
+                            <a class="button-green rounded-pill w-100 button-secondary fw-normal"
+                                data-bs-dismiss="modal" aria-label="Close" href="#">Close</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap-select.js"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap-table.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.js"></script>
+    <script src="./js/picker/picker.js"></script>
+    <script src="./js/picker/picker.date.js"></script>
+    <script src="./js/cropme/cropme.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <!-- <script>
+
+       
+    </script> -->
+    <!-- 
+    <script>
+        var myModalEl = document.getElementById('profilePictureModalCrop')
+        var myModal = new bootstrap.Modal(myModalEl)
+        myModal.show()
+
+        myModalEl.addEventListener('shown.bs.modal', function () {
+            var element = $('#profilePictureModalCrop').find('#container-crop')[0];
+
+            example = $(element).cropme({
+                container: {
+                    width: 400,
+                    height: 300,
+                },
+                viewport: {
+                    width: 220,
+                    height: 220,
+                    type: 'circle',
+                    border: {
+                        width: 0,
+                        enable: true,
+                        color: '#fff',
+                    },
+                },
+                zoom: {
+                    enable: true,
+                    mouseWheel: true,
+                    slider: true,
+                },
+                rotation: {
+                    slider: false,
+                    enable: false,
+                    position: 'left',
+                },
+                transformOrigin: 'viewport',
+            });
+            example.cropme('bind', {
+                // url: img,
+                url: './img/login_bg.jpg'
+            });
+
+            $('.crop-image-finish').on('click', testing);
+
+            function testing() {
+                console.log(example);
+
+
+                example.cropme('crop', {
+                }).then(function (res) {
+                    //    what we need to do
+                })
+            }
+        })
+
+    </script> -->
+
+</body>
+
+</html>

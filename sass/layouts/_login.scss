@@ -6,6 +6,7 @@ body.login-page {
   background-position: left center;
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: url('./../img/login_bg_new@2x.jpg');
+    background-size: auto;
   }
   @media screen and (max-width: 768px) {
     background-image: unset;

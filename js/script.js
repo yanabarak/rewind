@@ -38,6 +38,17 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  // function to move in next tab
+
+  var elts = document.getElementsByClassName('text-code');
+  Array.from(elts).forEach(function (elt) {
+    elt.addEventListener('keyup', function (event) {
+      if ((event.keyCode === 13 || elt.value.length == 1) && elt.nextElementSibling) {
+        elt.nextElementSibling.focus();
+      }
+    });
+  });
+
   // ************************ Drag and drop ***************** //
   function dragsDocument(element) {
     let dropArea = element;
@@ -59,6 +70,7 @@ jQuery(document).ready(function ($) {
     // Handle dropped files
     dropArea.addEventListener('drop', handleDrop, false);
     element.getElementsByClassName('fileElem')[0].addEventListener('change', handleFiles, false);
+    let url;
 
     function preventDefaults(e) {
       e.preventDefault();
@@ -79,7 +91,6 @@ jQuery(document).ready(function ($) {
       }
       files = [...files];
       files.forEach(uploadFile);
-      files.forEach(previewFile);
     }
 
     function handleDrop(e) {
@@ -88,7 +99,7 @@ jQuery(document).ready(function ($) {
       handleFiles(files);
     }
 
-    function previewFile(file) {
+    function previewFile(file, url) {
       let reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onloadend = function () {
@@ -96,19 +107,27 @@ jQuery(document).ready(function ($) {
         img.src = reader.result;
         dropArea.classList.add('full');
 
-        element.querySelector('#gallery').innerHTML = `<img src="${img.src}">`;
+        element.querySelector('#gallery').innerHTML = `<img src="${img.src}" data-url="${url}">`;
       };
     }
 
     function uploadFile(file, i) {
-      var url = 'https://api.cloudinary.com/';
-      var xhr = new XMLHttpRequest();
-      var formData = new FormData();
-      xhr.open('POST', url, true);
-      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-      formData.set('upload_preset', 'ujpu6gyk');
-      formData.set('file', file);
-      xhr.send(formData);
+      // var url = 'https://api.cloudinary.com/v1_1/dlv7otqvk/image/upload';
+      // var xhr = new XMLHttpRequest();
+      // var formData = new FormData();
+      // xhr.open('POST', url, true);
+      // xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      // formData.set('upload_preset', 'ml_default');
+      // formData.set('file', file);
+      // xhr.send(formData);
+      // xhr.onload = function () {
+      //   var a = JSON.parse(xhr.response);
+      //   url = a['url'];
+
+      //   previewFile(file, url);
+      // };
+
+      previewFile(file);
     }
   }
   let arr = Array.prototype.slice.call(document.getElementsByClassName('drop-area'));
@@ -522,6 +541,63 @@ jQuery(document).ready(function ($) {
       });
     });
   }
+  $(document)
+    .off('click', '.crop-image-modal')
+    .on('click', '.crop-image-modal', function () {
+      var currentModal = $(this).closest('.modal').find('.btn-close');
+      var myModalEl = $($(this).attr('data-modal-target'));
+      var myModal = new bootstrap.Modal(myModalEl);
+      currentModal.trigger('click');
+      let img = $(this).closest('.modal').find('img')[0];
+      img = $(img).attr('data-url');
+
+      myModal.show();
+
+      myModalEl[0].addEventListener('shown.bs.modal', function () {
+        var element = $('#profilePictureModalCrop').find('#container-crop')[0];
+
+        cropElement = $(element).cropme({
+          container: {
+            width: 400,
+            height: 300,
+          },
+          viewport: {
+            width: 220,
+            height: 220,
+            type: 'circle',
+            border: {
+              width: 0,
+              enable: true,
+              color: '#fff',
+            },
+          },
+          zoom: {
+            enable: true,
+            mouseWheel: true,
+            slider: true,
+          },
+          rotation: {
+            slider: false,
+            enable: false,
+            position: 'left',
+          },
+          transformOrigin: 'viewport',
+        });
+        cropElement.cropme('bind', {
+          url: './img/login_bg.jpg', //here you can change image that you use
+        });
+
+        $('.crop-image-finish').on('click', testing);
+
+        function testing() {
+          cropElement.cropme('crop', {}).then(function (res) {
+            console.log('resized', res);
+          });
+
+          myModal.hide();
+        }
+      });
+    });
 });
 
 function priceSorter(a, b) {
