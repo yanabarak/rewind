@@ -28,6 +28,17 @@ div.form-control.default .dropdown-toggle {
   @media screen and (max-width: 480px) {
     font-size: 16px;
   }
+  &.error {
+    color: #ee2e73;
+    background: rgba(255, 151, 151, 0.06);
+    border: 1px solid #ee2e73;
+  }
+}
+.error-message {
+  color: #ee2e73;
+  svg {
+    fill: currentColor;
+  }
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

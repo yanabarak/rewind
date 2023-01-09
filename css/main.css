@@ -450,6 +450,19 @@ div.form-control.default .dropdown-toggle {
     font-size: 16px;
   }
 }
+input.form-control.default.error,
+div.form-control.default .dropdown-toggle.error {
+  color: #ee2e73;
+  background: rgba(255, 151, 151, 0.06);
+  border: 1px solid #ee2e73;
+}
+
+.error-message {
+  color: #ee2e73;
+}
+.error-message svg {
+  fill: currentColor;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
