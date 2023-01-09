@@ -107,7 +107,7 @@ jQuery(document).ready(function ($) {
         img.src = reader.result;
         dropArea.classList.add('full');
 
-        element.querySelector('#gallery').innerHTML = `<img src="${img.src}" data-url="${url}">`;
+        element.querySelector('.gallery').innerHTML = `<img src="${img.src}" data-url="${url}">`;
       };
     }
 
