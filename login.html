@@ -84,7 +84,8 @@
                                     </span>
                                     Remember me</label>
                             </div>
-                            <div class="col-auto ms-auto"><a href="#" class="reset-pass">Forgot Your Password?</a></div>
+                            <div class="col-auto ms-auto"><a href="#" class="reset-pass" data-bs-target="#forgot1Modal"
+                                    data-bs-toggle="modal" data-bs-dismiss="modal">Forgot Your Password?</a></div>
                         </div>
                         <div class="row mb-30">
                             <a class="button-green rounded-pill w-100  button-next" href="#">Next</a>
@@ -95,6 +96,125 @@
                         </div>
 
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forgot1Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-2">
+                            Forgot Your Password?
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">Enter your email address and we’ll send you a
+                            link to reset
+                            your password</p>
+                    </div>
+
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-20">
+                            <input type="email" class="form-control default error" id="email">
+                            <span class="error-message mt-2 d-flex align-items-center">
+                                <svg class="icon icon-Attention me-2" width="16" height="16">
+                                    <use href="./img/icons.svg#icon-Attention"></use>
+                                </svg>
+                                Please enter a valid email address</span>
+                        </div>
+                    </form>
+                    <div class="row col-12 m-0">
+                        <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
+                            href="#">Cancel</a>
+                        <a class="button-green rounded-pill ms-2 col" href="#" data-bs-target="#forgot2Modal"
+                            data-bs-toggle="modal" data-bs-dismiss="modal">Reset Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="forgot2Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-2">
+                            Reset Your Password
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">Enter your email address and we’ll send you a
+                            link to reset
+                            your password</p>
+                    </div>
+
+                    <form class="row col-12 p-0 m-0">
+                        <div class="row col-12 m-0 mb-3">
+                            <label for="password" class="form-label p-0 black-color">New Password</label>
+                            <div class="position-relative p-0">
+                                <input type="password" class="form-control default" id="password" placeholder=" "><span
+                                    toggle="#password" class="field-icon toggle-password">
+                                    <svg class="icon icon-Eye" width="24" height="24">
+                                        <use href="./img/icons.svg#icon-Eye"></use>
+                                    </svg>
+                                    <svg class="icon icon-Eye-off" width="24" height="24">
+                                        <use href="./img/icons.svg#icon-Eye-off"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row col-12 m-0 mb-3">
+                            <label for="password2" class="form-label p-0 black-color">Confirm Password</label>
+                            <div class="position-relative p-0">
+                                <input type="password" class="form-control default" id="password2" placeholder=" ">
+                                <span toggle="#password2" class="field-icon toggle-password"><svg class="icon icon-Eye"
+                                        width="24" height="24">
+                                        <use href="./img/icons.svg#icon-Eye"></use>
+                                    </svg>
+                                    <svg class="icon icon-Eye-off" width="24" height="24">
+                                        <use href="./img/icons.svg#icon-Eye-off"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row col-12 m-0">
+                        <a class="button-green rounded-pill col" href="#" data-bs-target="#forgot3Modal"
+                            data-bs-toggle="modal" data-bs-dismiss="modal">Set Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="forgot3Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-2">
+                            Password Changed!
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 mx-0 mb-24">
+                        <p class="text-left text-secondary fs-16 lh-base">You’ll be redirected to the dashboard section
+                        </p>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-green rounded-pill col" href="#" data-bs-dismiss="modal" aria-label="Close"
+                            href="#">Close</a>
+                    </div>
                 </div>
             </div>
         </div>
