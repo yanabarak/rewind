@@ -598,6 +598,22 @@ jQuery(document).ready(function ($) {
         }
       });
     });
+
+  if ($('table').find('.selectpicker-inner').length) {
+    $('.selectpicker-inner').selectpicker();
+
+    $('.selectpicker-inner').on('hide.bs.select', function () {
+      $('.fixed-table-body').css('overflow', '');
+    });
+
+    $('.selectpicker-inner + button').mouseover(function (e) {
+      $('.fixed-table-body').css('overflow', 'inherit');
+    });
+
+    $('.selectpicker-inner + button').mouseleave(function (e) {
+      $('.fixed-table-body').css('overflow', '');
+    });
+  }
 });
 
 function priceSorter(a, b) {

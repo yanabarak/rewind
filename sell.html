@@ -111,6 +111,7 @@
                                             <use href="./img/icons.svg#icon-plus"></use>
                                         </svg>
                                         Add certificate</a>
+
                             </div>
                             <table data-toggle="table" class="classic striped-table add-height"
                                 data-filter-control="true" data-height="450" data-search="true"
@@ -125,9 +126,14 @@
                                             Country</th>
                                         <th data-filter-control-placeholder="Quantity" data-field="Quantity">
                                             Quantity</th>
-                                        <th data-filter-control-placeholder="Current value 1D"
-                                            data-field="Current value 1D">
-                                            Current value 1D</th>
+                                        <th data-filter-control-placeholder="Current value" data-field="Current value">
+                                            <select class="selectpicker-inner default" data-container="body">
+                                                <option>Current value 1D</option>
+                                                <option>Current value 7D</option>
+                                                <option>Current value 1M</option>
+                                                <option>Current value 6M</option>
+                                            </select>
+                                        </th>
                                         <th data-filter-control-placeholder="Status" data-field="Status">
                                             Status</th>
                                         <th data-filter-control-placeholder="Buttons" data-field="Buttons"
