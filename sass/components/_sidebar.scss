@@ -2,6 +2,11 @@ aside.asidebar {
   width: 217px;
   background: linear-gradient(184.91deg, #39c935 36.03%, #003408 203.94%);
   padding: 47px 0 27px 24px;
+  & > div:first-child:last-child {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
   @media screen and (max-width: 992px) {
     z-index: 10;
     position: fixed !important;
@@ -15,7 +20,6 @@ aside.asidebar {
   @media screen and (min-width: 992px) {
     height: 100vh;
   }
-
   &:before,
   &:after {
     content: '';

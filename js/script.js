@@ -127,7 +127,11 @@ jQuery(document).ready(function ($) {
       //   previewFile(file, url);
       // };
 
-      previewFile(file);
+      if ($(dropArea).hasClass('open-cropper')) {
+        UploadCrop(dropArea, file);
+      } else {
+        previewFile(file);
+      }
     }
   }
   let arr = Array.prototype.slice.call(document.getElementsByClassName('drop-area'));
@@ -541,64 +545,65 @@ jQuery(document).ready(function ($) {
       });
     });
   }
-  $(document)
-    .off('click', '.crop-image-modal')
-    .on('click', '.crop-image-modal', function () {
-      var currentModal = $(this).closest('.modal').find('.btn-close');
-      var myModalEl = $($(this).attr('data-modal-target'));
-      var myModal = new bootstrap.Modal(myModalEl);
-      currentModal.trigger('click');
-      let img = $(this).closest('.modal').find('img')[0];
-      img = $(img).attr('data-url');
+  // function open cropper after uploading
+  function UploadCrop(dropArea, file) {
+    let element = $(dropArea).siblings('#container-crop')[0];
 
-      myModal.show();
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = function () {
+      let img = document.createElement('img');
+      img.src = reader.result;
+      showCropper(img);
+    };
 
-      myModalEl[0].addEventListener('shown.bs.modal', function () {
-        var element = $('#profilePictureModalCrop').find('#container-crop')[0];
-
-        cropElement = $(element).cropme({
-          container: {
-            width: 400,
-            height: 300,
-          },
-          viewport: {
-            width: 220,
-            height: 220,
-            type: 'circle',
-            border: {
-              width: 0,
-              enable: true,
-              color: '#fff',
-            },
-          },
-          zoom: {
+    function showCropper(img) {
+      $(dropArea).addClass('visually-hidden');
+      $(element).toggleClass('visually-hidden');
+      $('.crop-image-finish').toggleClass('disabled');
+      let cropElement = $(element).cropme({
+        container: {
+          width: 400,
+          height: 300,
+        },
+        viewport: {
+          width: 220,
+          height: 220,
+          type: 'circle',
+          border: {
+            width: 0,
             enable: true,
-            mouseWheel: true,
-            slider: true,
+            color: '#fff',
           },
-          rotation: {
-            slider: false,
-            enable: false,
-            position: 'left',
-          },
-          transformOrigin: 'viewport',
-        });
-        cropElement.cropme('bind', {
-          url: './img/login_bg.jpg', //here you can change image that you use
-        });
-
-        $('.crop-image-finish').on('click', testing);
-
-        function testing() {
-          cropElement.cropme('crop', {}).then(function (res) {
-            console.log('resized', res);
-          });
-
-          myModal.hide();
-        }
+        },
+        zoom: {
+          enable: true,
+          mouseWheel: true,
+          slider: true,
+        },
+        rotation: {
+          slider: false,
+          enable: false,
+          position: 'left',
+        },
+        transformOrigin: 'viewport',
       });
-    });
+      cropElement.cropme('bind', {
+        url: img.src, //here you can change image that you use
+      });
+    }
 
+    $('.crop-image-finish').on('click', testing);
+
+    function testing() {
+      cropElement.cropme('crop', {}).then(function (res) {
+        console.log('resized', res);
+      });
+
+      myModal.hide();
+    }
+  }
+  // inner dropdown in tables
   if ($('table').find('.selectpicker-inner').length) {
     $('.selectpicker-inner').selectpicker();
 

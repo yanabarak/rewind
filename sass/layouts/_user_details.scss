@@ -29,6 +29,10 @@
   width: 300px;
   height: 106px;
   border: 1px solid var(--green-50);
+  &.invisible {
+    height: 0px;
+    border: 0px;
+  }
 }
 .w-525 {
   max-width: 550px;

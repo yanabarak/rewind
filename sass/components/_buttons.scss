@@ -37,7 +37,8 @@
     color: #fff !important;
   }
   &:disabled,
-  &[disabled] {
+  &[disabled],
+  &.disabled {
     background-color: var(--green-20) !important;
     color: var(--green-50) !important;
     border: 0px;

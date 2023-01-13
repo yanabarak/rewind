@@ -15,3 +15,7 @@
   scrollbar-width: thin;
   scrollbar-color: var(--green-50) #f6f6f7;
 }
+
+main#content {
+  overflow: auto;
+}

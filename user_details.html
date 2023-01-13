@@ -748,7 +748,7 @@
 
                         <div class="row mx-0 mb-24">
                             <label for="fileElem" class="form-label p-0 black-color">Upload New Profile Picture</label>
-                            <label class="drop-area">
+                            <label class="drop-area open-cropper">
                                 <span><span class="info">
                                         <svg class="icon icon-upload-cloud" width="32" height="32">
                                             <use href="./img/icons.svg#icon-upload-cloud"></use>
@@ -760,17 +760,18 @@
                                 <input type="file" class="fileElem" id="fileElem" accept="image/*">
                                 <span class="gallery"></span>
                             </label>
+
+                            <div id="container-crop" class="visually-hidden"></div>
                         </div>
                         <div class="col-12 d-flex flex-column justify-content-end">
-                            <a class="button-green rounded-pill w-100 crop-image-modal" href="#"
-                                data-modal-target="#profilePictureModalCrop">Upload</a>
+                            <a class="button-green rounded-pill w-100 crop-image-finish disabled" href="#">Upload</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="profilePictureModalCrop" tabindex="-1" aria-hidden="true">
+    <!-- <div class="modal fade" id="profilePictureModalCrop" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-4">
                 <div class="modal-body p-0 row">
@@ -793,7 +794,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="modal fade" id="phoneModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-4">
