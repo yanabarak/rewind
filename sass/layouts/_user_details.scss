@@ -41,6 +41,14 @@
     margin-left: 12px;
   }
 }
+#detailsTabsContent #details > .justify-content-between > div {
+  max-width: 520px;
+  padding: 0px;
+  @media screen and (max-width: 992px) {
+    max-width: unset;
+    margin-left: 12px;
+  }
+}
 
 .empty-field {
   min-height: 88px;
