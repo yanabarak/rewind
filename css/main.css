@@ -1339,7 +1339,9 @@ body.login-page .right-content {
   align-items: flex-start;
   height: 940px;
 }
-.drop-area .gallery img {
+.drop-area .gallery img,
+.drop-area .gallery embed,
+.drop-area .gallery > * {
   -o-object-fit: cover;
      object-fit: cover;
   max-height: 100%;

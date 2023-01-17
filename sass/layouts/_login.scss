@@ -180,7 +180,9 @@ body.login-page {
     align-items: flex-start;
     height: 940px;
   }
-  .gallery img {
+  .gallery img,
+  .gallery embed,
+  .gallery > * {
     object-fit: cover;
     max-height: 100%;
     max-width: 100%;
