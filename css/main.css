@@ -342,6 +342,10 @@ body:not(.login-page):not(.sign-up-page) .container-fluid {
   width: -moz-fit-content;
   width: fit-content;
 }
+.status-button.onsell {
+  background: #d3f1f1;
+  color: #5ad1d1;
+}
 .status-button.pending {
   background: rgba(244, 207, 74, 0.2);
   color: #cdbe37;
@@ -373,14 +377,19 @@ body:not(.login-page):not(.sign-up-page) .container-fluid {
 
 .sell-table,
 .buy-table {
-  min-width: 170px;
+  min-width: 77px;
   height: 32px;
+}
+td > .sell-table,
+td > .buy-table {
+  margin-right: 8px;
+  margin-left: auto;
 }
 .sell-table:disabled, .sell-table[disabled],
 .buy-table:disabled,
 .buy-table[disabled] {
-  background: #e8e9ea !important;
-  color: #b2b7ba !important;
+  background: var(--green-20) !important;
+  color: var(--green-50) !important;
 }
 @media screen and (max-width: 1200px) {
   .sell-table,
@@ -396,6 +405,9 @@ body:not(.login-page):not(.sign-up-page) .container-fluid {
   padding: 0.25em 0.25em;
   color: #000;
   background-size: 14px;
+}
+.btn-close:focus {
+  box-shadow: none;
 }
 
 .label.btn {
@@ -857,11 +869,10 @@ aside.asidebar ul.navflex-column .nav-item.active:before {
   top: -36px;
 }
 aside.asidebar ul.navflex-column .nav-item.active a {
-  font-weight: 700;
   color: var(--bs-body-color);
 }
 aside.asidebar ul.navflex-column a {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   color: #ffffff;
@@ -1047,6 +1058,23 @@ aside.asidebar ul.navflex-column a svg {
 .bootstrap-table .fixed-table-container .table.classic thead .th-inner.sortable.both {
   position: relative;
   background-image: none;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n + 1) > * {
+  --bs-table-bg: #f9f9f9;
+}
+
+.table > :not(caption) > * > * {
+  box-shadow: none;
+}
+
+td[style*="20%"],
+th[style*="20%"] {
+  min-width: 270px;
+}
+
+td .d-flex > svg {
+  flex-shrink: 0;
 }
 
 @media (min-width: 992px) {
@@ -1424,6 +1452,19 @@ main {
   }
 }
 
+.empty-dash {
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  padding: 32px !important;
+  text-align: center;
+}
+.empty-dash.h-100 {
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+
 .main-info .price {
   font-weight: 700;
   font-size: 32px;
@@ -1487,7 +1528,6 @@ main {
 }
 .mh-75vh {
   max-height: 75vh;
-  min-height: 600px;
 }
 @media screen and (max-width: 992px) {
   .mh-75vh {
@@ -1500,6 +1540,10 @@ main {
   .mh-75vh .h-100 {
     height: unset !important;
   }
+}
+
+.maxw-200 {
+  max-width: 200px;
 }
 
 .empty-dash > .col {
