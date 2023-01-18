@@ -4,12 +4,20 @@ body.login-page {
   background-image: url('./../img/login_bg_new.jpg');
   background-size: cover;
   background-position: left center;
+  background-attachment: fixed;
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     background-image: url('./../img/login_bg_new@2x.jpg');
-    background-size: auto;
   }
   @media screen and (max-width: 768px) {
     background-image: unset;
+  }
+  main {
+    gap: 0px !important;
+    background-color: transparent;
+    padding: 0px;
+    div:not(.container-fluid):first-child:last-child {
+      padding: 0px;
+    }
   }
 
   .right-content {
@@ -172,7 +180,9 @@ body.login-page {
     align-items: flex-start;
     height: 940px;
   }
-  .gallery img {
+  .gallery img,
+  .gallery embed,
+  .gallery > * {
     object-fit: cover;
     max-height: 100%;
     max-width: 100%;

@@ -157,6 +157,10 @@
   font-size: 12px;
   line-height: 1.58;
   width: fit-content;
+  &.onsell {
+    background: #d3f1f1;
+    color: #5ad1d1;
+  }
   &.pending {
     background: rgba(244, 207, 74, 0.2);
     color: #cdbe37;
@@ -187,12 +191,16 @@
 
 .sell-table,
 .buy-table {
-  min-width: 170px;
+  min-width: 77px;
   height: 32px;
+  td > & {
+    margin-right: 8px;
+    margin-left: auto;
+  }
   &:disabled,
   &[disabled] {
-    background: #e8e9ea !important;
-    color: #b2b7ba !important;
+    background: var(--green-20) !important;
+    color: var(--green-50) !important;
   }
   @media screen and (max-width: 1200px) {
     min-width: 100px;
@@ -206,6 +214,9 @@
   padding: 0.25em 0.25em;
   color: #000;
   background-size: 14px;
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 .label.btn {
