@@ -50,12 +50,44 @@
   }
 }
 
+#detailsTabs {
+  @media screen and (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    & ~ #detailsTabsContent {
+      padding: 0px;
+      #payment .row,
+      #details-user .row,
+      #details-company .row {
+        flex-direction: column;
+        gap: 10px;
+        & > * {
+          width: 100%;
+        }
+      }
+
+      .table-container {
+        margin: 0px;
+      }
+      .table-container > * {
+        padding-left: 0px;
+        margin-left: auto;
+        padding-right: 0px;
+        margin-right: auto;
+      }
+      .green-scroll {
+        margin-left: 0px;
+      }
+    }
+  }
+}
+
 .empty-field {
   min-height: 88px;
   background: #f5f5f5;
   color: var(--black-50);
 }
-
 .green-icon {
   fill: var(--green);
 }

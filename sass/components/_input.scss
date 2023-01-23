@@ -125,6 +125,7 @@ div.form-control.default .dropdown-toggle {
     color: var(--green);
     border-bottom: 1px solid var(--green);
     outline: transparent !important;
+    box-shadow: none;
     & + span svg {
       fill: var(--green);
     }

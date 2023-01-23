@@ -15,8 +15,12 @@ body.login-page {
     gap: 0px !important;
     background-color: transparent;
     padding: 0px;
-    div:not(.container-fluid):first-child:last-child {
+    & > div:not(class) {
       padding: 0px;
+      .modal-dialog,
+      .modal-content {
+        padding: 0px !important;
+      }
     }
   }
 

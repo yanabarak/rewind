@@ -16,6 +16,9 @@ aside.asidebar {
     max-height: 100vh;
     max-height: calc((var(--vh, 1vh) * 100) - 33);
     padding: 47px 0 27px 0px !important;
+    &.show {
+      visibility: visible;
+    }
   }
   @media screen and (min-width: 992px) {
     height: 100vh;
@@ -47,6 +50,8 @@ aside.asidebar {
   }
   ul.navflex-column {
     margin-top: 77px;
+    max-height: calc(100vh - 275px);
+    overflow: auto;
     @media screen and (max-width: 992px) {
       padding-left: 24px;
       margin-bottom: 40px !important;

@@ -10,6 +10,12 @@ if ($('table[data-height]').length) {
     if ($(this).closest('.table-container').find('.search-wrap').length) {
       height = height + 50;
     }
+    if (
+      $(this).closest('.table-container').hasClass('border-left-before') &&
+      window.innerWidth >= 1500
+    ) {
+      height = height + (window.innerWidth - 1500) * 0.35;
+    }
     if (height <= 0) {
       height = '';
     }
@@ -191,6 +197,9 @@ jQuery(document).ready(function ($) {
     }
     $('.navbar-toggler-button').on('click', function () {
       $('.animated-hamburger').toggleClass('open');
+    });
+    $('#navigation').on('hidden.bs.collapse', function () {
+      setTimeout(() => $('#navigation').removeClass('show'), 200);
     });
   }
 
