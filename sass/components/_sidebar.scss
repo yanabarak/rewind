@@ -50,8 +50,8 @@ aside.asidebar {
   }
   ul.navflex-column {
     margin-top: 77px;
-    max-height: calc(100vh - 275px);
-    overflow: auto;
+    // max-height: calc(100vh - 275px);
+    // overflow: auto;
     @media screen and (max-width: 992px) {
       padding-left: 24px;
       margin-bottom: 40px !important;
