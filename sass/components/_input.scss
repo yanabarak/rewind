@@ -302,3 +302,7 @@ th .bootstrap-select > .dropdown-toggle {
     outline: transparent !important;
   }
 }
+.fixed-table-body[style*='inherit'] th button .filter-option-inner-inner {
+  opacity: 0;
+  transition: all 0s;
+}

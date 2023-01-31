@@ -522,25 +522,83 @@ jQuery(document).ready(function ($) {
     e.preventDefault();
     console.log('test');
   });
-  if ($('.pick-date').length) {
-    let DateSet = {
-      format: 'dd/mm/yyyy',
-      firstDay: 0,
-      closeOnSelect: false,
-      setOnSelect: false,
-      today: '',
-      clear: '',
-      close: 'Confirm Expiration Date',
-      value: '',
-      weekdaysShort: ['s', 'm', 't', 'w', 't', 'f', 's'],
-      title: 'Select expiration date',
-
-      onOpen: function () {
-        this['$node'].value = this['$node'].val();
+  if ($('.datepicker').length) {
+    let DateSettings = {
+      DPGlobal: {
+        headTemplate:
+          '<thead><tr><th class="prev">111</th><th colspan="5" class="datepicker-switch"></th><th class="next">&raquo;</th></tr></thead>',
       },
+      title: 'Select expiration date',
+      format: 'dd/mm/yyyy',
     };
-    let picker = $('.pick-date').pickadate(DateSet);
-    picker.off('click');
+    $.fn.datepicker.dates['en'] = {
+      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      daysMin: ['s', 'm', 't', 'w', 't', 'f', 's'],
+      months: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ],
+      monthsShort: [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ],
+      today: 'Today',
+      clear: 'Clear',
+      format: 'mm/dd/yyyy',
+      titleFormat: 'MM yyyy',
+      weekStart: 0,
+    };
+    $('.datepicker')
+      .datepicker(DateSettings)
+      .on('changeDate', function (e) {
+        var newday = new Date(e.date);
+        var dd = newday.getDate();
+        var mm = newday.getMonth() + 1;
+        var yyyy = newday.getFullYear();
+        if (dd < 10) {
+          dd = '0' + dd;
+        }
+        if (mm < 10) {
+          mm = '0' + mm;
+        }
+        newday = dd + '/' + mm + '/' + yyyy;
+        $(e.currentTarget).siblings().val(newday);
+      });
+    $(document)
+      .off('click', '#confirmation-btn')
+      .on('click', '#confirmation-btn', function () {
+        let value = $(this).closest('.modal-body').find('input[type="hidden"]').val();
+        let input = $(this).attr('data-input');
+
+        $(this).closest('.modal').find('.btn-close').trigger('click');
+        $(input).val(value);
+      });
+    $(document)
+      .off('click', '#Expiration')
+      .on('click', '#Expiration', function () {
+        $($(this).attr('data-linked-input')).datepicker('setDate', $(this).val());
+      });
   }
   if ($('.edit-input').length) {
     $('.edit-input').each(function () {
