@@ -1,3 +1,6 @@
+#dateModal .bg-white {
+  max-width: 400px;
+}
 .datepicker.datepicker-inline {
   width: 100%;
 }
@@ -31,7 +34,8 @@
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-.datepicker table > tbody > tr > td.old {
+.datepicker table > tbody > tr > td.old,
+.datepicker table > tbody > tr > td.new {
   color: #cccccc;
 }
 .datepicker table > tbody > tr > td.active,

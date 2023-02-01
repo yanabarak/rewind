@@ -522,12 +522,8 @@ jQuery(document).ready(function ($) {
     e.preventDefault();
     console.log('test');
   });
-  if ($('.datepicker').length) {
+  if ($('.datepicker').length || $('[data-provide="datepicker"]').length) {
     let DateSettings = {
-      DPGlobal: {
-        headTemplate:
-          '<thead><tr><th class="prev">111</th><th colspan="5" class="datepicker-switch"></th><th class="next">&raquo;</th></tr></thead>',
-      },
       title: 'Select expiration date',
       format: 'dd/mm/yyyy',
     };
@@ -569,7 +565,8 @@ jQuery(document).ready(function ($) {
       titleFormat: 'MM yyyy',
       weekStart: 0,
     };
-    $('.datepicker')
+    $('#datepicker-expiration').trigger('click');
+    $('#datepicker-expiration')
       .datepicker(DateSettings)
       .on('changeDate', function (e) {
         var newday = new Date(e.date);

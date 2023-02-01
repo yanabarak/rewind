@@ -1187,6 +1187,10 @@ nav:has(.status-button) {
   left: 0px;
 }
 
+#dateModal .bg-white {
+  max-width: 400px;
+}
+
 .datepicker.datepicker-inline {
   width: 100%;
 }
@@ -1222,7 +1226,8 @@ nav:has(.status-button) {
   border-radius: 0px;
 }
 
-.datepicker table > tbody > tr > td.old {
+.datepicker table > tbody > tr > td.old,
+.datepicker table > tbody > tr > td.new {
   color: #cccccc;
 }
 
