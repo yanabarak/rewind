@@ -15,3 +15,18 @@ hr.black-10 {
   border-color: var(--black-10);
   opacity: 1;
 }
+
+.bg-white.block-main h6.fw-bold + a.button-green {
+  @media screen and (max-width: 992px) {
+    margin: 10px;
+    float: none;
+    width: 100%;
+  }
+}
+
+.showCertificateTopBlock .bg-white .col-3 {
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

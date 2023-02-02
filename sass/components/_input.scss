@@ -1,5 +1,6 @@
 input.form-control.default,
-div.form-control.default .dropdown-toggle {
+div.form-control.default .dropdown-toggle,
+.editable-input {
   height: 40px;
   display: flex;
   align-items: center;
@@ -186,13 +187,8 @@ div.form-control.default .dropdown-toggle {
 }
 
 .editable-input {
-  border: 0px;
-  padding: 0px;
-  border-bottom: 1px solid transparent;
-  &:focus {
-    outline: transparent;
-    border-bottom: 1px solid var(--black-50);
-  }
+  padding-left: 10px;
+  font-size: 16px;
 }
 
 // input range
@@ -305,4 +301,24 @@ th .bootstrap-select > .dropdown-toggle {
 .fixed-table-body[style*='inherit'] th button .filter-option-inner-inner {
   opacity: 0;
   transition: all 0s;
+}
+
+input[type='checkbox'] + label > span {
+  width: 18px;
+  height: 18px;
+  background: #f6f6f7;
+  border: 1px solid rgba(57, 169, 53, 0.2);
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  & svg {
+    fill: transparent;
+  }
+}
+input[type='checkbox']:checked + label > span {
+  border: none;
+  background-color: var(--input-green);
+}
+input[type='checkbox']:checked + label > span svg {
+  fill: #fff;
 }

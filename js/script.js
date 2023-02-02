@@ -19,6 +19,9 @@ if ($('table[data-height]').length) {
     if (height <= 0) {
       height = '';
     }
+    if (height >= 0 && height <= 150) {
+      height = '200';
+    }
     $(this).attr('data-height', height);
   });
 }

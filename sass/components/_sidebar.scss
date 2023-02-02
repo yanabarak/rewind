@@ -10,7 +10,7 @@ aside.asidebar {
   @media screen and (max-width: 992px) {
     z-index: 10;
     position: fixed !important;
-    background: #003408;
+    background: var(--green);
     width: 100%;
     top: 33px;
     max-height: 100vh;

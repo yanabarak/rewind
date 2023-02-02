@@ -102,7 +102,7 @@ main {
 
 .mh-75vh {
   max-height: 75vh;
-  // min-height: 600px;
+  min-height: 600px;
   @media screen and (max-width: 992px) {
     max-height: unset;
     min-height: unset;
