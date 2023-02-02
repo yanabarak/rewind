@@ -1,6 +1,6 @@
 input.form-control.default,
 div.form-control.default .dropdown-toggle,
-.editable-input {
+.editable-input:not([readonly]) {
   height: 40px;
   display: flex;
   align-items: center;
@@ -186,9 +186,13 @@ div.form-control.default .dropdown-toggle {
   max-width: 66px;
 }
 
-.editable-input {
+input.editable-input {
   padding-left: 10px;
   font-size: 16px;
+  &[readonly] {
+    border-color: transparent;
+    outline: none;
+  }
 }
 
 // input range

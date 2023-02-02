@@ -386,12 +386,6 @@ td > .buy-table {
   margin-right: 8px;
   margin-left: auto;
 }
-.sell-table:disabled, .sell-table[disabled],
-.buy-table:disabled,
-.buy-table[disabled] {
-  background: var(--green-20) !important;
-  color: var(--green-50) !important;
-}
 @media screen and (max-width: 1200px) {
   .sell-table,
 .buy-table {
@@ -434,7 +428,7 @@ td > .buy-table {
 
 input.form-control.default,
 div.form-control.default .dropdown-toggle,
-.editable-input {
+.editable-input:not([readonly]) {
   height: 40px;
   display: flex;
   align-items: center;
@@ -449,14 +443,14 @@ div.form-control.default .dropdown-toggle,
 input.form-control.default:hover, input.form-control.default:focus,
 div.form-control.default .dropdown-toggle:hover,
 div.form-control.default .dropdown-toggle:focus,
-.editable-input:hover,
-.editable-input:focus {
+.editable-input:not([readonly]):hover,
+.editable-input:not([readonly]):focus {
   border: 1px solid var(--green);
   outline: transparent !important;
 }
 input.form-control.default.text-code,
 div.form-control.default .dropdown-toggle.text-code,
-.editable-input.text-code {
+.editable-input:not([readonly]).text-code {
   height: 84px;
   width: 84px;
   font-weight: 400;
@@ -469,13 +463,13 @@ div.form-control.default .dropdown-toggle.text-code,
 @media screen and (max-width: 480px) {
   input.form-control.default,
 div.form-control.default .dropdown-toggle,
-.editable-input {
+.editable-input:not([readonly]) {
     font-size: 16px;
   }
 }
 input.form-control.default.error,
 div.form-control.default .dropdown-toggle.error,
-.editable-input.error {
+.editable-input:not([readonly]).error {
   color: #ee2e73;
   background: rgba(255, 151, 151, 0.06);
   border: 1px solid #ee2e73;
@@ -639,9 +633,13 @@ div.form-control.default .dropdown-toggle:hover::after, div.form-control.default
   max-width: 66px;
 }
 
-.editable-input {
+input.editable-input {
   padding-left: 10px;
   font-size: 16px;
+}
+input.editable-input[readonly] {
+  border-color: transparent;
+  outline: none;
 }
 
 input[type=range] {
@@ -1108,6 +1106,13 @@ th[style*="20%"] {
 
 td .d-flex > svg {
   flex-shrink: 0;
+}
+
+th[data-filter-control-placeholder=Remove] .th-inner,
+th[data-field=Remove] .th-inner {
+  text-align: right;
+  padding-right: 16px !important;
+  box-sizing: border-box;
 }
 
 @media (min-width: 992px) {

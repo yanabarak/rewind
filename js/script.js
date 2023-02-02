@@ -16,11 +16,8 @@ if ($('table[data-height]').length) {
     ) {
       height = height + (window.innerWidth - 1500) * 0.35;
     }
-    if (height <= 0) {
+    if (height <= 0 || height <= 150) {
       height = '';
-    }
-    if (height >= 0 && height <= 150) {
-      height = '200';
     }
     $(this).attr('data-height', height);
   });

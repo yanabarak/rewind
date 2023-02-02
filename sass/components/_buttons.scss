@@ -197,11 +197,6 @@
     margin-right: 8px;
     margin-left: auto;
   }
-  &:disabled,
-  &[disabled] {
-    background: var(--green-20) !important;
-    color: var(--green-50) !important;
-  }
   @media screen and (max-width: 1200px) {
     min-width: 100px;
   }

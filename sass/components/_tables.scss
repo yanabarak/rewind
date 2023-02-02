@@ -73,3 +73,10 @@ th[style*='20%'] {
 td .d-flex > svg {
   flex-shrink: 0;
 }
+
+th[data-filter-control-placeholder='Remove'] .th-inner,
+th[data-field='Remove'] .th-inner {
+  text-align: right;
+  padding-right: 16px !important;
+  box-sizing: border-box;
+}
