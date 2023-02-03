@@ -59,7 +59,9 @@
   svg {
     fill: currentColor;
   }
-  &.btn-number {
+  &.btn-number,
+  &[data-type='minus'],
+  &[data-type='plus'] {
     width: 40px;
     padding: 0px;
   }
