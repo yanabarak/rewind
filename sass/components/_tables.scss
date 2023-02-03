@@ -80,3 +80,6 @@ th[data-field='Remove'] .th-inner {
   padding-right: 16px !important;
   box-sizing: border-box;
 }
+th[data-field='Status'] {
+  min-width: 150px;
+}

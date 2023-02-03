@@ -1115,6 +1115,10 @@ th[data-field=Remove] .th-inner {
   box-sizing: border-box;
 }
 
+th[data-field=Status] {
+  min-width: 150px;
+}
+
 @media (min-width: 992px) {
   .modal-lg {
     --bs-modal-width: 650px;
@@ -1823,6 +1827,9 @@ hr.black-10 {
 #detailsTabs ~ #detailsTabsContent #details-user .row > *,
 #detailsTabs ~ #detailsTabsContent #details-company .row > * {
     width: 100%;
+  }
+  #detailsTabs ~ #detailsTabsContent #portfolio .status-button {
+    margin-left: 0px !important;
   }
   #detailsTabs ~ #detailsTabsContent #portfolio.active .row.mb-24 {
     overflow: auto;
