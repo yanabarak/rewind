@@ -1242,6 +1242,18 @@ nav:has(.status-button) {
   left: 0px;
 }
 
+@media screen and (max-width: 796px) {
+  .cropme-container {
+    width: 100% !important;
+  }
+  #profilePictureModalCrop {
+    padding: 10px !important;
+    padding-top: 40px !important;
+  }
+  #profilePictureModalCrop .px-6.py-4 {
+    padding: 5px !important;
+  }
+}
 #dateModal .bg-white {
   max-width: 400px;
 }
@@ -1351,6 +1363,7 @@ body.login-page {
   body.sign-up-page,
   body.login-page {
     background-image: unset;
+    background-color: #fff;
   }
 }
 body.sign-up-page main,

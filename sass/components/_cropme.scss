@@ -7,8 +7,24 @@
   margin-bottom: 50px;
   height: 332px;
 }
+
 .cropme-slider {
   position: absolute;
   bottom: -65px;
   left: 0px;
+}
+
+@media screen and (max-width: 796px) {
+  .cropme-container {
+    width: 100% !important;
+  }
+
+  #profilePictureModalCrop {
+    padding: 10px !important;
+    padding-top: 40px !important;
+
+    .px-6.py-4 {
+      padding: 5px !important;
+    }
+  }
 }
