@@ -1,20 +1,38 @@
 .link {
   text-decoration: none;
 }
+
 .list {
   list-style: none;
 }
+
 button {
   cursor: pointer;
 }
+
 img {
   display: block;
 }
+
 html {
   height: 100%;
 }
+
 body {
   font-family: var(--main-font);
   min-height: 100%;
   background-color: #f3f7f7;
+}
+
+#content:has(div:not([class])) {
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+body #content {
+  gap: 0px !important;
+}
+
+body.dashboard-pagee #content {
+  gap: 1.5rem !important;
 }

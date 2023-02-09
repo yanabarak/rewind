@@ -10,6 +10,7 @@
   align-items: center;
   gap: 8px;
   transition: all 500ms linear;
+
   &:hover {
     background: #ccc;
   }
@@ -36,6 +37,7 @@
     background-color: var(--green-50) !important;
     color: #fff !important;
   }
+
   &:disabled,
   &[disabled],
   &.disabled {
@@ -46,19 +48,23 @@
     cursor: default;
     text-decoration: none;
   }
+
   &:hover {
     background-color: #319b2d;
     color: #ffffff;
     border: 0px;
   }
+
   &:active {
     background-color: #117d0e;
     color: #ffffff;
     border: 0px;
   }
+
   svg {
     fill: currentColor;
   }
+
   &.btn-number,
   &[data-type='minus'],
   &[data-type='plus'] {
@@ -82,6 +88,7 @@
   transition: all 500ms linear;
   border: 0px;
   text-decoration: none;
+
   &:disabled,
   &[disabled] {
     background-color: #f6f6f7 !important;
@@ -91,11 +98,13 @@
     cursor: default;
     text-decoration: none;
   }
+
   &:hover {
     background-color: #dcdcdc;
     color: var(--black);
     border: 0px;
   }
+
   &:active {
     background-color: #c7c7c7;
     color: var(--black);
@@ -108,9 +117,11 @@
   border-radius: 30px;
   padding: 4px;
   display: flex;
+
   @media screen and (min-width: 1500px) {
     gap: 16px;
   }
+
   .btn {
     height: 30px;
     background: transparent;
@@ -122,9 +133,16 @@
     color: #868b91;
     font-size: 14px;
     transition: all 500ms linear;
+
     @media screen and (min-width: 1500px) {
       min-width: 74px;
     }
+
+    @media screen and (max-width: 768px) {
+      font-size: 12px !important;
+      padding: 0 10px;
+    }
+
     &:disabled,
     &[disabled] {
       background-color: var(--green-20) !important;
@@ -134,15 +152,18 @@
       cursor: default;
       text-decoration: none;
     }
+
     &:hover,
     &.active {
       background-color: #36c233;
       color: #ffffff;
       border: 0px;
     }
+
     &.active {
       font-weight: 700;
     }
+
     &:active {
       background-color: #117d0e;
       color: #ffffff;
@@ -159,26 +180,32 @@
   font-size: 12px;
   line-height: 1.58;
   width: fit-content;
+
   &.onsell {
     background: #d3f1f1;
     color: #5ad1d1;
   }
+
   &.pending {
     background: rgba(244, 207, 74, 0.2);
     color: #cdbe37;
   }
+
   &.approved {
     background: rgba(151, 234, 112, 0.2);
     color: #9bce89;
   }
+
   &.notapproved {
     background: rgba(255, 169, 164, 0.2);
     color: #ff9797;
   }
+
   @media screen and (max-width: 1200px) {
     min-width: 120px;
     text-align: center;
   }
+
   &.fs-16 {
     height: 40px;
     padding-left: 12px;
@@ -186,6 +213,7 @@
     font-size: 16px;
     line-height: 1;
   }
+
   svg {
     fill: currentColor;
   }
@@ -195,10 +223,12 @@
 .buy-table {
   min-width: 77px;
   height: 32px;
-  td > & {
+
+  td>& {
     margin-right: 8px;
     margin-left: auto;
   }
+
   @media screen and (max-width: 1200px) {
     min-width: 100px;
   }
@@ -211,6 +241,7 @@
   padding: 0.25em 0.25em;
   color: #000;
   background-size: 14px;
+
   &:focus {
     box-shadow: none;
   }
@@ -230,6 +261,7 @@
   align-items: center;
   width: fit-content;
   min-width: 58px;
+
   &.sale {
     background: #3dcfcf;
   }
