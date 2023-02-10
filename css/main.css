@@ -1149,6 +1149,10 @@ th[data-field=Status] {
   max-width: 400px;
 }
 
+.mb-6.bg-white.rounded-lg.overflow-hidden > .flex.flex-row.justify-end.px-6.py-4.bg-gray-100.text-right {
+  padding: 0px !important;
+}
+
 .nav.basic-style .nav-link {
   font-weight: 400;
   font-size: 16px;
@@ -1688,6 +1692,8 @@ main {
 .mh-75vh {
   max-height: 75vh;
   min-height: 600px;
+  align-items: stretch;
+  display: flex;
 }
 @media screen and (max-width: 992px) {
   .mh-75vh {
@@ -1700,6 +1706,17 @@ main {
   .mh-75vh .h-100 {
     height: unset !important;
   }
+}
+.mh-75vh > .h-100 {
+  height: auto !important;
+  display: flex !important;
+  align-items: stretch;
+}
+.mh-75vh > .h-100 > .empty-dash.h-50 {
+  height: 50% !important;
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
 }
 
 .maxw-200 {
@@ -1855,6 +1872,14 @@ hr.black-10 {
   }
 }
 
+#detailsTabs ~ #detailsTabsContent .justify-content-between {
+  justify-content: start !important;
+}
+@media screen and (min-width: 1600px) {
+  #detailsTabs ~ #detailsTabsContent .justify-content-between {
+    gap: 100px;
+  }
+}
 @media screen and (max-width: 992px) {
   #detailsTabs {
     display: flex;
