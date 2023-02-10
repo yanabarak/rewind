@@ -431,6 +431,20 @@ td > .buy-table {
   background: #3dcfcf;
 }
 
+a.button-green.rounded-pill.white-button.col {
+  width: 114px;
+  min-height: 40px;
+  background: #FFFFFF;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0px !important;
+  display: flex;
+}
+a.button-green.rounded-pill.white-button.col:hover {
+  background-color: #f6f6f7;
+}
+
 input.form-control.default,
 div.form-control.default .dropdown-toggle {
   height: 40px;
@@ -1635,6 +1649,10 @@ main {
 }
 .mh-75vh {
   max-height: 75vh;
+<<<<<<< Updated upstream
+=======
+  min-height: 400px;
+>>>>>>> Stashed changes
 }
 @media screen and (max-width: 992px) {
   .mh-75vh {

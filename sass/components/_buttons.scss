@@ -237,3 +237,21 @@
     background: #3dcfcf;
   }
 }
+<<<<<<< Updated upstream
+=======
+
+a.button-green.rounded-pill.white-button.col {
+  width: 114px;
+  min-height: 40px;
+  background: #FFFFFF;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0px !important;
+  display: flex;
+
+  &:hover {
+    background-color: #f6f6f7;
+  }
+}
+>>>>>>> Stashed changes

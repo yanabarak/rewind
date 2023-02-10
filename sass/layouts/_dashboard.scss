@@ -102,7 +102,14 @@ main {
 
 .mh-75vh {
   max-height: 75vh;
+<<<<<<< Updated upstream
   // min-height: 600px;
+=======
+  min-height: 400px;
+  // align-items: stretch;
+  // display: flex;
+
+>>>>>>> Stashed changes
   @media screen and (max-width: 992px) {
     max-height: unset;
     min-height: unset;
@@ -113,6 +120,22 @@ main {
       height: unset !important;
     }
   }
+<<<<<<< Updated upstream
+=======
+
+  // &>.h-100 {
+  //   height: auto !important;
+  //   display: flex !important;
+  //   align-items: stretch;
+
+  //   &>.empty-dash.h-50 {
+  //     height: 50% !important;
+  //     display: flex;
+  //     align-items: center !important;
+  //     justify-content: center;
+  //   }
+  // }
+>>>>>>> Stashed changes
 }
 .maxw-200 {
   max-width: 200px;
