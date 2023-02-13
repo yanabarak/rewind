@@ -683,6 +683,49 @@ jQuery(document).ready(function ($) {
       $('.fixed-table-body').css('overflow', '');
     });
   }
+
+  if ('.negotation-form '.length) {
+    $(document)
+      .off('keyup', '.form-counter-offer input')
+      .on('keyup', '.form-counter-offer input', function () {
+        $(this).val() && $(this).siblings('input').val()
+          ? $(this).closest('.form-counter-offer').find('.button-green').attr('disabled', false)
+          : $(this).closest('.form-counter-offer').find('.button-green').attr('disabled', true);
+      });
+
+    $(document)
+      .off('click', '.save-negotation-form')
+      .on('click', '.save-negotation-form', function () {
+        var myModal = new bootstrap.Modal(document.getElementById('saveNegFormModal'));
+        myModal.show();
+      });
+
+    $(document)
+      .off('changed.bs.select', '.negotation-form')
+      .on('changed.bs.select', '.negotation-form', function (e) {
+        if ($(this).prop('tagName') == 'SELECT') {
+          if ($(this).val() == 'CounterOffer') {
+            $($(this).closest('td')[0]).find('.form-counter-offer').removeClass('visually-hidden');
+            console.log(
+              $($(this).closest('td')[0]).find('.form-counter-offer').removeClass('visually-hidden')
+            );
+          } else {
+            $($(this).closest('td')[0]).find('.form-counter-offer').addClass('visually-hidden');
+            var myModal;
+            if ($(this).val() == 'Accept') {
+              myModal = new bootstrap.Modal(document.getElementById('acceptModal'));
+            }
+            if ($(this).val() == 'Decline') {
+              myModal = new bootstrap.Modal(document.getElementById('declineModal'));
+            }
+            if ($(this).val() == 'Cancel') {
+              myModal = new bootstrap.Modal(document.getElementById('cancelModal'));
+            }
+            myModal.show();
+          }
+        }
+      });
+  }
 });
 
 function priceSorter(a, b) {
