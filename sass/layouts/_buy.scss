@@ -2,9 +2,11 @@
   font-size: 16px;
   line-height: 160%;
 }
+
 .image-description-wrap {
   margin: 0 -32px -32px;
 }
+
 .image-description {
   max-height: 315px;
   display: flex;
@@ -21,4 +23,9 @@
   height: 100%;
   width: 100%;
   object-position: center bottom 100px;
+}
+
+.dropdown.bootstrap-select.button-grey.dropdown-grey,
+.dropdown.bootstrap-select.button-grey.dropdown-grey+.button-green.buy-table {
+  float: inline-end;
 }

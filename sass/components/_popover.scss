@@ -1,0 +1,57 @@
+.popover.notification-popover {
+    top: 0px !important;
+    bottom: 0px !important;
+    left: 20px !important;
+    border-radius: 16px;
+    border: 0px solid;
+    min-width: 600px;
+    z-index: 100000;
+
+    @media screen and (max-width: 992px) {
+        transform: none !important;
+        min-width: 100vw;
+        left: 0px !important;
+    }
+
+    .scrollable-content {
+        overflow: auto;
+        max-height: calc(100vh - 100px);
+    }
+
+    .date {
+        font-weight: 700;
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #000000;
+    }
+
+    .day {
+        margin-bottom: 24px;
+    }
+
+    .info {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        color: #000000;
+    }
+
+    .info+.info {
+        margin-bottom: 8px
+    }
+
+}
+
+.popoverCSS::before {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    content: '';
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10000;
+}

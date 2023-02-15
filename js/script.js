@@ -726,6 +726,45 @@ jQuery(document).ready(function ($) {
         }
       });
   }
+
+  $(document)
+    .off('changed.bs.select', '.buy-more-select')
+    .on('changed.bs.select', '.buy-more-select', function (e) {
+      if ($(this).prop('tagName') == 'SELECT') {
+        if ($(this).val() == 'Alert') {
+          var myModal;
+          myModal = new bootstrap.Modal(document.getElementById('alertModal'));
+          myModal.show();
+        } else if ($(this).val() == 'View') {
+          var win = window.open($(this).find(`option:selected`).attr('data-href'), '_blank');
+          win.focus();
+        }
+      }
+    });
+
+  // init popover
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('.link-notifications'));
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl, {
+      template:
+        '<div class="popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body p-32"></div></div>',
+      customClass: 'notification-popover',
+      html: true,
+      sanitize: false,
+      content: function () {
+        return $('#notif-content').html();
+      },
+    });
+  });
+
+  if (window.innerWidth >= 1000) {
+    $('.link-notifications').on('show.bs.popover', function () {
+      $($('.container-fluid')[0]).addClass('popoverCSS');
+    });
+    $('.link-notifications').on('hide.bs.popover', function () {
+      $($('.container-fluid')[0]).removeClass('popoverCSS');
+    });
+  }
 });
 
 function priceSorter(a, b) {

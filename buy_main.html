@@ -64,6 +64,21 @@
                         </a>
                     </li>
                 </ul>
+                <ul class="navflex-column ms-auto list bottom-list">
+                    <li class="nav-item ">
+                        <a href="#" type="button" class="nav-link link-notifications" aria-current="page"
+                            data-bs-container="body" data-bs-placement="right" data-bs-content="Right popover">
+                            <svg class="icon icon-bell-outline me-2" width="16" height="16">
+                                <use href="./img/icons.svg#icon-bell-outline"></use>
+                            </svg>Notifications
+                            <span class="badge rounded-pill bg-danger">
+                                12
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </a>
+                    </li>
+                    </li>
+                </ul>
 
                 <div class="user-panel mb-0 mt-auto">
                     <div class="image d-flex align-items-center me-4">
@@ -147,7 +162,45 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                        <td><select name="buy-more-select"
+                                                class="selectpicker button-grey dropdown-grey ms-0 col-auto me-2 buy-more-select"
+                                                data-container="body" title="See more info">
+                                                <option value="Alert">Set price alert</option>
+                                                <option value="View"
+                                                    data-href="https://yanabarak.github.io/rewind/buy_certif.html">View
+                                                </option>
+                                            </select>
+                                            <a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                                data-bs-target="#buyModal" type="button">buy</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                            </svg>Forest - ERB</td>
+                                        <td>Some info here</td>
+                                        <td>Israel</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <span
+                                                    class="d-flex flex-column align-items-end justify-content-space-between">
+                                                    <span class="price fw-bold">$56.4</span>
+                                                    <span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                        <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                            <use href="./img/icons.svg#icon-decrease"></use>
+                                                        </svg> -0.38%</span>
+                                                </span>
+                                                <span class="small-graph ms-2">
+                                                    <canvas class="small-graph"></canvas>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td><select name="buy-more-select"
+                                                class="selectpicker button-grey dropdown-grey ms-0 col-auto me-2 buy-more-select"
+                                                data-container="body" title="See more info">
+                                                <option value="Alert">Set price alert</option>
+                                                <option value="Decline">View</option>
+                                            </select><a href="#" class="button-green buy-table" data-bs-toggle="modal"
                                                 data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
                                     <tr>
@@ -171,7 +224,12 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                        <td><select name="buy-more-select"
+                                                class="selectpicker button-grey dropdown-grey ms-0 col-auto me-2 buy-more-select"
+                                                data-container="body" title="See more info">
+                                                <option value="Alert">Set price alert</option>
+                                                <option value="Decline">View</option>
+                                            </select><a href="#" class="button-green buy-table" data-bs-toggle="modal"
                                                 data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
                                     <tr>
@@ -195,7 +253,12 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                        <td><select name="buy-more-select"
+                                                class="selectpicker button-grey dropdown-grey ms-0 col-auto me-2 buy-more-select"
+                                                data-container="body" title="See more info">
+                                                <option value="Alert">Set price alert</option>
+                                                <option value="Decline">View</option>
+                                            </select><a href="#" class="button-green buy-table" data-bs-toggle="modal"
                                                 data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
                                     <tr>
@@ -219,31 +282,12 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
-                                                data-bs-target="#buyModal" type="button">buy</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
-                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
-                                            </svg>Forest - ERB</td>
-                                        <td>Some info here</td>
-                                        <td>Israel</td>
-                                        <td>
-                                            <div class="d-flex">
-                                                <span
-                                                    class="d-flex flex-column align-items-end justify-content-space-between">
-                                                    <span class="price fw-bold">$56.4</span>
-                                                    <span class="statistic-price statistic-decrease d-flex  ms-1">
-                                                        <svg class="icon icon-decrease me-1" width="16" height="16">
-                                                            <use href="./img/icons.svg#icon-decrease"></use>
-                                                        </svg> -0.38%</span>
-                                                </span>
-                                                <span class="small-graph ms-2">
-                                                    <canvas class="small-graph"></canvas>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td><a href="#" class="button-green buy-table" data-bs-toggle="modal"
+                                        <td><select name="buy-more-select"
+                                                class="selectpicker button-grey dropdown-grey ms-0 col-auto me-2 buy-more-select"
+                                                data-container="body" title="See more info">
+                                                <option value="Alert">Set price alert</option>
+                                                <option value="Decline">View</option>
+                                            </select><a href="#" class="button-green buy-table" data-bs-toggle="modal"
                                                 data-bs-target="#buyModal" type="button">buy</a></td>
                                     </tr>
 
@@ -312,6 +356,88 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content  p-32">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-20">
+                            Set price alert
+                        </h5>
+                        <button wire:click="closeModal" type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"></button>
+                        <div class="col-12 d-flex align-items-center mb-20">
+                            <svg class="icon icon-Forest-ERB me-3" width="32" height="32">
+                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                            </svg>
+                            <div class="info-main d-flex flex-column">
+                                <span class="fw-bold">Forest - ARB</span>
+                                <span class="d-flex align-items-baseline">
+                                    <span class="fs-20 fw-bold">$92.04</span>
+                                    <span
+                                        class="statistic-price statistic-increase d-flex align-items-center fs-12 ms-3">
+                                        <svg class="icon icon-triangle-top me-1" width="8" height="8">
+                                            <use href="./img/icons.svg#icon-triangle-top"></use>
+                                        </svg>0 (-0)</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row col-12 mx-0 black-10 mb-24">
+                        <hr class="m-0">
+                    </div>
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12">
+                            <div class="col-12 row align-items-center mb-24  d-flex px-0 mx-0">
+                                <div class="col-3 col-md-2 ps-0"><label for="QTY" class="fs-16">Set price</label>
+                                </div>
+                                <div
+                                    class="col-9 justify-content-end justify-content-md-start col-md-7 pe-0 pe-md-2 d-flex">
+                                    <span class="input-group-prepend col-auto">
+                                        <button type="button" class="btn button-green btn-number" data-type="minus"
+                                            data-field="QTY" wire:click="decrease"><svg class="icon icon-Minus-Icon"
+                                                width="24" height="24">
+                                                <use href="./img/icons.svg#icon-Minus-Icon"></use>
+                                            </svg>
+                                        </button>
+                                    </span>
+                                    <input type="text" wire:model="cost"
+                                        class="form-control default mx-2 w-75 text-center fw-bold" name="cost" id="cost"
+                                        min="1" onchange="QTY.value = QTY.value" disabled="">
+                                    <span class="input-group-append col-auto">
+                                        <button type="button" class="btn button-green btn-number" data-type="plus"
+                                            data-field="QTY" wire:click="increase">
+                                            <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                                <use href="./img/icons.svg#icon-Plus-Icon"></use>
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="col-12 col-md-3 pt-2 pt-md-0 pe-0">
+                                    <a class="button-secondary rounded-pill w-100 px-2" href="#">
+                                        <svg class="icon icon-Repeat me-2" width="16" height="16">
+                                            <use href="./img/icons.svg#icon-Repeat"></use>
+                                        </svg>
+
+                                        Percentage</a>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-24">
+                                <hr class="m-0">
+                            </div>
+                            <div class="row col-12 m-0">
+                                <button type="button" class="button-green rounded-pill w-100" wire:click="save"
+                                    wire:loading.attr="disabled">Buy
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="buyModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content p-32">
@@ -588,6 +714,44 @@
 
                         <a class="button-green rounded-pill ms-2 col" href="#">Log Out</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="visually-hidden notif-content" id="notif-content">
+        <div class="modal-body p-0 row">
+            <div class="row col-12 p-0 m-0">
+                <h5 class="black-color col fw-bold mb-3">
+                    Notifications center
+                </h5>
+                <button type="button" class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                    onclick="$('.link-notifications').popover('hide');"></button>
+            </div>
+            <div class="row col-12 p-0 m-0 mb-3 scrollable-content">
+                <div class="day col-12">
+                    <div class="date">Today</div>
+                    <p class="info">9:00am: Certificate “Forest erb” raised by 2%</p>
+
+                    <p class="info"></p>10:00am: Certificate “Forest erb” raised by 2%</p>
+                </div>
+
+                <div class="day col-12">
+                    <div class="date">Yesterday</div>
+                    <p class="info">9:00am: Certificate “Forest erb” raised by 2%</p>
+
+                    <p class="info"></p>10:00am: Certificate “Forest erb” raised by 2%</p>
+                </div>
+                <div class="day col-12">
+                    <div class="date">9/1/23</div>
+                    <p class="info">9:00am: Certificate “Forest erb” raised by 2%</p>
+                </div>
+                <div class="day col-12">
+                    <div class="date">9/1/23</div>
+                    <p class="info">9:00am: Certificate “Forest erb” raised by 2%</p>
+                </div>
+                <div class="day col-12">
+                    <div class="date">9/1/23</div>
+                    <p class="info">9:00am: Certificate “Forest erb” raised by 2%</p>
                 </div>
             </div>
         </div>
