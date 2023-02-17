@@ -122,6 +122,24 @@
                                     </span>
                                 </div>
                             </div>
+                            <div class="edit-info-sell ms-0 mt-3 mt-md-0 ms-md-5 align-self-end fs-16 col-auto">
+                                <span>Unit Price:
+                                    <b>$150</b></span>
+                                <a href="#" class="grey-icon-edit custom-modal-show ms-2 top-3"
+                                    data-bs-target="unitModal">
+                                    <svg class="icon icon-Pencil" width="16" height="16">
+                                        <use href="./img/icons.svg#icon-Pencil"></use>
+                                    </svg></a>
+                            </div>
+                            <div class="edit-info-sell ms-0 ms-md-2 align-self-end fs-16 col-auto">
+                                <span>Quantity:
+                                    <b>200</b></span>
+                                <a href="#" class="grey-icon-edit custom-modal-show ms-2 top-3"
+                                    data-bs-target="qtyModal">
+                                    <svg class="icon icon-Pencil" width="16" height="16">
+                                        <use href="./img/icons.svg#icon-Pencil"></use>
+                                    </svg></a>
+                            </div>
                             <div class="col-3 col-xl-2 ms-auto align-items-end d-flex">
                                 <a href="#" class="button-green w-100" data-bs-toggle="modal"
                                     data-bs-target="#sellModal" type="button">Sell Certificate</a>
@@ -221,6 +239,85 @@
                         <a class="button-green rounded-pill w-100 button-send" href="#">Re-Send Validation SMS
                             Message</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="qtyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content p-32">
+                <div class="modal-body p-0 row">
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-24 row d-flex align-items-center pe-0">
+                            <div class="col-4 col-md-3"><label for="QTY" class="fs-16">Quantity</label></div>
+                            <div class="col-8 col-md-9 d-flex justify-content-end p-0">
+                                <span class="input-group-prepend col-auto">
+                                    <button type="button" class="btn button-green btn-number" data-type="minus"
+                                        data-field="QTY"><svg class="icon icon-Minus-Icon" width="24" height="24">
+                                            <use href="./img/icons.svg#icon-Minus-Icon"></use>
+                                        </svg>
+                                    </button>
+                                </span>
+                                <input type="text" class="form-control default mx-2 w-75 text-center fw-bold" name="QTY"
+                                    id="QTY" min="0" max="100" value="75" onchange="QTY.value = QTY.value">
+                                <span class="input-group-append col-auto">
+                                    <button type="button" class="btn button-green btn-number" data-type="plus"
+                                        data-field="QTY">
+                                        <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                            <use href="./img/icons.svg#icon-Plus-Icon"></use>
+                                        </svg>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-24">
+                            <hr class="m-0">
+                        </div>
+                        <div class="row col-12 m-0">
+                            <a class="button-green rounded-pill w-100" href="#">Sell</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="unitModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content p-32">
+                <div class="modal-body p-0 row">
+                    <form class="row col-12 p-0 m-0">
+                        <div class="col-12 mb-24 row d-flex align-items-center pe-0">
+                            <div class="col-4 col-md-3">
+                                <label for="Price" class="fs-16">Unit Price</label>
+                            </div>
+                            <div class="col-8 col-md-9 d-flex justify-content-end p-0">
+                                <span class="input-group-prepend col-auto">
+                                    <button type="button" class="btn button-green btn-number" data-type="minus"
+                                        data-field="Price"><svg class="icon icon-Minus-Icon" width="24" height="24">
+                                            <use href="./img/icons.svg#icon-Minus-Icon"></use>
+                                        </svg>
+                                    </button>
+                                </span>
+                                <input type="text" class="form-control default mx-2 w-75 text-center fw-bold"
+                                    name="Price" id="Price" min="0" max="100" value="75"
+                                    onchange="Price.value = Price.value">
+                                <span class="input-group-append col-auto">
+                                    <button type="button" class="btn button-green btn-number" data-type="plus"
+                                        data-field="Price">
+                                        <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                            <use href="./img/icons.svg#icon-Plus-Icon"></use>
+                                        </svg>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-24">
+                            <hr class="m-0">
+                        </div>
+                        <div class="row col-12 m-0">
+                            <a class="button-green rounded-pill w-100" href="#">Sell</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

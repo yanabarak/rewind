@@ -1,17 +1,38 @@
-.empty-dash > .col {
+.empty-dash>.col {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 .empty-dash {
   flex-direction: column;
 }
+
 span.small-graph {
   height: 33px;
   width: 90px;
 }
+
 hr.black-10 {
   border-color: var(--black-10);
   opacity: 1;
+}
+
+.grey-icon-edit {
+  &.top-3 {
+    position: relative;
+    top: -3px;
+  }
+
+  svg {
+    fill: #B2B7BA;
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    svg {
+      fill: var(--green);
+    }
+  }
 }

@@ -314,6 +314,7 @@ a.button-green.rounded-pill.white-button.col {
     border-radius: 8px;
     border: 0px solid;
     padding: 0px;
+    min-width: 90px;
 
     li:not(:last-child)>a {
       border-bottom: 1px solid #F6F6F7;

@@ -742,6 +742,42 @@ jQuery(document).ready(function ($) {
       }
     });
 
+  $(document)
+    .off('changed.bs.select', '.sell-menu-select')
+    .on('changed.bs.select', '.sell-menu-select', function (e) {
+      if ($(this).prop('tagName') == 'SELECT') {
+        if ($(this).find(`option:selected`).attr('data-bs-toggle')) {
+          var myModal;
+          myModal = new bootstrap.Modal(
+            document.getElementById($(this).find(`option:selected`).attr('data-bs-target'))
+          );
+          myModal.show();
+        } else if ($(this).val() == 'View') {
+          var win = window.open($(this).find(`option:selected`).attr('data-href'), '_blank');
+          win.focus();
+        }
+      }
+    });
+
+  $(document)
+    .off('click', '.custom-modal-show')
+    .on('click', '.custom-modal-show', function (e) {
+      var myModal = new bootstrap.Modal(document.getElementById($(this).attr('data-bs-target')));
+      myModal.show();
+
+      if (window.innerWidth >= 1000) {
+        $(`#${$(this).attr('data-bs-target')}`).addClass('without-bg');
+        $(`#${$(this).attr('data-bs-target')}`)
+          .find('.modal-dialog')
+          .attr(
+            'style',
+            `margin-left:${e.target.getBoundingClientRect().left - 300}px;margin-top:${
+              e.target.getBoundingClientRect().bottom + 10
+            }px`
+          );
+      }
+    });
+
   // init popover
   var popoverTriggerList = [].slice.call(document.querySelectorAll('.link-notifications'));
   var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {

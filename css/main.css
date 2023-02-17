@@ -451,6 +451,7 @@ a.button-green.rounded-pill.white-button.col:hover {
   border-radius: 8px;
   border: 0px solid;
   padding: 0px;
+  min-width: 90px;
 }
 .button-green .dropdown-menu li:not(:last-child) > a,
 .button-grey.dropdown-grey .dropdown-menu li:not(:last-child) > a {
@@ -1234,6 +1235,15 @@ td .d-flex > svg {
   max-width: 400px;
 }
 
+.modal.without-bg[aria-modal] ~ .modal-backdrop.show {
+  background-color: transparent !important;
+}
+
+.without-bg.modal > .modal-dialog {
+  box-shadow: 0px 3px 7px #E1EBEB;
+  border-radius: 16px;
+}
+
 .nav.basic-style .nav-link {
   font-weight: 400;
   font-size: 16px;
@@ -1850,6 +1860,18 @@ span.small-graph {
 hr.black-10 {
   border-color: var(--black-10);
   opacity: 1;
+}
+
+.grey-icon-edit.top-3 {
+  position: relative;
+  top: -3px;
+}
+.grey-icon-edit svg {
+  fill: #B2B7BA;
+  transition: all 0.3s;
+}
+.grey-icon-edit:hover svg {
+  fill: var(--green);
 }
 
 .buy-desc {
