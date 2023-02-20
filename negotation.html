@@ -106,8 +106,8 @@
                         </div>
                         <div class="col-12 p-0 row m-0">
 
-                            <table data-toggle="table" class="classic borders-table add-height"
-                                data-filter-control="true" data-height="450" data-search="true"
+                            <table class="classic borders-table add-height" data-filter-control="true"
+                                data-search="true" data-tree-enable="true"
                                 data-classes='table classic table-borders table-borderless default-search'>
                                 <thead>
                                     <tr>
@@ -134,7 +134,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr>
+                                    <tr class="treegrid-1" id="node-1">
                                         <td>Mark ronson</td>
                                         <td>14 Jan, 9:30am</td>
                                         <td>Yosi’s forest erb</td>
@@ -166,7 +166,7 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr class="treegrid-2 treegrid-parent-1" id="node-1-1">
                                         <td>Mark ronson</td>
                                         <td>14 Jan, 9:30am</td>
                                         <td>Yosi’s forest erb</td>
@@ -197,7 +197,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="treegrid-3 treegrid-parent-1" id="node-1-2">
                                         <td>Mark ronson</td>
                                         <td>14 Jan, 9:30am</td>
                                         <td>Yosi’s forest erb</td>
@@ -228,7 +228,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="treegrid-4" id="node-4">
                                         <td>Mark ronson</td>
                                         <td>14 Jan, 9:30am</td>
                                         <td>Yosi’s forest erb</td>
@@ -259,15 +259,15 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="treegrid-5 treegrid-parent-4" id="node-4-1">
                                         <td>Mark ronson</td>
                                         <td>14 Jan, 9:30am</td>
                                         <td>Yosi’s forest erb</td>
                                         <td>$56.4 / Quantity 12</td>
                                         <td>$55.4/ Quantity 11</td>
                                         <td>
-                                            <div class="status-button pending">
-                                                Pending
+                                            <div class="status-button canceled">
+                                                Canceled
                                             </div>
                                         </td>
                                         <td>
@@ -291,7 +291,7 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr class="treegrid-6 deactivated-drop" id="node-6">
                                         <td>Mark ronson</td>
                                         <td>14 Jan, 9:30am</td>
                                         <td>Yosi’s forest erb</td>
@@ -322,7 +322,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="treegrid-7 deactivated-drop" id="node-7">
                                         <td>Mark ronson</td>
                                         <td>14 Jan, 9:30am</td>
                                         <td>Yosi’s forest erb</td>
@@ -353,7 +353,193 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="treegrid-8 deactivated-drop" id="node-8">
+                                        <td>Mark ronson</td>
+                                        <td>14 Jan, 9:30am</td>
+                                        <td>Yosi’s forest erb</td>
+                                        <td>$56.4 / Quantity 12</td>
+                                        <td>$55.4/ Quantity 11</td>
+                                        <td>
+                                            <div class="status-button pending">
+                                                Pending
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row m-0 p-0 gap-2"><select name="negotation-form"
+                                                    class="selectpicker button-green negotation-form ms-0 col-auto"
+                                                    data-container="body" title="reply">
+                                                    <option value="Accept">Accept</option>
+                                                    <option value="Decline">Decline</option>
+                                                    <option value="CounterOffer">Counter
+                                                        Offer</option>
+                                                    <option value="Cancel">Cancel</option>
+                                                </select>
+                                                <form action=""
+                                                    class="form-counter-offer col-auto p-0 m-0 visually-hidden">
+                                                    <input type="number" class="form-control default" id="price">
+                                                    <input type="number" class="form-control default" id="quantity">
+                                                    <a class="button-green rounded-pill  sell-table save-negotation-form"
+                                                        href="#" disabled>Save</a>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="treegrid-9 deactivated-drop" id="node-9">
+                                        <td>Mark ronson</td>
+                                        <td>14 Jan, 9:30am</td>
+                                        <td>Yosi’s forest erb</td>
+                                        <td>$56.4 / Quantity 12</td>
+                                        <td>$55.4/ Quantity 11</td>
+                                        <td>
+                                            <div class="status-button pending">
+                                                Pending
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row m-0 p-0 gap-2"><select name="negotation-form"
+                                                    class="selectpicker button-green negotation-form ms-0 col-auto"
+                                                    data-container="body" title="reply">
+                                                    <option value="Accept">Accept</option>
+                                                    <option value="Decline">Decline</option>
+                                                    <option value="CounterOffer">Counter
+                                                        Offer</option>
+                                                    <option value="Cancel">Cancel</option>
+                                                </select>
+                                                <form action=""
+                                                    class="form-counter-offer col-auto p-0 m-0 visually-hidden">
+                                                    <input type="number" class="form-control default" id="price">
+                                                    <input type="number" class="form-control default" id="quantity">
+                                                    <a class="button-green rounded-pill  sell-table save-negotation-form"
+                                                        href="#" disabled>Save</a>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="treegrid-10 deactivated-drop" id="node-10">
+                                        <td>Mark ronson</td>
+                                        <td>14 Jan, 9:30am</td>
+                                        <td>Yosi’s forest erb</td>
+                                        <td>$56.4 / Quantity 12</td>
+                                        <td>$55.4/ Quantity 11</td>
+                                        <td>
+                                            <div class="status-button pending">
+                                                Pending
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row m-0 p-0 gap-2"><select name="negotation-form"
+                                                    class="selectpicker button-green negotation-form ms-0 col-auto"
+                                                    data-container="body" title="reply">
+                                                    <option value="Accept">Accept</option>
+                                                    <option value="Decline">Decline</option>
+                                                    <option value="CounterOffer">Counter
+                                                        Offer</option>
+                                                    <option value="Cancel">Cancel</option>
+                                                </select>
+                                                <form action=""
+                                                    class="form-counter-offer col-auto p-0 m-0 visually-hidden">
+                                                    <input type="number" class="form-control default" id="price">
+                                                    <input type="number" class="form-control default" id="quantity">
+                                                    <a class="button-green rounded-pill  sell-table save-negotation-form"
+                                                        href="#" disabled>Save</a>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="treegrid-11 deactivated-drop" id="node-11">
+                                        <td>Mark ronson</td>
+                                        <td>14 Jan, 9:30am</td>
+                                        <td>Yosi’s forest erb</td>
+                                        <td>$56.4 / Quantity 12</td>
+                                        <td>$55.4/ Quantity 11</td>
+                                        <td>
+                                            <div class="status-button pending">
+                                                Pending
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row m-0 p-0 gap-2"><select name="negotation-form"
+                                                    class="selectpicker button-green negotation-form ms-0 col-auto"
+                                                    data-container="body" title="reply">
+                                                    <option value="Accept">Accept</option>
+                                                    <option value="Decline">Decline</option>
+                                                    <option value="CounterOffer">Counter
+                                                        Offer</option>
+                                                    <option value="Cancel">Cancel</option>
+                                                </select>
+                                                <form action=""
+                                                    class="form-counter-offer col-auto p-0 m-0 visually-hidden">
+                                                    <input type="number" class="form-control default" id="price">
+                                                    <input type="number" class="form-control default" id="quantity">
+                                                    <a class="button-green rounded-pill  sell-table save-negotation-form"
+                                                        href="#" disabled>Save</a>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="treegrid-12 deactivated-drop" id="node-12">
+                                        <td>Mark ronson</td>
+                                        <td>14 Jan, 9:30am</td>
+                                        <td>Yosi’s forest erb</td>
+                                        <td>$56.4 / Quantity 12</td>
+                                        <td>$55.4/ Quantity 11</td>
+                                        <td>
+                                            <div class="status-button pending">
+                                                Pending
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row m-0 p-0 gap-2"><select name="negotation-form"
+                                                    class="selectpicker button-green negotation-form ms-0 col-auto"
+                                                    data-container="body" title="reply">
+                                                    <option value="Accept">Accept</option>
+                                                    <option value="Decline">Decline</option>
+                                                    <option value="CounterOffer">Counter
+                                                        Offer</option>
+                                                    <option value="Cancel">Cancel</option>
+                                                </select>
+                                                <form action=""
+                                                    class="form-counter-offer col-auto p-0 m-0 visually-hidden">
+                                                    <input type="number" class="form-control default" id="price">
+                                                    <input type="number" class="form-control default" id="quantity">
+                                                    <a class="button-green rounded-pill  sell-table save-negotation-form"
+                                                        href="#" disabled>Save</a>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="treegrid-13 deactivated-drop" id="node-13">
+                                        <td>Mark ronson</td>
+                                        <td>14 Jan, 9:30am</td>
+                                        <td>Yosi’s forest erb</td>
+                                        <td>$56.4 / Quantity 12</td>
+                                        <td>$55.4/ Quantity 11</td>
+                                        <td>
+                                            <div class="status-button pending">
+                                                Pending
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="row m-0 p-0 gap-2"><select name="negotation-form"
+                                                    class="selectpicker button-green negotation-form ms-0 col-auto"
+                                                    data-container="body" title="reply">
+                                                    <option value="Accept">Accept</option>
+                                                    <option value="Decline">Decline</option>
+                                                    <option value="CounterOffer">Counter
+                                                        Offer</option>
+                                                    <option value="Cancel">Cancel</option>
+                                                </select>
+                                                <form action=""
+                                                    class="form-counter-offer col-auto p-0 m-0 visually-hidden">
+                                                    <input type="number" class="form-control default" id="price">
+                                                    <input type="number" class="form-control default" id="quantity">
+                                                    <a class="button-green rounded-pill  sell-table save-negotation-form"
+                                                        href="#" disabled>Save</a>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="treegrid-14 deactivated-drop" id="node-14">
                                         <td>Mark ronson</td>
                                         <td>14 Jan, 9:30am</td>
                                         <td>Yosi’s forest erb</td>
@@ -488,7 +674,8 @@
                         <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
                             href="#">Cancel</a>
 
-                        <a class="button-green rounded-pill ms-2 col" href="#">Verify Offer</a>
+                        <a class="button-green rounded-pill ms-2 col" href="#">Verify
+                            Offer</a>
                     </div>
                 </div>
             </div>
@@ -509,7 +696,8 @@
                     </div>
                     <div class="row col-12 p-0 m-0 mb-3">
                         <p class="text-left text-secondary fs-16 lh-base">
-                            Congratulations! You have successfully closed a deal. Before a final approval, please verify
+                            Congratulations! You have successfully closed a deal. Before
+                            a final approval, please verify
                             the details of your deal
                             below:<br>
                             <b> Certificate Name:</b> Yosi’s forest erb<br>
@@ -518,9 +706,11 @@
                         </p>
 
                         <p class="text-left text-secondary fs-16 lh-base mt-3">
-                            By clicking the "Verify Deal" button, you confirm that you have read and understand the
+                            By clicking the "Verify Deal" button, you confirm that you
+                            have read and understand the
                             terms and conditions of this
-                            deal and that you agree to abide by them. If you have any questions or concerns, please
+                            deal and that you agree to abide by them. If you have any
+                            questions or concerns, please
                             contact our customer support
                             team.
                         </p>
@@ -530,7 +720,8 @@
                         <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
                             href="#">Cancel</a>
 
-                        <a class="button-green rounded-pill ms-2 col" href="#">Verify Deal</a>
+                        <a class="button-green rounded-pill ms-2 col" href="#">Verify
+                            Deal</a>
                     </div>
                 </div>
             </div>
@@ -551,7 +742,8 @@
                     </div>
                     <div class="row col-12 p-0 m-0 mb-3">
                         <p class="text-left text-secondary fs-16 lh-base">
-                            You are about to send the buyer a Decline reply. The buyer will be notified of your
+                            You are about to send the buyer a Decline reply. The buyer
+                            will be notified of your
                             decision, and can optionally send
                             you a revised offer. Do You want to proceed?
                         </p>
@@ -561,7 +753,8 @@
                         <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
                             href="#">Cancel</a>
 
-                        <a class="button-green rounded-pill ms-2 col" href="#">Confirm Reply</a>
+                        <a class="button-green rounded-pill ms-2 col" href="#">Confirm
+                            Reply</a>
                     </div>
                 </div>
             </div>
@@ -582,9 +775,11 @@
                     </div>
                     <div class="row col-12 p-0 m-0 mb-3">
                         <p class="text-left text-secondary fs-16 lh-base">
-                            You are about to send the buyer a cancel sell reply. The buyer will be notified of your
+                            You are about to send the buyer a cancel sell reply. The
+                            buyer will be notified of your
                             decision and will not be able to
-                            proceed with this deal.The status of this product will be changed back to "Approved" for
+                            proceed with this deal.The status of this product will be
+                            changed back to "Approved" for
                             your next sell request. Would
                             you like to proceed?
                         </p>
@@ -594,7 +789,8 @@
                         <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
                             href="#">Cancel</a>
 
-                        <a class="button-green rounded-pill ms-2 col" href="#">Cancel Sell</a>
+                        <a class="button-green rounded-pill ms-2 col" href="#">Cancel
+                            Sell</a>
                     </div>
                 </div>
             </div>
@@ -613,11 +809,13 @@
                             data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="row col-12 p-0 m-0 mb-3">
-                        <p class="text-left text-secondary fs-16 lh-base">REWIND activities require you to validate your
+                        <p class="text-left text-secondary fs-16 lh-base">REWIND
+                            activities require you to validate your
                             phone
                             number
                             via the SMS message you receive during the registration
-                            process. Please press the "resend" button if you cannot find it.</p>
+                            process. Please press the "resend" button if you cannot find
+                            it.</p>
                     </div>
                     <div class="row col-12 m-0">
                         <a class="button-green rounded-pill w-100 button-send" href="#">Re-Send Validation SMS
@@ -663,7 +861,8 @@
                                 <span class="input-group-prepend col-auto">
                                     <button type="button" class="btn button-green btn-number" data-type="minus"
                                         data-field="QTY"><svg class="icon icon-Minus-Icon" width="24" height="24">
-                                            <use href="./img/icons.svg#icon-Minus-Icon"></use>
+                                            <use href="./img/icons.svg#icon-Minus-Icon">
+                                            </use>
                                         </svg>
                                     </button>
                                 </span>
@@ -673,7 +872,8 @@
                                     <button type="button" class="btn button-green btn-number" data-type="plus"
                                         data-field="QTY">
                                         <svg class="icon icon-Plus-Icon" width="24" height="24">
-                                            <use href="./img/icons.svg#icon-Plus-Icon"></use>
+                                            <use href="./img/icons.svg#icon-Plus-Icon">
+                                            </use>
                                         </svg>
                                     </button>
                                 </span>
@@ -683,9 +883,10 @@
                             <hr class="m-0">
                         </div>
                         <div class="col-12 d-flex justify-content-between mb-20">
-                            <div class="col-auto fs-16 d-flex justify-content-center align-items-center">Total:</div>
-                            <div class="col-auto fs-16 d-flex justify-content-center align-items-center">USD <span
-                                    class="ms-2 fw-bold fs-24">817.5</span></div>
+                            <div class="col-auto fs-16 d-flex justify-content-center align-items-center">
+                                Total:</div>
+                            <div class="col-auto fs-16 d-flex justify-content-center align-items-center">
+                                USD <span class="ms-2 fw-bold fs-24">817.5</span></div>
                         </div>
                         <div class="row col-12 m-0">
                             <a class="button-green rounded-pill w-100" href="#">Sell</a>
@@ -708,28 +909,33 @@
                             data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="row col-12 p-0 m-0 mb-3">
-                        <p class="text-left text-secondary fs-16 lh-base">You are about to log out of your account.<br>
+                        <p class="text-left text-secondary fs-16 lh-base">You are about
+                            to log out of your account.<br>
                             Are you sure you want to continue?</p>
                     </div>
                     <div class="row col-12 m-0">
                         <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
                             href="#">Cancel</a>
 
-                        <a class="button-green rounded-pill ms-2 col" href="#">Log Out</a>
+                        <a class="button-green rounded-pill ms-2 col" href="#">Log
+                            Out</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
     <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="./js/bootstrap/bootstrap-select.js"></script>
     <script type="text/javascript" src="./js/bootstrap/bootstrap-table.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-treegrid@0.3.0/js/jquery.treegrid.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.js"></script>
-
     <script type="text/javascript" src="./js/script.js"></script>
+
 </body>
 
 </html>

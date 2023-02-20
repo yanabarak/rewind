@@ -189,6 +189,11 @@
     color: #cdbe37;
   }
 
+  &.canceled {
+    background: rgba(147, 191, 217, 0.2);
+    color: #7395A9;
+  }
+
   &.approved {
     background: rgba(151, 234, 112, 0.2);
     color: #9bce89;
