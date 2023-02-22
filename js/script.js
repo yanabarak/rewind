@@ -32,7 +32,17 @@ if ($('table[data-tree-enable]').length) {
         32;
       $(this).attr('data-height', height);
     }
-    $(this).bootstrapTable().treegrid({ initialState: 'collapsed' });
+    $(this)
+      .bootstrapTable({
+        onScrollBody: function () {
+          if ($(this).find($('td .dropdown-toggle'))) {
+            $('td select + button.show').prev('select').selectpicker('toggle');
+          }
+        },
+      })
+      .treegrid({
+        initialState: 'collapsed',
+      });
 
     $(document)
       .off('click', '.treegrid-collapsed, .treegrid-expanded')
@@ -40,13 +50,16 @@ if ($('table[data-tree-enable]').length) {
         console.log($(e.target));
         if ($(e.target).prop('tagName') == 'TD') {
           $($(e.target).closest('tr')).find('.treegrid-expander').trigger('click');
-          console.log(1);
         }
       });
   });
 }
-
 jQuery(document).ready(function ($) {
+  $('table[data-toggle="table"]').on('scroll-body.bs.table', function () {
+    if ($(this).find($('td .dropdown-toggle'))) {
+      $('td select + button.show').prev('select').selectpicker('toggle');
+    }
+  });
   //switch off preloader
   function spinerOff() {
     $('#spinerWrap').addClass('d-none').removeClass('d-flex');
@@ -746,6 +759,7 @@ jQuery(document).ready(function ($) {
             }
             myModal.show();
           }
+          $(this).selectpicker('val', '');
         }
       });
   }
@@ -762,6 +776,7 @@ jQuery(document).ready(function ($) {
           var win = window.open($(this).find(`option:selected`).attr('data-href'), '_blank');
           win.focus();
         }
+        $(this).selectpicker('val', '');
       }
     });
 
@@ -779,6 +794,7 @@ jQuery(document).ready(function ($) {
           var win = window.open($(this).find(`option:selected`).attr('data-href'), '_blank');
           win.focus();
         }
+        $(this).selectpicker('val', '');
       }
     });
 
@@ -800,7 +816,6 @@ jQuery(document).ready(function ($) {
           );
       }
     });
-
   // init popover
   var popoverTriggerList = [].slice.call(document.querySelectorAll('.link-notifications'));
   var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
