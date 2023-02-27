@@ -1,0 +1,61 @@
+.table> :not(caption)>*>* {
+    padding: 0.5rem 0.5rem;
+    vertical-align: middle;
+}
+
+.table thead th {
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+    vertical-align: bottom;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table.striped-table th:first-child,
+.table.striped-table td:first-child {
+    padding-left: 24px;
+}
+
+.classic.striped-table.table.table-striped th,
+.classic.borders-table.table th {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    color: #b2b7ba;
+}
+
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable.no-footer,
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+    border-bottom: 0px;
+}
+
+.dataTables_wrapper {
+    padding: 0px !important;
+}
+
+.dataTables_wrapper>table {
+    width: 100% !important;
+}
+
+#DataTables_Table_0_length,
+#DataTables_Table_0_filter,
+#DataTables_Table_0_info,
+#DataTables_Table_0_paginate {
+    display: none
+}
+
+.dashboard-pagee .dataTables_wrapper .dataTables_length,
+.dashboard-pagee .dataTables_wrapper .dataTables_filter,
+.dashboard-pagee .dataTables_wrapper .dataTables_info,
+.dashboard-pagee .dataTables_wrapper .dataTables_processing,
+.dashboard-pagee .dataTables_wrapper .dataTables_paginate,
+.dashboard-page .dataTables_wrapper .dataTables_length,
+.dashboard-page .dataTables_wrapper .dataTables_filter,
+.dashboard-page .dataTables_wrapper .dataTables_info,
+.dashboard-page .dataTables_wrapper .dataTables_processing,
+.dashboard-page .dataTables_wrapper .dataTables_paginate {
+    display: none
+}

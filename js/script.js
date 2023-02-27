@@ -4,18 +4,26 @@ if ($('table[data-height]').length) {
       $(this).closest('.table-container').height() -
       $(this).closest('.table-container').find('.row').outerHeight(true) -
       32;
+    if (window.innerHeight < $(this).closest('.table-container').height()) {
+      height =
+        window.innerHeight -
+        $(this).closest('.table-container').find('.row').outerHeight(true) -
+        32;
+    }
+
     if ($(this).closest('.table-container').hasClass('pb-32')) {
       height = height - 130;
     }
     if ($(this).closest('.table-container').find('.search-wrap').length) {
-      height = height + 50;
+      height = height - 70;
+      console.log(height);
     }
     if (
       $(this).closest('.table-container').hasClass('border-left-before') &&
       window.innerWidth >= 1500
     ) {
       height = height + (window.innerWidth - 1500) * 0.35;
-    }
+    } else if ($(this).closest('.table-container').hasClass('border-left-before')) height = height - 100;
     if (height <= 0) {
       height = '';
     }
@@ -55,6 +63,17 @@ if ($('table[data-tree-enable]').length) {
   });
 }
 jQuery(document).ready(function ($) {
+  if ($('.table-datatable').length) {
+    if ($('.table-datatable').hasClass('table-fixed')) {
+      $('.table-fixed').DataTable({
+        scrollY: function () {
+          return `${$($(this).find('table')).attr('data-height')}px`;
+        },
+        deferRender: true,
+        scroller: true,
+      });
+    } else $('.table-datatable').DataTable();
+  }
   $('table[data-toggle="table"]').on('scroll-body.bs.table', function () {
     if ($(this).find($('td .dropdown-toggle'))) {
       $('td select + button.show').prev('select').selectpicker('toggle');
@@ -520,8 +539,9 @@ jQuery(document).ready(function ($) {
 
   // search in table from default input
   $('#table_search').keyup(function () {
-    $('.search-input').val($('#table_search').val());
-    var $search = $('.bootstrap-table').find('.search-input');
+    $('.dataTables_wrapper input[type="search"]').val($('#table_search').val());
+    var $search = $('.dataTables_wrapper').find('input[type="search"]');
+    console.log($search);
     var e = $.Event('keyup');
     $search.trigger(e);
   });

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
+    <!-- <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css"> -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body class="overflow-hidden dashboard-page">
+    <div class="d-flex justify-content-center position-fixed w-100 h-100 flex-column bg-white" id="spinerWrap"
+        style="z-index: 10000;">
+        <div class="spinner-border mx-auto sec-color" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+    </div>
+    <div class="container-fluid min-vh-100">
+        <div class="wrapper d-flex align-items-stretch flex-column flex-lg-row min-vh-100">
+
+            <div class="container-fluid  d-block d-lg-none p-2 sticky-top bg-white border-bottom">
+                <button class="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="animated-hamburger"><span></span><span></span><span></span></div>
+                </button>
+            </div>
+            <aside class="sticky-top d-lg-flex flex-column flex-shrink-0 text-white sidebar left asidebar minh-100">
+                <div class="logo-container text-center">
+                    <svg class="logo icon-logo-white col-auto p-0" width="103" height="72">
+                        <use href="./img/logo.svg#icon-logo"></use>
+                    </svg>
+                </div>
+                <ul class="navflex-column mb-auto list">
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link " aria-current="page">
+                            <svg class="icon icon-home me-2" width="16" height="16">
+                                <use href="./img/icons.svg#icon-home"></use>
+                            </svg>DashBoard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="icon icon-home me-2" width="16" height="16">
+                                <use href="./img/icons.svg#icon-buy"></use>
+                            </svg>Buy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="icon icon-home me-2" width="16" height="16">
+                                <use href="./img/icons.svg#icon-sell"></use>
+                            </svg>Sell
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="user-panel mb-0 mt-auto">
+                    <div class="image d-flex align-items-center me-4">
+                        <div class="box image rounded-circle">
+                            <img src="https://picsum.photos/640/360" alt="User Image">
+                        </div>
+                        <h6 class="text-left mb-0 long text-white d-flex col h-100">
+                            <div class="d-flex flex-column col-9">John Doe
+                                <a href="" class="text-white mt-2">View Profile</a>
+                            </div>
+                            <a href="#" data-bs-target="#logoutModal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                                class="text-white col-3 d-flex justify-content-center align-items-center">
+                                <svg width="24" height="24" class="icon icon-logout">
+                                    <use href="./img/icons.svg#icon-logout"></use>
+                                </svg>
+                            </a>
+
+                        </h6>
+                    </div>
+                </div>
+            </aside>
+
+
+            <main class="row w-100 m-0 gap-4">
+                <div class="row col-12 p-0 m-0">
+                    <div class="bg-white block-main row m-0">
+                        <div class="col-12 col-lg block-more-half">
+                            <div class="row col mb-24">
+                                <h6 class="fw-bold">Trending</h5>
+                            </div>
+                            <div class="row col d-flex align-items-end mb-70">
+                                <div class="col-auto d-flex align-items-center">
+                                    <svg class="icon icon-Forest-ERB me-3" width="48" height="48">
+                                        <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                    </svg>
+                                    <div class="info-main d-flex flex-column">
+                                        <span class="subtitle fw-bold">Forest - ARB</span>
+                                        <span class="main-info d-flex align-items-baseline">
+                                            <span class="price">$92.04</span>
+                                            <span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span>
+                                            <!-- <span class="statistic-price statistic-increase d-flex ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +0.38%</span> -->
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="ms-auto col-auto">
+                                    <div class="btn-group btn-row" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn active" data-days="14">2 Weeks</button>
+                                        <button type="button" class="btn" data-days="30">1 Month</button>
+                                        <button type="button" class="btn" data-days="180">6 Month</button>
+                                        <button type="button" class="btn" data-days="365">1 Year</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <canvas id="mainChart"></canvas>
+                        </div>
+                        <div class="col p-0 border-left-before pt-5 pb-32 table-container">
+                            <div class="row col mb-24 ms-4">
+                                <h6 class="fw-bold p-0">Index List</h5>
+                            </div>
+                            <table
+                                class="table-datatable classic striped-table add-height table table-striped table-borderless table-fixed align-table"
+                                data-height="100px">
+                                <thead>
+                                    <tr>
+                                        <th data-filter-control-placeholder="Name" data-field="Name">
+                                            Name</th>
+                                        <th data-filter-control-placeholder="Value" data-field="Value">
+                                            Value</th>
+                                        <th data-filter-control-placeholder="Change" data-field="Change">
+                                            Change (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                            </svg>Forest - ERB</td>
+                                        <td>$56.5</td>
+                                        <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                            </svg>Livestock - ERB</td>
+                                        <td>$65.3</td>
+                                        <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +2.05%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                            </svg>Mine Methane Capture - ARB</td>
+                                        <td>$56.5</td>
+                                        <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +1.05%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                height="32">
+                                                <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB"></use>
+                                            </svg>Ozone Delpleting Substances - ARB</td>
+                                        <td>$65.3</td>
+                                        <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                            </svg>Forest - ERB</td>
+                                        <td>$56.5</td>
+                                        <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                            </svg>Livestock - ERB</td>
+                                        <td>$65.3</td>
+                                        <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +2.05%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                            </svg>Mine Methane Capture - ARB</td>
+                                        <td>$56.5</td>
+                                        <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +1.05%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                height="32">
+                                                <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB"></use>
+                                            </svg>Ozone Delpleting Substances - ARB</td>
+                                        <td>$65.3</td>
+                                        <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                            </svg>Forest - ERB</td>
+                                        <td>$56.5</td>
+                                        <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                            </svg>Livestock - ERB</td>
+                                        <td>$65.3</td>
+                                        <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +2.05%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                            </svg>Mine Methane Capture - ARB</td>
+                                        <td>$56.5</td>
+                                        <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +1.05%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                height="32">
+                                                <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB"></use>
+                                            </svg>Ozone Delpleting Substances - ARB</td>
+                                        <td>$65.3</td>
+                                        <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                            </svg>Forest - ERB</td>
+                                        <td>$56.5</td>
+                                        <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                            </svg>Livestock - ERB</td>
+                                        <td>$65.3</td>
+                                        <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +2.05%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32" height="32">
+                                                <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                            </svg>Mine Methane Capture - ARB</td>
+                                        <td>$56.5</td>
+                                        <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                <svg class="icon icon-increase me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-increase"></use>
+                                                </svg> +1.05%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                height="32">
+                                                <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB"></use>
+                                            </svg>Ozone Delpleting Substances - ARB</td>
+                                        <td>$65.3</td>
+                                        <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-decrease"></use>
+                                                </svg> -0.38%</span></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-12 p-0 m-0 gap-4 mh-75vh">
+                    <div class="col gap-4 d-flex flex-column p-0 h-100">
+                        <div class="bg-white block-main row m-0 p-0 pt-5  table-container h-50">
+                            <div class="col-12 p-0">
+                                <div class="row col mb-24 ms-4">
+                                    <h6 class="fw-bold p-0">Index List</h5>
+                                </div>
+                                <table
+                                    class="table-datatable classic striped-table add-height table table-striped table-borderless table-fixed align-table"
+                                    data-height="100px">
+                                    <thead>
+                                        <tr>
+                                            <th data-filter-control-placeholder="Name" data-field="Name">
+                                                Name</th>
+                                            <th data-filter-control-placeholder="Value" data-field="Value">
+                                                Value</th>
+                                            <th data-filter-control-placeholder="Quantity" data-field="Quantity">
+                                                Quantity</th>
+                                            <th data-filter-control-placeholder="Date" data-field="Date">
+                                                Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td>10</td>
+                                            <td>01/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td>5</td>
+                                            <td>02/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td>40</td>
+                                            <td>08/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td>15</td>
+                                            <td>10/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td>10</td>
+                                            <td>01/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td>5</td>
+                                            <td>02/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td>40</td>
+                                            <td>08/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td>15</td>
+                                            <td>10/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td>10</td>
+                                            <td>01/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td>5</td>
+                                            <td>02/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td>40</td>
+                                            <td>08/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td>15</td>
+                                            <td>10/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td>10</td>
+                                            <td>01/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td>5</td>
+                                            <td>02/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td>40</td>
+                                            <td>08/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td>15</td>
+                                            <td>10/02/2022</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="bg-white block-main row m-0 p-0 pt-5  table-container h-50">
+                            <div class="col-12 p-0">
+                                <div class="row col mb-24 ms-4">
+                                    <h6 class="fw-bold p-0">Latest Sales</h5>
+                                </div>
+                                <table
+                                    class="table-datatable classic striped-table add-height table table-striped table-borderless table-fixed align-table"
+                                    data-height="100px">
+                                    <thead>
+                                        <tr>
+                                            <th data-filter-control-placeholder="Name" data-field="Name">
+                                                Name</th>
+                                            <th data-filter-control-placeholder="Value" data-field="Value">
+                                                Value</th>
+                                            <th data-filter-control-placeholder="Quantity" data-field="Quantity">
+                                                Quantity</th>
+                                            <th data-filter-control-placeholder="Date" data-field="Date">
+                                                Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td>10</td>
+                                            <td>01/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td>5</td>
+                                            <td>02/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td>40</td>
+                                            <td>08/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td>15</td>
+                                            <td>10/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td>10</td>
+                                            <td>01/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td>5</td>
+                                            <td>02/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td>40</td>
+                                            <td>08/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td>15</td>
+                                            <td>10/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td>10</td>
+                                            <td>01/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td>5</td>
+                                            <td>02/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td>40</td>
+                                            <td>08/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td>15</td>
+                                            <td>10/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td>10</td>
+                                            <td>01/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td>5</td>
+                                            <td>02/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td>40</td>
+                                            <td>08/02/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td>15</td>
+                                            <td>10/02/2022</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5 gap-4 d-flex flex-column p-0 h-100">
+                        <div class="bg-white block-main row m-0 p-0 pt-5  table-container h-100">
+                            <div class="col-12 p-0">
+                                <div class="row col mb-24 ms-4">
+                                    <h6 class="fw-bold p-0">Bids</h5>
+                                </div>
+                                <table
+                                    class="table-datatable classic striped-table add-height table table-striped table-borderless table-fixed align-table"
+                                    data-height="100px">
+                                    <thead>
+                                        <tr>
+                                            <th data-filter-control-placeholder="Name" data-field="Name">
+                                                Name</th>
+                                            <th data-filter-control-placeholder="Value" data-field="Value">
+                                                Value</th>
+                                            <th data-filter-control-placeholder="Change" data-field="Change">
+                                                Change (%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                    <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-decrease"></use>
+                                                    </svg> -0.38%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                    <svg class="icon icon-increase me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-increase"></use>
+                                                    </svg> +2.05%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                    <svg class="icon icon-increase me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-increase"></use>
+                                                    </svg> +1.05%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                    <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-decrease"></use>
+                                                    </svg> -0.38%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                    <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-decrease"></use>
+                                                    </svg> -0.38%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                    <svg class="icon icon-increase me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-increase"></use>
+                                                    </svg> +2.05%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                    <svg class="icon icon-increase me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-increase"></use>
+                                                    </svg> +1.05%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                    <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-decrease"></use>
+                                                    </svg> -0.38%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                    <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-decrease"></use>
+                                                    </svg> -0.38%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                    <svg class="icon icon-increase me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-increase"></use>
+                                                    </svg> +2.05%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                    <svg class="icon icon-increase me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-increase"></use>
+                                                    </svg> +1.05%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                    <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-decrease"></use>
+                                                    </svg> -0.38%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                                </svg>Forest - ERB</td>
+                                            <td>$56.5</td>
+                                            <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                    <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-decrease"></use>
+                                                    </svg> -0.38%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Livestock-ERB me-2" width="32" height="32">
+                                                    <use href="./img/icons.svg#icon-Livestock-ERB"></use>
+                                                </svg>Livestock - ERB</td>
+                                            <td>$65.3</td>
+                                            <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                    <svg class="icon icon-increase me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-increase"></use>
+                                                    </svg> +2.05%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Mine-Methane-Capture-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Mine-Methane-Capture-ARB"></use>
+                                                </svg>Mine Methane Capture - ARB</td>
+                                            <td>$56.5</td>
+                                            <td><span class="statistic-price statistic-increase d-flex  ms-1">
+                                                    <svg class="icon icon-increase me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-increase"></use>
+                                                    </svg> +1.05%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><svg class="icon icon-Ozone-Delpleting-Substances-ARB me-2" width="32"
+                                                    height="32">
+                                                    <use href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                    </use>
+                                                </svg>Ozone Delpleting Substances - ARB</td>
+                                            <td>$65.3</td>
+                                            <td><span class="statistic-price statistic-decrease d-flex  ms-1">
+                                                    <svg class="icon icon-decrease me-1" width="16" height="16">
+                                                        <use href="./img/icons.svg#icon-decrease"></use>
+                                                    </svg> -0.38%</span></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content p-4">
+                <div class="modal-body p-0 row">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-2">
+                            Log Out
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">You are about to log out of your account.<br>
+                            Are you sure you want to continue?</p>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
+                            href="#">Cancel</a>
+
+                        <a class="button-green rounded-pill ms-2 col" href="#">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap-select.js"></script>
+    <!-- <script type="text/javascript" src="./js/bootstrap/bootstrap-table.min.js"></script> -->
+    <script type="text/javascript" src="//cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.js"></script>
+
+    <script type="text/javascript" src="./js/script.js"></script>
+
+</body>
+
+</html>
