@@ -9,6 +9,9 @@ if ($('table[data-height]').length) {
         window.innerHeight -
         $(this).closest('.table-container').find('.row').outerHeight(true) -
         32;
+      if ($(this).hasClass('tree')) {
+        height = height - 130;
+      }
     }
 
     if ($(this).closest('.table-container').hasClass('pb-32')) {
@@ -16,7 +19,6 @@ if ($('table[data-height]').length) {
     }
     if ($(this).closest('.table-container').find('.search-wrap').length) {
       height = height - 70;
-      console.log(height);
     }
     if (
       $(this).closest('.table-container').hasClass('border-left-before') &&
@@ -27,6 +29,7 @@ if ($('table[data-height]').length) {
     if (height <= 0) {
       height = '';
     }
+
     $(this).attr('data-height', height);
   });
 }
@@ -55,7 +58,6 @@ if ($('table[data-tree-enable]').length) {
     $(document)
       .off('click', '.treegrid-collapsed, .treegrid-expanded')
       .on('click', '.treegrid-collapsed, .treegrid-expanded', function (e) {
-        console.log($(e.target));
         if ($(e.target).prop('tagName') == 'TD') {
           $($(e.target).closest('tr')).find('.treegrid-expander').trigger('click');
         }
@@ -69,6 +71,7 @@ jQuery(document).ready(function ($) {
         scrollY: function () {
           return `${$($(this).find('table')).attr('data-height')}px`;
         },
+        paging: false,
         deferRender: true,
         scroller: true,
       });
@@ -762,9 +765,6 @@ jQuery(document).ready(function ($) {
         if ($(this).prop('tagName') == 'SELECT') {
           if ($(this).val() == 'CounterOffer') {
             $($(this).closest('td')[0]).find('.form-counter-offer').removeClass('visually-hidden');
-            console.log(
-              $($(this).closest('td')[0]).find('.form-counter-offer').removeClass('visually-hidden')
-            );
           } else {
             $($(this).closest('td')[0]).find('.form-counter-offer').addClass('visually-hidden');
             var myModal;
