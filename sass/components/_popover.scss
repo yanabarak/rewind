@@ -55,3 +55,13 @@
     bottom: 0;
     z-index: 10000;
 }
+
+.alert.alert-dismissible {
+    position: fixed;
+    right: 10px !important;
+    display: block;
+    width: fit-content;
+    z-index: 10000;
+    top: 10px;
+    margin: 0px !important;
+}

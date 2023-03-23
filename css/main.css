@@ -1667,6 +1667,17 @@ nav:has(.status-button) {
   z-index: 10000;
 }
 
+.alert.alert-dismissible {
+  position: fixed;
+  right: 10px !important;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 10000;
+  top: 10px;
+  margin: 0px !important;
+}
+
 body.sign-up-page,
 body.login-page {
   position: relative;
@@ -1728,6 +1739,10 @@ body.login-page .right-content {
     box-shadow: unset;
     margin: 0px;
   }
+}
+body.sign-up-page .modal-content,
+body.login-page .modal-content {
+  padding: 0px !important;
 }
 
 .sign-up-block,
@@ -1905,6 +1920,14 @@ body.login-page .right-content {
   font-size: 14px;
   line-height: 19px;
   color: #000000;
+}
+
+.signup .col.w-50.row {
+  align-content: flex-start;
+}
+
+.jetstream-modal .bg-gray-100.text-right {
+  padding: 0px !important;
 }
 
 main {
