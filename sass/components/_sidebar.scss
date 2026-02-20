@@ -98,6 +98,10 @@ aside.asidebar {
 
         a {
           color: var(--bs-body-color);
+
+          img.icon {
+            filter: invert(1);
+          }
         }
       }
     }
@@ -110,6 +114,10 @@ aside.asidebar {
       display: flex;
       align-items: center;
       width: 100%;
+
+      img.icon {
+        display: block;
+      }
 
       svg {
         fill: currentColor;

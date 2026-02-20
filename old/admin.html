@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
+    <!-- <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css"> -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="./css/main_new.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+
+<body class="overflow-hidden dashboard-page">
+    <div class="justify-content-center position-fixed w-100 h-100 flex-column bg-white d-none" id="spinerWrap"
+        style="z-index: 10000;">
+        <div class="spinner-border mx-auto sec-color" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+    </div>
+
+    <div class="container-fluid min-vh-100">
+        <div class="wrapper d-flex align-items-stretch flex-column flex-lg-row min-vh-100">
+            <div class="container-fluid  d-block d-lg-none p-2 sticky-top bg-white border-bottom">
+                <button class="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="animated-hamburger"><span></span><span></span><span></span></div>
+                </button>
+            </div>
+            <aside class="sticky-top d-lg-flex flex-column flex-shrink-0 text-white sidebar left asidebar minh-100"
+                id="">
+                <div wire:id="NCkpDUiCdmBHo9rNCH3u">
+                    <div class="logo-container text-center">
+                        <img src="./img/logo_white.png" class="logo icon-logo-green col-auto p-0" alt="Logo">
+                    </div>
+                    <ul class="navflex-column mb-auto list">
+                        <li class="nav-item   active ">
+                            <a href="./dashboard" class="nav-link " aria-current="page">
+                                <svg class="icon icon-home me-2" width="17" height="17">
+                                    <use href="./img/icons.svg#icon-home"></use>
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="./buy" class="nav-link">
+                                <svg class="icon icon-home me-2" width="17" height="17">
+                                    <use href="./img/icons.svg#icon-buy"></use>
+                                </svg>
+                                Buy
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="./sell" class="nav-link">
+                                <svg class="icon icon-home me-2" width="17" height="17">
+                                    <use href="./img/icons.svg#icon-sell"></use>
+                                </svg>
+                                Sell
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="./negotiation" class="nav-link">
+                                <img src="./img/icon-negotation.svg" alt="" width="18" height="18"
+                                    class="icon me-2">Offers
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="./my-portfolio" class="nav-link">
+                                <svg class="icon icon-home me-2" width="16" height="16">
+                                    <use href="./img/icons.svg#icon-portfolio"></use>
+                                </svg>
+                                My PortFolio
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="navflex-column ms-auto list bottom-list">
+                        <li class="nav-item ">
+                            <a type="button" class="nav-link link-notifications" aria-current="page"
+                                wire:click="$emit('openNotificationModal')" data-bs-container="body"
+                                data-bs-placement="right" data-bs-content="Right popover">
+                                <svg class="icon icon-bell-outline me-2" width="16" height="16">
+                                    <use href="./img/icons.svg#icon-bell-outline"></use>
+                                </svg>
+                                Notifications
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                    <div class="user-panel mb-0 mt-auto">
+                        <div class="image d-flex align-items-center me-4">
+                            <div class="box image rounded-circle">
+                                <img src="./storage/images/NGncHKNqYD.jpg" alt="Jalpa">
+
+                            </div>
+                            <h6 class="text-left mb-0 long text-white d-flex col h-100">
+                                <div class="d-flex flex-column col-9">Jalpa
+                                    <a href="./profile" class="text-white mt-2">View Profile</a>
+                                </div>
+                                <a href="javascript:void(0);" wire:click.prevent="$emit('openCloseLogoutModal')"
+                                    class="text-white col-3 d-flex justify-content-center align-items-center"
+                                    title="logout">
+                                    <svg width="24" height="24" class="icon icon-logout">
+                                        <use href="./img/icons.svg#icon-logout"></use>
+                                    </svg>
+                                </a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Livewire Component wire-end:NCkpDUiCdmBHo9rNCH3u -->
+            </aside>
+
+            <main class="row w-100 m-0 gap-4" id="content">
+                <div wire:id="gvIEtO5GYT6nwTZgZKOy" class="flashContent">
+
+                </div>
+
+                <!-- Livewire Component wire-end:gvIEtO5GYT6nwTZgZKOy -->
+                <div wire:id="nJQcnVEvDdlezJRyUnxp">
+                    <div class="row w-100 m-0 gap-4">
+                        <div class="row col-12 p-0 m-0 gap-4 mh-vw-50">
+                            <div class="col gap-4 d-flex flex-column p-0 h-100">
+                                <div wire:id="M3Uk7h9ZkwWjWgXvjiIA"
+                                    class="bg-white block-main row m-0 p-0 pt-3 table-container pb-5 h-100">
+                                    <div class="col-12 p-0">
+                                        <div class="row col mb-24 ms-4">
+                                            <h6 class="fw-bold p-0">Index List</h6>
+                                        </div>
+                                        <div class="half-table-container mh-100">
+                                            <div class="col-12 p-0 row m-0 table-responsive ">
+                                                <table
+                                                    class="classic striped-table add-height table table-striped table-borderless table-fixed align-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-filter-control-placeholder="Type" data-field="Type"
+                                                                class="w-25" data-width-unit="%">
+                                                                Type
+                                                            </th>
+                                                            <th data-filter-control-placeholder="Name" data-field="Name"
+                                                                class="w-20">
+                                                                Name
+                                                            </th>
+                                                            <th data-filter-control-placeholder="Country"
+                                                                data-field="Country" class="w-20">
+                                                                Country
+                                                            </th>
+                                                            <th data-filter-control-placeholder="Quantity"
+                                                                data-field="Quantity" class="w-10">
+                                                                Quantity
+                                                            </th>
+                                                            <th data-filter-control-placeholder="Ask Price"
+                                                                data-field="price_per_unit" class="w-10">
+                                                                Ask Price
+                                                            </th>
+                                                            <th data-filter-control-placeholder="Buttons"
+                                                                data-field="Buttons" class="w-20">
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="0">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/1"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Ozone Depleting Substances-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Test project</td>
+                                                            <td>Albania</td>
+                                                            <td>5</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $2.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(1)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/1"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('1')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="1">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/4"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Ozone Depleting Substances-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Test project</td>
+                                                            <td>Albania</td>
+                                                            <td>3</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $0.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(4)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/4"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('4')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="2">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/5"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Livestock-ERB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Livestock-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Habiba</td>
+                                                            <td>Afghanistan</td>
+                                                            <td>100</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $150.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(5)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/5"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('5')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="3">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/6"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Livestock-ERB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Livestock-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Habiba</td>
+                                                            <td>Afghanistan</td>
+                                                            <td>1899</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $100.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(6)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/6"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('6')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="4">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/7"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Mine-Methane-Capture-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Mine Methane Capture-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Check</td>
+                                                            <td>Algeria</td>
+                                                            <td>30</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $2.61
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(7)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/7"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('7')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="5">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/8"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Mine-Methane-Capture-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Mine Methane Capture-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Check</td>
+                                                            <td>Algeria</td>
+                                                            <td>12</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $3.82
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(8)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/8"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('8')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="6">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/9"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Mine-Methane-Capture-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Mine Methane Capture-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Check</td>
+                                                            <td>Algeria</td>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $2.61
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(9)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/9"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('9')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="7">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/10"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Mine-Methane-Capture-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Mine Methane Capture-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Check</td>
+                                                            <td>Algeria</td>
+                                                            <td>1</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $2.61
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(10)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/10"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('10')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="8">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/11"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Mine-Methane-Capture-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Mine Methane Capture-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Check</td>
+                                                            <td>Algeria</td>
+                                                            <td>1</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $2.61
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(11)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/11"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('11')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="9">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/12"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Mine-Methane-Capture-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Mine Methane Capture-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Check</td>
+                                                            <td>Algeria</td>
+                                                            <td>1</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $3.82
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(12)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/12"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('12')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="10">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/13"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Mine-Methane-Capture-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Mine Methane Capture-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Check</td>
+                                                            <td>Algeria</td>
+                                                            <td>1</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $3.82
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(13)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/13"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('13')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="11">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/14"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Livestock-ERB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Livestock-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Habiba</td>
+                                                            <td>Afghanistan</td>
+                                                            <td>7700</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $100.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(14)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/14"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('14')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="12">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/15"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Livestock-ERB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Livestock-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Habiba</td>
+                                                            <td>Afghanistan</td>
+                                                            <td>186</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $100.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(15)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/15"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('15')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="13">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/18"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Livestock-ERB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Livestock-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Habiba</td>
+                                                            <td>Afghanistan</td>
+                                                            <td>300</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $100.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(18)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/18"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('18')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="14">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/19"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Livestock-ERB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Livestock-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Habiba</td>
+                                                            <td>Afghanistan</td>
+                                                            <td>7</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $100.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(19)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/19"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('19')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="15">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/20"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Mine-Methane-Capture-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Mine Methane Capture-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Project Check</td>
+                                                            <td>Algeria</td>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $3.82
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(20)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/20"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('20')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="16">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/21"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Ozone Depleting Substances-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Test project</td>
+                                                            <td>Albania</td>
+                                                            <td>2</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $3.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(21)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/21"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('21')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even:bg-white odd:bg-gray-50" wire:key="17">
+                                                            <td x-data="{}">
+                                                                <a href="./buy/certificate/22"
+                                                                    class="text-decoration-none text-black">
+                                                                    <div class="d-flex">
+                                                                        <svg class="icon icon-Forest-ERB me-2"
+                                                                            width="32" height="32">
+                                                                            <use
+                                                                                href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                                            </use>
+                                                                        </svg>
+                                                                        Ozone Depleting Substances-ARB
+                                                                    </div>
+                                                                </a>
+                                                            </td>
+                                                            <td>Test project</td>
+                                                            <td>Albania</td>
+                                                            <td>1</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <span
+                                                                        class="d-flex flex-column align-items-end justify-content-space-between">
+                                                                        <span class="price fw-bold">
+                                                                            $5.00
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td x-data="{}">
+                                                                <div class="flex">
+                                                                    <a href="javascript:void(0);"
+                                                                        wire:click="openModal(22)"
+                                                                        class="button-green buy-table me-2 buy-certitficate"
+                                                                        type="button" :disabled="false">
+                                                                        Buy
+                                                                    </a>
+                                                                    <a href="./buy/certificate/22"
+                                                                        class="button-secondary buy-table me-2"
+                                                                        type="button">
+                                                                        View
+                                                                    </a>
+                                                                    <div
+                                                                        class="dropdown button-grey dropdown-grey mx-2 col-auto">
+                                                                        <button
+                                                                            class="btn dropdown-toggle bs-placeholder btn-light show"
+                                                                            type="button" id="genderDropdown"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-haspopup="true" aria-expanded="false">
+                                                                        </button>
+                                                                        <div class="dropdown-menu"
+                                                                            aria-labelledby="genderDropdown">
+                                                                            <a class="dropdown-item cursor-pointer"
+                                                                                wire:click="openPriceAlertModal('22')">Set
+                                                                                Price Alert</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Livewire Component wire-end:M3Uk7h9ZkwWjWgXvjiIA -->
+                            </div>
+                        </div>
+
+                        <div class="dashboard-sm d-block d-sm-none p-0">
+                            <div class="col row pe-0">
+                                <ul class="nav basic-style row mx-0 p-0 mb-30 mw-1000 d-flex align-items-end"
+                                    id="trendingTabs" role="tablist">
+                                    <li class="nav-item col-auto text-center p-0" role="presentation">
+                                        <a class="nav-link active  fs-12" id="trending-tab" data-bs-toggle="tab"
+                                            data-bs-target="#trending" type="button" role="tab" aria-controls="trending"
+                                            aria-selected="true">Trending</a>
+                                    </li>
+                                    <li class="nav-item col text-center p-0" role="presentation">
+                                        <a class="nav-link fs-12" id="purchases-tab" data-bs-toggle="tab"
+                                            data-bs-target="#purchases" type="button" role="tab"
+                                            aria-controls="purchases" aria-selected="false" tabindex="-1">Latest
+                                            Purchases</a>
+                                    </li>
+                                    <li class="nav-item col text-center p-0" role="presentation">
+                                        <a class="nav-link fs-12" id="sales-tab" data-bs-toggle="tab"
+                                            data-bs-target="#sales" type="button" role="tab" aria-controls="sales"
+                                            aria-selected="false" tabindex="-1">Latest Sales</a>
+                                    </li>
+                                    <li class="nav-item col-2 text-center p-0" role="presentation">
+                                        <a class="nav-link fs-12" id="bids-tab" data-bs-toggle="tab"
+                                            data-bs-target="#bids" type="button" role="tab" aria-controls="bids"
+                                            aria-selected="false" tabindex="-1">Bids</a>
+                                    </li>
+                                </ul>
+                                <div id="trendingTabsContent" class="tab-content mb-24 pe-0">
+                                    <div class="tab-pane fade show active row" id="trending" role="tabpanel"
+                                        aria-labelledby="trending-tab">
+                                        some info
+                                    </div>
+                                    <div class="tab-pane fade row" id="purchases" role="tabpanel"
+                                        aria-labelledby="purchases-tab">
+                                        info 2
+                                    </div>
+                                    <div class="tab-pane fade row" id="sales" role="tabpanel"
+                                        aria-labelledby="sales-tab">
+                                        info 3
+                                    </div>
+                                    <div class="tab-pane fade row" id="bids" role="tabpanel" aria-labelledby="bids-tab">
+                                        info 4
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-12 p-0 m-0 gap-4 mh-75vh">
+                            <div class="col gap-4 d-flex flex-column p-0 h-100">
+                                <div wire:id="YWcyko6fbcWoRmC08Izu"
+                                    class="bg-white block-main row m-0 p-0 pt-3 table-container h-50">
+                                    <div class="col-12 p-0">
+
+                                        <div class="row col mb-24 ms-4">
+                                            <h6 class="fw-bold p-0">Recent Purchases</h6>
+                                        </div>
+                                        <div class="half-table-container">
+                                            <div class="col-12 p-0 row m-0 table-responsive ">
+                                                <table
+                                                    class="classic striped-table add-height table table-striped table-borderless table-fixed align-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-filter-control-placeholder="Name" data-field="Name"
+                                                                style="width: 200px"> Name</th>
+                                                            <th data-filter-control-placeholder="Value"
+                                                                data-field="Value">
+                                                                Value</th>
+                                                            <th data-filter-control-placeholder="Quantity"
+                                                                data-field="Quantity"> Quantity</th>
+                                                            <th data-filter-control-placeholder="Date"
+                                                                data-field="Date">
+                                                                Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="even:bg-white odd:bg-gray-50">
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <svg class="icon icon-Forest-ERB me-2" width="32"
+                                                                        height="32">
+                                                                        <use href="./img/icons.svg#icon-Livestock-ERB">
+                                                                        </use>
+                                                                    </svg>
+                                                                    Livestock-ARB
+                                                                </div>
+                                                            </td>
+                                                            <td>$100.00</td>
+                                                            <td>1</td>
+                                                            <td>09/08/2023</td>
+                                                        </tr>
+
+
+                                                        <tr class="even:bg-white odd:bg-gray-50">
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <svg class="icon icon-Forest-ERB me-2" width="32"
+                                                                        height="32">
+                                                                        <use href="./img/icons.svg#icon-Livestock-ERB">
+                                                                        </use>
+                                                                    </svg>
+                                                                    Livestock-ARB
+                                                                </div>
+                                                            </td>
+                                                            <td>$100.00</td>
+                                                            <td>1</td>
+                                                            <td>09/08/2023</td>
+                                                        </tr>
+
+
+                                                        <tr class="even:bg-white odd:bg-gray-50">
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <svg class="icon icon-Forest-ERB me-2" width="32"
+                                                                        height="32">
+                                                                        <use href="./img/icons.svg#icon-Livestock-ERB">
+                                                                        </use>
+                                                                    </svg>
+                                                                    Livestock-ARB
+                                                                </div>
+                                                            </td>
+                                                            <td>$100.00</td>
+                                                            <td>1</td>
+                                                            <td>09/08/2023</td>
+                                                        </tr>
+
+
+                                                        <tr class="even:bg-white odd:bg-gray-50">
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <svg class="icon icon-Forest-ERB me-2" width="32"
+                                                                        height="32">
+                                                                        <use href="./img/icons.svg#icon-Livestock-ERB">
+                                                                        </use>
+                                                                    </svg>
+                                                                    Livestock-ARB
+                                                                </div>
+                                                            </td>
+                                                            <td>$100.00</td>
+                                                            <td>5</td>
+                                                            <td>09/08/2023</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Livewire Component wire-end:YWcyko6fbcWoRmC08Izu -->
+                                <div wire:id="wZRYLBsfXs9kwzeHCKTW"
+                                    class="bg-white block-main row m-0 p-0 pt-3  table-container h-50 empty-dash">
+                                    <div class="col-12 p-0">
+                                        <div class="row col flex-column justify-content-center align-items-center">
+                                            <h6 class="fw-bold mb-2 maxw-210">Recent Sales</h6>
+                                            <p class="mb-2 text-black-50 maxw-200">There are no recent sales
+                                                yet to present..</p>
+                                            <a class="btn button-green mx-auto" href="./sell">Start
+                                                selling certificates</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Livewire Component wire-end:wZRYLBsfXs9kwzeHCKTW -->
+                            </div>
+
+                            <div class="col-12 col-lg-5 gap-4 d-flex flex-column p-0 h-100">
+                                <div wire:id="sYwjRlnbKifmklka7qPb"
+                                    class="bg-white block-main row m-0 p-0 pt-3  table-container h-100">
+                                    <div class="col-12 p-0">
+                                        <div class="row col mb-24 ms-4">
+                                            <h6 class="fw-bold p-0">Bids</h6>
+                                        </div>
+                                        <div class="col-12 p-0 row m-0 table-responsive ">
+                                            <table
+                                                class="classic striped-table add-height table table-striped table-borderless table-fixed align-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th data-filter-control-placeholder="Name" data-field="Name"
+                                                            style="width: 200px">Name</th>
+                                                        <th data-filter-control-placeholder="Value" data-field="Value">
+                                                            Value
+                                                        </th>
+                                                        <th data-filter-control-placeholder="BidPrice"
+                                                            data-field="Value">
+                                                            Bid Price</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="even:bg-white odd:bg-gray-50">
+                                                        <td x-data="{}">
+                                                            <div class="d-flex">
+                                                                <svg class="icon icon-Forest-ERB me-2 float-left"
+                                                                    width="32" height="32">
+                                                                    <use href="./img/icons.svg#icon-Livestock-ERB">
+                                                                    </use>
+                                                                </svg>
+
+                                                                Livestock-ARB
+                                                            </div>
+                                                        </td>
+                                                        <td>$95.00</td>
+                                                        <td>$665.00</td>
+
+                                                    </tr>
+                                                    <tr class="even:bg-white odd:bg-gray-50">
+                                                        <td x-data="{}">
+                                                            <div class="d-flex">
+                                                                <svg class="icon icon-Forest-ERB me-2 float-left"
+                                                                    width="32" height="32">
+                                                                    <use
+                                                                        href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                                    </use>
+                                                                </svg>
+
+                                                                Ozone Depleting Substances-ARB
+                                                            </div>
+                                                        </td>
+                                                        <td>$5.00</td>
+                                                        <td>$5.00</td>
+
+                                                    </tr>
+                                                    <tr class="even:bg-white odd:bg-gray-50">
+                                                        <td x-data="{}">
+                                                            <div class="d-flex">
+                                                                <svg class="icon icon-Forest-ERB me-2 float-left"
+                                                                    width="32" height="32">
+                                                                    <use
+                                                                        href="./img/icons.svg#icon-Ozone-Delpleting-Substances-ARB">
+                                                                    </use>
+                                                                </svg>
+
+                                                                Ozone Depleting Substances-ARB
+                                                            </div>
+                                                        </td>
+                                                        <td>$5.00</td>
+                                                        <td>$5.00</td>
+
+                                                    </tr>
+                                                    <tr class="even:bg-white odd:bg-gray-50">
+                                                        <td x-data="{}">
+                                                            <div class="d-flex">
+                                                                <svg class="icon icon-Forest-ERB me-2 float-left"
+                                                                    width="32" height="32">
+                                                                    <use href="./img/icons.svg#icon-Livestock-ERB">
+                                                                    </use>
+                                                                </svg>
+
+                                                                Livestock-ARB
+                                                            </div>
+                                                        </td>
+                                                        <td>$90.25</td>
+                                                        <td>$451.00</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div id="table_pagination" class="mt-4 pt-3">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Livewire Component wire-end:sYwjRlnbKifmklka7qPb -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Livewire Component wire-end:nJQcnVEvDdlezJRyUnxp -->
+            </main>
+            <div wire:id="aN7aYWPnCkqS3fWwp5N3">
+                <!-- x-on:keydown.escape.window="show = false" -->
+                <style>
+                    @media only screen and (max-width: 992px) {
+                        .pop-modal {
+                            transform: none !important;
+                            min-width: 100vw !important;
+                            left: 0px;
+                        }
+                    }
+
+                    .pop-modal {
+                        top: 0px !important;
+                        bottom: 0px !important;
+                        left: 20px !important;
+                        border-radius: 16px;
+                        border: 0px solid;
+                        min-width: 600px;
+                        z-index: 100000;
+                        position: absolute !important;
+                        inset: 0px auto auto 0px;
+                        margin: 0px;
+                        transform: translate(198px, 0px);
+                    }
+
+                    .jetstream-modal .popover-arrow {
+                        display: block;
+                        width: 1rem;
+                        height: .5rem;
+                        position: absolute;
+                        top: calc(100vh - 140px);
+                        left: 209px;
+
+                    }
+
+                    .jetstream-modal .popover-arrow:before,
+                    .jetstream-modal .popover-arrow:after {
+                        position: absolute;
+                        display: block;
+                        content: "";
+                        border-color: transparent;
+                        border-style: solid;
+                        border-width: 0;
+                    }
+
+                    .jetstream-modal>.popover-arrow:before {
+                        left: 0;
+                        border-right-color: rgba(0, 0, 0, .175);
+                    }
+
+                    .jetstream-modal>.popover-arrow:before,
+                    .jetstream-modal>.popover-arrow:after {
+                        border-width: calc(1rem * .5) .5rem calc(1rem * .5) 0;
+                    }
+
+                    .jetstream-modal>.popover-arrow:after {
+                        left: 1px;
+                        border-right-color: #fff;
+                    }
+
+                    .pop-modal .scrollable-content {
+                        overflow: auto;
+                        max-height: calc(100vh - 100px);
+                    }
+
+                    .pop-modal .day {
+                        margin-bottom: 24px;
+                    }
+
+                    .pop-modal .date {
+                        font-weight: 700;
+                        font-size: 16px;
+                        margin-bottom: 8px;
+                        color: #000;
+                    }
+
+                    .pop-modal .info {
+                        font-weight: 200;
+                        font-size: 14px;
+                        line-height: 35px;
+                        color: #000;
+                    }
+
+                    @media (max-width: 989px) {
+                        .pop-modal {
+                            left: 0px !important;
+                            top: 37px !important;
+                        }
+
+                        .jetstream-modal .popover-arrow {
+                            display: none;
+                        }
+                    }
+                </style>
+                <div x-data="{ show: window.Livewire.find('aN7aYWPnCkqS3fWwp5N3').entangle('showModal').defer }"
+                    x-on:close.stop="show = false" x-show="show" id="3423a5db4347ebcddb7b60db0c93b0a4"
+                    class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50 pop-modal-1"
+                    style="display: none;">
+
+
+                    <!-- x-on:click="show = false" -->
+                    <div x-show="show" class="fixed inset-0 transform transition-all"
+                        x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
+                        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                        style="display: none;">
+                        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                    </div>
+                    <div class="popover-arrow opacity-100" style=""></div>
+                    <div x-show="show"
+                        class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-2xl sm:mx-auto pop-modal"
+                        x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
+                        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                        x-transition:leave="ease-in duration-200"
+                        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 "
+                        style="display: none;">
+
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content p-4">
+                                <div class="modal-body p-0 row">
+                                    <div class="row col-12 p-0 m-0">
+                                        <h5 class="black-color col fw-bold mb-4">
+                                            Notifications center
+                                            <button type="button"
+                                                class="btn-close opacity-1 float-right align-top align-self-start ms-auto col-auto me-2"
+                                                wire:click.prevent="closeNotificationModal()"
+                                                aria-label="Close"></button>
+                                        </h5>
+                                    </div>
+                                    <div class="row col-12 p-0 m-0 mb-3 scrollable-content">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Livewire Component wire-end:aN7aYWPnCkqS3fWwp5N3 -->
+        </div>
+    </div>
+
+    <div wire:id="fjIF7evMpVUTNrFNvcSE">
+        <!-- x-on:keydown.escape.window="show = false" -->
+        <div x-data="{ show: window.Livewire.find('fjIF7evMpVUTNrFNvcSE').entangle('showModal').defer }"
+            x-on:close.stop="show = false" x-show="show" id="3423a5db4347ebcddb7b60db0c93b0a4"
+            class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" style="display: none;">
+            <!-- x-on:click="show = false" -->
+            <div x-show="show" class="fixed inset-0 transform transition-all" x-transition:enter="ease-out duration-300"
+                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0" style="display: none;">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+
+            <div x-show="show"
+                class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-2xl sm:mx-auto"
+                x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave="ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" style="display: none;">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content  p-32">
+                        <div class="modal-body p-0 row">
+                            <div class="row col-12 p-0 m-0">
+                                <h5 class="black-color col fw-bold mb-20">
+                                    <svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                        <use href="./img/icons.svg#"></use>
+                                    </svg>
+
+                                </h5>
+                                <button wire:click.prevent="closeModal" type="button"
+                                    class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"></button>
+                                <div class="col-12 d-flex align-items-baseline mb-20">
+                                    <h5 class="price fw-bold me-3">$0.00</h5>
+                                </div>
+                            </div>
+                            <div class="row col-12 mx-0 black-10 mb-24">
+                                <hr class="m-0">
+                            </div>
+                            <form class="row col-12 p-0 m-0">
+                                <div class="col-12">
+                                    <ul class="nav basic-style row mx-0 mb-30" id="buyModalTabs" role="tablist">
+                                        <li class="nav-item col text-center p-0" role="presentation">
+                                            <a class="nav-link active" href="#"
+                                                wire:click.prevent="changeTab('buy')">Buy</a>
+                                        </li>
+                                        <li class="nav-item col text-center p-0" role="presentation">
+                                            <a class="nav-link " href="#" role="tab"
+                                                wire:click.prevent="changeTab('bid')">Place Bid</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content mb-24" id="buyModalTabsContent">
+                                        <div class="tab-pane fade  active show row" id="buy" role="tabpanel"
+                                            aria-labelledby="buy-tab">
+                                            <div class="col-12 row align-items-center  d-flex pe-0">
+                                                <div class="col-3"><label for="QTY" class="fs-16">Quantity</label>
+                                                </div>
+                                                <div class="col-6 d-flex">
+                                                    <span class="input-group-prepend col-auto">
+                                                        <button type="button" class="btn button-green btn-number 0"
+                                                            wire:click.prevent="decrease" :disabled="true"
+                                                            disabled="disabled"><svg class="icon icon-Minus-Icon"
+                                                                width="24" height="24">
+                                                                <use href="./img/icons.svg#icon-Minus-Icon">
+                                                                </use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                    <input type="number" wire:model="units"
+                                                        class="form-control default mx-2 w-50 text-center fw-bold"
+                                                        name="QTY" id="QTY" min="1" max="100" value="75"
+                                                        wire:input.prevent.debounce.1000ms="changeUnits">
+                                                    <span class="input-group-append col-auto">
+                                                        <button type="button" class="btn button-green btn-number"
+                                                            wire:click.prevent="increase" :disabled="true"
+                                                            disabled="disabled">
+                                                            <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                                                <use href="./img/icons.svg#icon-Plus-Icon">
+                                                                </use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                                <!-- <div class="col-12 col-md-3 pt-2 pt-md-0 pe-0">
+                                            <a class="button-secondary rounded-pill w-100" href="#"
+                                            wire:click.prevent="switchShowData">
+                                                <svg
+                                                    class="icon icon-Repeat me-2" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-Repeat"></use>
+                                                </svg> Cost</a>
+                                        </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade row " id="bid" role="tabpanel"
+                                            aria-labelledby="bid-tab">
+                                            <div class="col-12 row align-items-center mb-24 d-flex pe-0">
+                                                <div class="col-3"><label for="Rate" class="fs-16">Rate</label>
+                                                </div>
+
+                                                <div
+                                                    class="col-9 justify-content-end justify-content-md-start col-md-6 pe-0 pe-md-2 d-flex">
+                                                    <span class="input-group-prepend col-auto">
+                                                        <button wire:click.prevent="decreaseRate" type="button"
+                                                            class="btn button-green btn-number"><svg
+                                                                class="icon icon-Minus-Icon" width="24" height="24"
+                                                                :disabled="true" disabled="disabled">
+                                                                <use href="./img/icons.svg#icon-Minus-Icon">
+                                                                </use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                    <input type="number" wire:model="rate"
+                                                        class="form-control default mx-2 w-50 text-center fw-bold"
+                                                        name="Rate" id="Rate" min="0" max="100" value="75"
+                                                        wire:input.prevent.debounce.1000ms="changeBidRate">
+                                                    <span class="input-group-append col-auto">
+                                                        <button wire:click.prevent="increaseRate" type="button"
+                                                            class="btn button-green btn-number" :disabled="true"
+                                                            disabled="disabled">
+                                                            <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                                                <use href="./img/icons.svg#icon-Plus-Icon">
+                                                                </use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 row align-items-center mb-24 d-flex pe-0">
+                                                <div class="col-3"><label for="qty" class="fs-16">Quantity</label>
+                                                </div>
+                                                <div class="col-6 d-flex">
+                                                    <span class="input-group-prepend col-auto">
+                                                        <button wire:click.prevent="decreaseBidUnit" type="button"
+                                                            class="btn button-green btn-number" :disabled="true"
+                                                            disabled="disabled"><svg class="icon icon-Minus-Icon"
+                                                                width="24" height="24">
+                                                                <use href="./img/icons.svg#icon-Minus-Icon">
+                                                                </use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                    <input type="number" wire:model="bid_units"
+                                                        class="form-control default mx-2 w-50 text-center fw-bold"
+                                                        name="qty" id="qty" min="0" max="100" value="75"
+                                                        wire:input.prevent.debounce.1000ms="setBidUnit">
+                                                    <span class="input-group-append col-auto">
+                                                        <button wire:click.prevent="increaseBidUnit" type="button"
+                                                            class="btn button-green btn-number" :disabled="true"
+                                                            disabled="disabled">
+                                                            <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                                                <use href="./img/icons.svg#icon-Plus-Icon">
+                                                                </use>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- <div class="col-12 row align-items-center  d-flex pe-0">
+                                        <div class="col col-md-4"><label for="Expiration" class="fs-16">Expiration
+                                                date</label>
+                                        </div>
+                                        <div class="col-6 d-flex">
+                                            <div class="date-wrap"
+                                                wire:click.prevent="toggleDateModal"
+                                                data-bs-target="#dateModal"
+                                                data-bs-toggle="modal"
+                                                data-bs-dismiss="modal">
+                                                <input class="form-control default fs-16 fw-bold"
+                                                    name="Expiration"
+                                                    wire:model="expiration_date"
+                                                    id="Expiration"
+                                                    data-linked-input="#datepicker-expiration">
+                                                <span class="icon">
+                                                <svg class="icon icon-calendar" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-calendar"></use>
+                                                </svg>
+                                            </span>
+                                            </div>
+                                        </div>
+                                                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-24">
+                                        <hr class="m-0">
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between mb-20">
+                                        <div class="col-auto fs-16 d-flex justify-content-center align-items-center">
+                                            Total:
+                                        </div>
+                                        <div class="col-auto fs-16 d-flex justify-content-center align-items-center">USD
+                                            <span class="ms-2 fw-bold fs-24">0.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="row col-12 m-0">
+                                        <button type="button" class="button-green rounded-pill w-100"
+                                            wire:click.prevent="openStripeModal" wire:loading.attr="disabled">
+                                            Buy
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div wire:id="b8H7oZMNmRzLUqgCjClk">
+            <!-- x-on:keydown.escape.window="show = false" -->
+            <div x-data="{ show: window.Livewire.find('b8H7oZMNmRzLUqgCjClk').entangle('showModal').defer }"
+                x-on:close.stop="show = false" x-show="show" id="3423a5db4347ebcddb7b60db0c93b0a4"
+                class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" style="display: none;">
+                <!-- x-on:click="show = false" -->
+                <div x-show="show" class="fixed inset-0 transform transition-all"
+                    x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
+                    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" style="display: none;">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+
+                <div x-show="show"
+                    class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-2xl sm:mx-auto"
+                    x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave="ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    style="display: none;">
+                    <div class="modal-content p-32">
+                        <div class="modal-body p-0 row">
+                            <div class="row col-12 p-0 m-0">
+                                <h5 class="black-color col-7 fw-bold mb-20">
+                                    Payment information is required before proceeding
+                                </h5>
+                                <button type="button" wire:click.prevent="closeModal"
+                                    class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"></button>
+                            </div>
+                            <!-- Card Work Goes Here -->
+                            <div class="row col-12 mb-3">
+                                <div class="col-2 d-flex align-items-left">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="primary_card_id" wire:model.defer="primary_card_id"
+                                            value="14" id="primary_14">
+                                    </div>
+                                </div>
+                                <label class="col-10 d-flex align-items-center" for="primary_14">
+                                    <div class="col-auto me-4">
+                                        <svg class="icon icon-credit_card green-icon" width="24" height="24">
+                                            <use href="./img/icons.svg#icon-credit_card"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="col">
+                                        <p class=" black-color fs-16 mb-2">XXXXXXXXXXXX4242</p>
+                                        <p class="black-color fs-16">Jalpa</p>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="row col-12 mb-3">
+                                <div class="col-2 d-flex align-items-left">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="primary_card_id" wire:model.defer="primary_card_id"
+                                            wire:change.prevent="showAddCreditCardmodal" id="add_new_card"
+                                            value="card_id">
+                                    </div>
+                                </div>
+                                <label class="col-10 d-flex align-items-center" for="add_new_card">
+                                    <div class="col-auto me-4">
+                                        <svg class="icon icon-credit_card green-icon" width="24" height="24">
+                                            <use href="./img/icons.svg#icon-credit_card"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="col">
+                                        <p class="black-color fs-16 mb-2">Add New Credit Card</p>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="row col-12 m-0">
+                                <button type="button" wire:loading.attr="disabled"
+                                    class="button-green rounded-pill w-100 mb-2" wire:click.prevent="buy"
+                                    disableed="">Proceed
+                                </button>
+                                <button type="button" wire:click.prevent="closeModal"
+                                    class="button-green rounded-pill w-100 button-secondary">Cancel
+                                </button>
+                            </div>
+                            <!-- Card Work Ends Here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div wire:id="pCSrnpa1VJoQRLAbDjTL">
+                <!-- Card Modal -->
+                <!-- x-on:keydown.escape.window="show = false" -->
+                <div x-data="{ show: window.Livewire.find('pCSrnpa1VJoQRLAbDjTL').entangle('showModal').defer }"
+                    x-on:close.stop="show = false" x-show="show" id="3423a5db4347ebcddb7b60db0c93b0a4"
+                    class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" style="display: none;">
+                    <!-- x-on:click="show = false" -->
+                    <div x-show="show" class="fixed inset-0 transform transition-all"
+                        x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
+                        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                        style="display: none;">
+                        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                    </div>
+
+                    <div x-show="show"
+                        class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-2xl sm:mx-auto"
+                        x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
+                        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                        x-transition:leave="ease-in duration-200"
+                        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        style="display: none;">
+                        <div class="modal-content p-32">
+                            <div class="modal-body p-0 row">
+                                <div class="row col-12 p-0 m-0">
+                                    <h5 class="black-color col-7 fw-bold mb-20">
+                                        Payment information is required before proceeding
+                                    </h5>
+                                    <button type="button" wire:click.prevent="closeModal"
+                                        class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"></button>
+                                </div>
+                                <!-- Card Work Goes Here -->
+                                <form wire:submit.prevent="saveNewCard" class="row col-12 p-0 m-0">
+                                    <input type="hidden" name="payment_method" class="payment-method">
+                                    <div class="col-12 mb-20">
+                                        <label for="Card" class="form-label p-0 black-color">Credit Card</label>
+                                        <div class="input-wrap">
+                                            <input type="number" onkeypress="if(this.value.length==16) return false;"
+                                                class="form-control default" maxlength="16" id="card_no"
+                                                wire:model.defer="card_no" autocomplete="card_no"
+                                                placeholder="xxx xxx xxxx xxxx">
+                                            <span class="icon">
+                                                <svg class="icon icon-credit_card" width="24" height="24">
+                                                    <use href="./img/icons.svg#icon-credit_card"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-20">
+                                        <label for="Name" class="form-label p-0 black-color">Name</label>
+                                        <input type="text" id="card_holder_name" class="form-control default"
+                                            placeholder="Cardholder Name" wire:model.defer="card_holder_name">
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-between mb-20">
+                                        <div
+                                            class="col-auto fs-16 d-flex flex-column justify-content-end align-items-start">
+                                            <label for="Expiry" class="form-label p-0 black-color">Expiry</label>
+                                            <div class="row m-0">
+                                                <input type="number" onkeypress="if(this.value.length==2) return false;"
+                                                    class="form-control default w-66" id="expiry_month"
+                                                    wire:model.defer="expiry_month" placeholder="MM">
+                                                <input type="number" onkeypress="if(this.value.length==4) return false;"
+                                                    class="form-control default w-66 ms-2" id="expiry_year"
+                                                    wire:model.defer="expiry_year" placeholder="YYYY">
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-auto fs-16 d-flex flex-column justify-content-center align-items-start">
+                                            <label for="CVV" class="form-label p-0 black-color">CVV</label>
+                                            <div class="row m-0">
+                                                <input type="number" onkeypress="if(this.value.length==3) return false;"
+                                                    class="form-control default w-66" id="CVV" wire:model.defer="cvv"
+                                                    placeholder="CVV">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row col-12 m-0">
+                                        <button type="submit" wire:loading.attr="disabled"
+                                            class="button-green rounded-pill w-100 mb-2">Save Payment Details
+                                        </button>
+                                        <button type="button" wire:click.prevent="closeModal"
+                                            class="button-green rounded-pill w-100 button-secondary">Cancel
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- Card Work Ends Here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Modal END -->
+            </div>
+
+            <!-- Livewire Component wire-end:pCSrnpa1VJoQRLAbDjTL -->
+        </div>
+
+        <!-- Livewire Component wire-end:b8H7oZMNmRzLUqgCjClk -->
+    </div>
+
+    <!-- Livewire Component wire-end:fjIF7evMpVUTNrFNvcSE -->
+    <div wire:id="uw7lkj2l3WVRf7UOphVj">
+        <!-- x-on:keydown.escape.window="show = false" -->
+        <div x-data="{ show: window.Livewire.find('uw7lkj2l3WVRf7UOphVj').entangle('showModal').defer }"
+            x-on:close.stop="show = false" x-show="show" id="3423a5db4347ebcddb7b60db0c93b0a4"
+            class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" style="display: none;">
+            <!-- x-on:click="show = false" -->
+            <div x-show="show" class="fixed inset-0 transform transition-all" x-transition:enter="ease-out duration-300"
+                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0" style="display: none;">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+
+            <div x-show="show"
+                class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-2xl sm:mx-auto"
+                x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave="ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" style="display: none;">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content  p-32">
+                        <div class="modal-body p-0 row">
+                            <div class="row col-12 p-0 m-0">
+                                <h5 class="black-color col fw-bold mb-20">
+                                    Set price alert
+                                </h5>
+                                <button wire:click.prevent="closeModal" type="button"
+                                    class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"></button>
+                                <div class="col-12 d-flex align-items-center mb-20">
+                                    <svg class="icon icon-Forest-ERB me-2" width="32" height="32">
+                                        <use href="./img/icons.svg#"></use>
+                                    </svg>
+                                    <div class="info-main d-flex flex-column">
+                                        <span class="fw-bold"></span>
+                                        <span class="d-flex align-items-baseline">
+                                            <span class="fs-20 fw-bold">$0.00</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-12 mx-0 black-10 mb-24">
+                                <hr class="m-0">
+                            </div>
+                            <form class="row col-12 p-0 m-0">
+                                <div class="col-12">
+                                    <div class="col-12 row align-items-center mb-24  d-flex px-0 mx-0">
+                                        <div class="col-3"><label for="Amount" class="fs-16">Price</label>
+                                        </div>
+                                        <div
+                                            class="col-9 justify-content-end justify-content-md-start col-md-5 pe-0 pe-md-2 d-flex">
+                                            <span class="input-group-prepend col-auto">
+                                                <button wire:click.prevent="decreasePrice('alert_price')" type="button"
+                                                    class="btn button-green btn-number" data-type="minus"
+                                                    data-field="Amount"><svg class="icon icon-Minus-Icon" width="24"
+                                                        height="24">
+                                                        <use href="./img/icons.svg#icon-Minus-Icon">
+                                                        </use>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                            <input type="number" wire:model="alert_price"
+                                                wire:change="priceChange($event.target.value)"
+                                                class="form-control default mx-2 w-50 text-center fw-bold" name="Amount"
+                                                min="0" max="100" value="75">
+                                            <span class="input-group-append col-auto">
+                                                <button wire:click.prevent="increasePrice('alert_price')" type="button"
+                                                    class="btn button-green btn-number" data-type="plus"
+                                                    data-field="Amount">
+                                                    <svg class="icon icon-Plus-Icon" width="24" height="24">
+                                                        <use href="./img/icons.svg#icon-Plus-Icon">
+                                                        </use>
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="col-12 col-md-4 pt-2 pt-md-0 pe-0">
+                                            <button type="button" class="button-secondary rounded-pill w-100"
+                                                wire:click.prevent="switchPriceShowData">
+                                                <svg class="icon icon-Repeat me-2" width="16" height="16">
+                                                    <use href="./img/icons.svg#icon-Repeat"></use>
+                                                </svg>
+                                                Percentage
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-24">
+                                        <hr class="m-0">
+                                    </div>
+                                    <div class="row col-12 m-0">
+                                        <button type="button" class="button-green rounded-pill w-100"
+                                            wire:click.prevent="setAlert" wire:loading.attr="disabled">Set Alert
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Livewire Component wire-end:uw7lkj2l3WVRf7UOphVj -->
+    <div wire:id="RVZjMpslKZCjJNgtk2CF">
+        <!-- x-on:keydown.escape.window="show = false" -->
+        <div x-data="{ show: window.Livewire.find('RVZjMpslKZCjJNgtk2CF').entangle('showModal').defer }"
+            x-on:close.stop="show = false" x-show="show" id="3423a5db4347ebcddb7b60db0c93b0a4"
+            class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" style="display: none;">
+            <!-- x-on:click="show = false" -->
+            <div x-show="show" class="fixed inset-0 transform transition-all" x-transition:enter="ease-out duration-300"
+                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0" style="display: none;">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+
+            <div x-show="show"
+                class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-lg sm:mx-auto"
+                x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave="ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" style="display: none;">
+                <div class="px-6 py-4">
+                    <div class="text-lg">
+                        <div class="row col-12 p-0 m-0">
+                            <h4 class="black-color col fw-bold mb-2">
+                                Validate Your Phone Number
+                            </h4>
+                            <button type="button"
+                                class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                                wire:click.prevent="openCloseResendVerificationSMS" aria-label="Close"></button>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="row col-12 p-0 m-0 mb-3">
+                            <p class="text-left text-secondary fs-16 lh-base">REWIND activities require you to validate
+                                your
+                                phone number via the SMS message you receive during the registration process. Please
+                                press
+                                the "resend" button if you cannot find it.</p>
+                        </div>
+                        <div class="row col-12 m-0">
+                            <a class="button-green rounded-pill w-100 button-send" href="javascript:void(0);"
+                                wire:click="reSendValidationLink()" wire:loading.attr="disabled">Re-Send Validation SMS
+                                Message</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-right">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Livewire Component wire-end:RVZjMpslKZCjJNgtk2CF --> <!-- x-on:keydown.escape.window="show = false" -->
+    <div wire:id="ZZEJHHc3FsmGjSiWDHUL"
+        x-data="{ show: window.Livewire.find('ZZEJHHc3FsmGjSiWDHUL').entangle('showModal').defer.defer }"
+        x-on:close.stop="show = false" x-show="show" id="logoutModal"
+        class="jetstream-modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" style="display: none;">
+        <!-- x-on:click="show = false" -->
+        <div x-show="show" class="fixed inset-0 transform transition-all" x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+            x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0" style="display: none;">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+
+        <div x-show="show"
+            class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:max-w-lg sm:mx-auto"
+            x-trap.inert.noscroll="show" x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" style="display: none;">
+            <div class="px-6 py-4">
+                <div class="text-lg">
+                    <div class="row col-12 p-0 m-0">
+                        <h5 class="black-color col fw-bold mb-2">
+                            Log Out
+                        </h5>
+                        <button type="button"
+                            class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                            wire:click.prevent="openCloseLogoutModal" aria-label="Close" wire:loading.attr="disabled">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="row col-12 p-0 m-0 mb-3">
+                        <p class="text-left text-secondary fs-16 lh-base">You are about to log out of your account.<br>
+                            Are you sure you want to continue?</p>
+                    </div>
+                    <div class="row col-12 m-0">
+                        <a class="button-secondary rounded-pill col" aria-label="Close" href="javascript:void(0);"
+                            wire:click.prevent="openCloseLogoutModal">Cancel</a>
+                        <a class="button-green rounded-pill ms-2 col logout-user" href="javascript:void(0);"
+                            wire:click="logoutUser" wire:loading.attr="disabled">Log Out</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-right">
+
+            </div>
+        </div>
+    </div>
+
+    <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="./js/bootstrap/bootstrap-select.js"></script>
+    <!-- <script type="text/javascript" src="./js/bootstrap/bootstrap-table.min.js"></script> -->
+    <script type="text/javascript" src="//cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.js"></script>
+
+    <script type="text/javascript" src="./js/script.js"></script>
+
+</body>
+
+</html>

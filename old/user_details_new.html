@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private User bids</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css">
+    <link rel="stylesheet" href="./css/picker/default.css">
+    <link rel="stylesheet" href="./css/picker/default.date.css">
+    <link rel="stylesheet" href="./css/cropme/cropme.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/test.css">
+    <style>
+        .dropdown.bootstrap-select.select-blue .dropdown-toggle,
+        .blue-button {
+            background-color: #fff !important;
+            border: 1px solid var(--clur);
+            color: var(--clur);
+        }
+
+        .bigger-hr {
+            height: 0px;
+        }
+
+        .dropdown.bootstrap-select.select-blue {
+            width: auto !important;
+        }
+
+        .bg-white .search-wrap .grey-search {
+            background-color: #f3f7fa !important;
+        }
+
+        .image-table .box.image.rounded-circle {
+            width: 50px;
+            height: 50px;
+            margin-right: 8px;
+        }
+
+        .bigger-hr>hr {
+            border-top: 1px solid var(--stok, #eff3f4);
+            opacity: 1;
+            min-width: calc(100% + 90px);
+            margin-left: -35px;
+        }
+
+        /* jalpa */
+        .nav.new-style .nav-link {
+            height: 100% !important;
+            color: var(--text, #495771);
+            font-size: 12px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav.new-style .nav-item>a {
+            padding: 10px 12px !important;
+            border-radius: 4px;
+            border: 1px solid var(--stok, #EFF3F4);
+        }
+
+        .nav.new-style .nav-item {
+            flex-grow: 1;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            width: 8px;
+            height: 8px;
+            border-radius: 4px !important;
+            background-color: var(--clur);
+            border: 0px solid;
+        }
+
+        .text-overflow {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 190px;
+            display: inline-block;
+        }
+
+        .text-sec {
+            color: var(--text, #495771);
+        }
+
+        .card-body .text-black-50 {
+            color: var(--text, #495771) !important;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .my-12 {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+
+        /*  */
+
+        .card-el.collapse.show {
+            display: block !important;
+            width: 100% !important;
+            visibility: visible;
+        }
+
+        .treegrid-expander.treegrid-expander-expanded {
+            display: block;
+            width: 24px;
+            height: 24px;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cmask id='mask0_3116_481' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='24'%3e%3crect y='24' width='24' height='24' transform='rotate(-90 0 24)' fill='%23D9D9D9'/%3e%3c/mask%3e%3cg mask='url(%23mask0_3116_481)'%3e%3cpath d='M14.95 12.0001C14.95 12.1334 14.929 12.2584 14.887 12.3751C14.8456 12.4917 14.775 12.6001 14.675 12.7001L10.05 17.3251C9.86664 17.5084 9.63731 17.5957 9.36198 17.5871C9.08731 17.5791 8.85831 17.4834 8.67498 17.3001C8.49164 17.1167 8.39998 16.8834 8.39998 16.6001C8.39998 16.3167 8.49164 16.0834 8.67498 15.9001L12.575 12.0001L8.64998 8.07506C8.46664 7.89173 8.37898 7.66239 8.38698 7.38706C8.39564 7.11239 8.49164 6.88339 8.67498 6.70006C8.85831 6.51673 9.09164 6.42506 9.37498 6.42506C9.65831 6.42506 9.89164 6.51673 10.075 6.70006L14.675 11.3001C14.775 11.4001 14.8456 11.5084 14.887 11.6251C14.929 11.7417 14.95 11.8667 14.95 12.0001Z' fill='%231D7DB2'/%3e%3c/g%3e%3c/svg%3e ");
+            transition: all .3s linear;
+        }
+
+        .treegrid-expander-expanded {
+            transform: rotate(90deg);
+        }
+
+        .treegrid-expander.treegrid-expander-expanded.disabled {
+            pointer-events: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cmask id='mask0_3116_481' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='24'%3e%3crect y='24' width='24' height='24' transform='rotate(-90 0 24)' fill='%23D9D9D9'/%3e%3c/mask%3e%3cg mask='url(%23mask0_3116_481)'%3e%3cpath d='M14.95 12.0001C14.95 12.1334 14.929 12.2584 14.887 12.3751C14.8456 12.4917 14.775 12.6001 14.675 12.7001L10.05 17.3251C9.86664 17.5084 9.63731 17.5957 9.36198 17.5871C9.08731 17.5791 8.85831 17.4834 8.67498 17.3001C8.49164 17.1167 8.39998 16.8834 8.39998 16.6001C8.39998 16.3167 8.49164 16.0834 8.67498 15.9001L12.575 12.0001L8.64998 8.07506C8.46664 7.89173 8.37898 7.66239 8.38698 7.38706C8.39564 7.11239 8.49164 6.88339 8.67498 6.70006C8.85831 6.51673 9.09164 6.42506 9.37498 6.42506C9.65831 6.42506 9.89164 6.51673 10.075 6.70006L14.675 11.3001C14.775 11.4001 14.8456 11.5084 14.887 11.6251C14.929 11.7417 14.95 11.8667 14.95 12.0001Z' fill='%23DCDCDC'/%3e%3c/g%3e%3c/svg%3e ")
+        }
+
+
+        .grey-bg {
+            border-radius: 4px;
+            background: #F7F9FA;
+            padding-top: 12px;
+            overflow: hidden
+        }
+
+        .h-0 {
+            height: 0px !important;
+        }
+
+        .grey-bg hr {
+            border-top: 1px solid var(--stok, #eff3f4);
+            opacity: 1;
+            min-width: calc(100% + 90px);
+            margin-left: -35px;
+        }
+
+        .grey-bg .text-black-50 {
+            color: #495771 !important
+        }
+
+
+        .hr-order .col-12+.card-body .bigger-hr:last-child {
+            order: -1;
+        }
+
+        .hr-order .card-body+.bigger-hr:last-child {
+            visibility: hidden;
+        }
+
+        .hr-order .card-body:not(.collapse) {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body class="">
+    <!-- <div class="d-flex justify-content-center position-fixed w-100 h-100 flex-column bg-white" id="spinerWrap"
+        style="z-index: 10000;">
+        <div class="spinner-border mx-auto sec-color" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+    </div> -->
+    <div class="container-fluid min-vh-100">
+        <div class="wrapper d-flex align-items-stretch flex-column flex-lg-row min-vh-100">
+            <div class="container-fluid  d-block d-lg-none p-3 sticky-top bg-white border-bottom asidebar-btn">
+                <button class="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="animated-hamburger"><span></span><span></span><span></span></div>
+                </button>
+            </div>
+            <aside wire:id="Ul3HTwS4F9ZWZjAKjeB1"
+                wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;Ul3HTwS4F9ZWZjAKjeB1&quot;,&quot;name&quot;:&quot;sidebar-menu&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;offers&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:{&quot;l4125433583-0&quot;:{&quot;id&quot;:&quot;uM5eHxlST5RpN9j5yPos&quot;,&quot;tag&quot;:&quot;&quot;}},&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;62012eb1&quot;,&quot;data&quot;:{&quot;user&quot;:[],&quot;isOpen&quot;:true},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;user&quot;:{&quot;class&quot;:&quot;App\\Models\\User&quot;,&quot;id&quot;:3,&quot;relations&quot;:[&quot;permissions&quot;,&quot;roles&quot;],&quot;connection&quot;:&quot;mysql&quot;,&quot;collectionClass&quot;:null}}},&quot;checksum&quot;:&quot;3018a7c81d153595bb46153021db4bed7ce27be192b94e887d4b74f47fb102cf&quot;}}"
+                class="sticky-top d-lg-flex flex-column flex-shrink-0 text-white sidebar left asidebar minh-100 sidebar sidebar-active d-none">
+                <div id="main-sidebar">
+                    <div class="logo-container text-center">
+                        <div>
+                            <img src="https://stage.climance.com/img/logo_new.png"
+                                class="logo icon-logo-green col-auto p-0" alt="Logo" />
+                        </div>
+                    </div>
+                    <ul class="navflex-column mb-auto list">
+                        <li class="nav-item  ">
+                            <a href="https://stage.climance.com/dashboard" class="nav-link " aria-current="page">
+                                <svg class="icon icon-new-dash me-2" width="24" height="24">
+                                    <use href="https://stage.climance.com/img/icons.svg#icon-new-dash"></use>
+                                </svg>
+                                <span class="navbar-menu-title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="https://stage.climance.com/buy" class="nav-link">
+                                <svg class="icon icon-new-buy me-2" width="24" height="24">
+                                    <use href="https://stage.climance.com/img/icons.svg#icon-new-buy"></use>
+                                </svg>
+                                <span class="navbar-menu-title">Buy</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="https://stage.climance.com/sell" class="nav-link">
+                                <svg class="icon icon-new-sell me-2" width="24" height="24">
+                                    <use href="https://stage.climance.com/img/icons.svg#icon-new-sell"></use>
+                                </svg>
+                                <span class="navbar-menu-title">Sell</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  active ">
+                            <a href="https://stage.climance.com/offers" class="nav-link">
+                                <svg class="icon icon-new-offers me-2" width="24" height="24">
+                                    <use href="https://stage.climance.com/img/icons.svg#icon-new-offers"></use>
+                                </svg>
+                                <span class="navbar-menu-title">Offers</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="https://stage.climance.com/my-portfolio" class="nav-link">
+                                <svg class="icon icon-new-manage me-2" width="24" height="24">
+                                    <use href="https://stage.climance.com/img/icons.svg#icon-new-manage"></use>
+                                </svg>
+                                <span class="navbar-menu-title">Manage</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <main class="row w-100 m-0 gap-4 p-2" id="content">
+                <div wire:id="ibUmQR2b09rcVHcPzZ4V"
+                    wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ibUmQR2b09rcVHcPzZ4V&quot;,&quot;name&quot;:&quot;header-menu&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;offers&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;updateWalletBalance&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;4f22d722&quot;,&quot;data&quot;:{&quot;user&quot;:[]},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;user&quot;:{&quot;class&quot;:&quot;App\\Models\\User&quot;,&quot;id&quot;:5,&quot;relations&quot;:[&quot;permissions&quot;,&quot;roles&quot;,&quot;country&quot;,&quot;wallet&quot;],&quot;connection&quot;:&quot;mysql&quot;,&quot;collectionClass&quot;:null}}},&quot;checksum&quot;:&quot;70bb59215291e5c8e5447ae99309b33a6db7e78dbdd0252b5320d1127d55d969&quot;}}"
+                    class="row col-12 p-0 m-0" id="carbon-credit-header">
+                    <div class="bg-white block-main row m-0 p-0 pb-32 flex-column">
+                        <div class="col-12 p-32 px-3 row m-0 d-flex">
+                            <div class="col"></div>
+                            <div class="col-12 col-md-auto text-end d-flex align-items-end flex-wrap">
+                                <div class="col-auto ms-auto account-balance mb-2 mb-md-0">
+                                    <label for="">
+                                        <h5><b>Balance:</b></h5>
+                                    </label>
+                                    <span class="text-black text-overflow"><b>$1849</b></span>
+                                </div>
+                                <div class="icon-header ms-auto ms-md-3">
+                                    <a type="button" class="btn btn-default position-relative me-3 notification-topbar"
+                                        wire:click="$emit('openNotificationModal')">
+                                        <svg class="icon icon-new-notifications-outline me-2" width="22" height="22">
+                                            <use
+                                                href="https://stage.climance.com/img/icons.svg#icon-new-notifications-outline">
+                                            </use>
+                                        </svg>
+                                        <span
+                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            14+
+                                            <span class="visually-hidden">unread messages</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="user-panel dropdown top-bar-dropdown">
+                                    <div class="image d-flex align-items-center dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="box image rounded-circle">
+                                            <img src="https://storage.googleapis.com/climance-dev-bucket/images/5/profile_img_1698906798.png"
+                                                alt="Jalpa">
+
+                                        </div>
+                                        <h6 class="text-left ms-2 mb-0 h-100">
+                                            <div class="name-title">
+                                                <span data-toggle="tooltip" title="Jalpa">Jalpa</span>
+
+                                            </div>
+                                        </h6>
+                                    </div>
+                                    <ul class="dropdown-menu dropdown-menu-actions">
+                                        <li>
+                                            <a class="dropdown-item" href="https://stage.climance.com/profile/bids">
+                                                <svg width="22" height="22"
+                                                    class="icon icon-new-mybids text-white me-2">
+                                                    <use
+                                                        href="https://stage.climance.com/img/icons.svg#icon-new-mybids">
+                                                    </use>
+                                                </svg>
+                                                My bids
+                                            </a>
+                                        </li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stage.climance.com/profile/purchases">
+                                                <svg width="22" height="22"
+                                                    class="icon icon-new-managepurchasess text-white me-2">
+                                                    <use
+                                                        href="https://stage.climance.com/img/icons.svg#icon-new-managepurchasess">
+                                                    </use>
+                                                </svg>
+                                                Manage purchasess
+                                            </a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="https://stage.climance.com/profile/sale">
+                                                <svg width="22" height="22" class="icon icon-new-sales text-white me-2">
+                                                    <use href="https://stage.climance.com/img/icons.svg#icon-new-sales">
+                                                    </use>
+                                                </svg>
+                                                sales
+                                            </a>
+                                        </li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stage.climance.com/profile/balance-history">
+                                                <svg width="22" height="22" class="icon icon-new-sales text-white me-2">
+                                                    <use href="https://stage.climance.com/img/icons.svg#icon-new-sales">
+                                                    </use>
+                                                </svg>
+                                                Balance
+                                            </a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="https://stage.climance.com/profile/log">
+                                                <svg width="22" height="22"
+                                                    class="icon icon-new-activity text-white me-2">
+                                                    <use
+                                                        href="https://stage.climance.com/img/icons.svg#icon-new-activity">
+                                                    </use>
+                                                </svg>
+                                                Activity Log
+                                            </a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="https://stage.climance.com/profile/referral">
+                                                <svg width="22" height="22"
+                                                    class="icon icon-new-activity text-white me-2">
+                                                    <use href="https://stage.climance.com/img/icons.svg#refer-a-friend">
+                                                    </use>
+                                                </svg>
+                                                Refer a Friend
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="https://stage.climance.com/supports">
+                                                <svg width="22" height="22"
+                                                    class="icon icon-new-support text-white me-2">
+                                                    <use
+                                                        href="https://stage.climance.com/img/icons.svg#icon-new-support">
+                                                    </use>
+                                                </svg>
+                                                Support
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="javascript:void(0);"
+                                                wire:click.prevent="$emit('openCloseLogoutModal')">
+                                                <svg width="24" height="24"
+                                                    class="icon icon-new-logout text-white me-2">
+                                                    <use
+                                                        href="https://stage.climance.com/img/icons.svg#icon-new-logout">
+                                                    </use>
+                                                </svg>
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Livewire Component wire-end:ibUmQR2b09rcVHcPzZ4V -->
+                <div wire:id="OEBwZeiFP7gnZ6mbURHg"
+                    wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;OEBwZeiFP7gnZ6mbURHg&quot;,&quot;name&quot;:&quot;flash-component&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;offers&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;flashMessage&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;6c8e655f&quot;,&quot;data&quot;:{&quot;type&quot;:null,&quot;msg&quot;:null,&quot;showMessage&quot;:false},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;b13ac429aa961e0b75df610ee215a6e697e7dcdd4a58213ed8a670d1c19a9569&quot;}}"
+                    class="flashContent">
+
+                </div>
+
+                <!-- Livewire Component wire-end:OEBwZeiFP7gnZ6mbURHg -->
+                <div wire:id="ZAly4NXogPdrx5L1IYcc"
+                    wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ZAly4NXogPdrx5L1IYcc&quot;,&quot;name&quot;:&quot;negotation.index&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;offers&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;getStatus&quot;,&quot;openCloseOfferedModal&quot;,&quot;refreshAll&quot;,&quot;updateIsSmallScreen&quot;],&quot;path&quot;:&quot;https:\/\/stage.climance.com\/offers&quot;},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;0414e453&quot;,&quot;data&quot;:{&quot;offeredModal&quot;:false,&quot;selectedBid&quot;:null,&quot;price&quot;:null,&quot;quantity&quot;:null,&quot;counterOfferId&quot;:null,&quot;is_expanded&quot;:false,&quot;expandBidId&quot;:0,&quot;status&quot;:[],&quot;selectedStatus&quot;:0,&quot;page&quot;:1,&quot;paginators&quot;:{&quot;page&quot;:1}},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;d87da01627b4394c4b574b00bca748503da55d9cbf84bc0b4944e5fe9e706711&quot;}}">
+                    <div class="row col-12 p-0 m-0">
+                        <div class="w-100 table-container col-12 p-0 mb-3">
+
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h6 class="fw-bold p-0 col-auto">Profile</h6>
+                            </div>
+                        </div>
+                        <div
+                            class="w-100 table-container bg-white rounded-2 col-12 p-3 pb-0 mb-3 hr-order  overflow-hidden">
+                            <div class="col-12" type="button" data-bs-toggle="collapse" data-bs-target=".collapse-1"
+                                aria-expanded="false" aria-bs-controls="">
+                                <div class="image image-table d-flex align-items-center me-2">
+                                    <div class="box image rounded-circle">
+                                        <img src="https://storage.googleapis.com/climance-dev-bucket/images/5/profile_img_1698906798.png"
+                                            alt="Floyd Miles">
+                                    </div>
+                                    <div class="name-title text-wrap">
+                                        <div class="d-flex flex-column">
+                                            <div class="title fw-bold text-overflow">Puja Jadhav Checker
+                                                $32.58</div>
+                                            <span class=" text-black-50">In. QTY 119</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body collapse collapse-1 d-flex flex-column">
+                                <p class="d-flex justify-content-between align-items-center  my-0">
+                                    <span class="title text-black-50 col-3">Date</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">22 Feb 23</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">Carbon Credit name</span>
+                                    <span class="result text-black-50 w-50 text-end col-6 text-overflow">The Arr
+                                        Horizonte
+                                        Carbon
+                                        Project</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">INITIAL PRICE/QTY</span>
+                                    <span class="result text-black-50 w-50 text-end col-6">$33.66/119</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Offer bid/qty</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">$33.66/26</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">Status</span>
+                                    <span class="result text-black-50 w-50 text-end col-6">Pending</span>
+                                </p>
+
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <select name="negotation-form"
+                                        class="w-100 px-2 selectpicker button-green-border negotation-form ms-0 col-auto changeStatus changeStatus-web"
+                                        data-container="body" title="Reply" data-bid-id="77" wire:model.defer="status">
+                                        <option value="1">Accept</option>
+                                        <option value="2">Decline</option>
+                                        <option value="3">Counter Offer</option>
+                                    </select>
+
+                                </div>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row mx-0 my-2 bigger-hr collapse collapse-1">
+                                <hr>
+                            </div>
+
+
+
+                            <div class="col-12 collapse collapse-1">
+                                <div class="image image-table d-flex align-items-center me-2">
+                                    <div class="box image rounded-circle">
+                                        <img src="https://storage.googleapis.com/climance-dev-bucket/images/5/profile_img_1698906798.png"
+                                            alt="Floyd Miles">
+                                    </div>
+                                    <div class="name-title text-wrap">
+                                        <div class="d-flex flex-column">
+                                            <div class="title fw-bold text-overflow">Puja Jadhav Checker
+                                                $32.58</div>
+                                            <span class=" text-black-50">In. QTY 119</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body collapse collapse-1 d-flex flex-column">
+                                <p class="d-flex justify-content-between align-items-center  my-0">
+                                    <span class="title text-black-50 col-3">Date</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">22 Feb 23</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">Carbon
+                                        Credit name</span>
+                                    <span class="result text-black-50 w-50 text-end col-6 text-overflow">The Arr
+                                        Horizonte
+                                        Carbon
+                                        Project</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">INITIAL
+                                        PRICE/QTY</span>
+                                    <span class="result text-black-50 w-50 text-end col-6">$33.66/119</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Offer
+                                        bid/qty</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">$33.66/26</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">Status</span>
+                                    <span class="result text-black-50 w-50 text-end col-6">Pending</span>
+                                </p>
+
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <select name="negotation-form"
+                                        class="w-100 px-2 selectpicker button-green-border negotation-form ms-0 col-auto changeStatus changeStatus-web"
+                                        data-container="body" title="Reply" data-bid-id="77" wire:model.defer="status">
+                                        <option value="1">Accept</option>
+                                        <option value="2">Decline</option>
+                                        <option value="3">Counter Offer</option>
+                                    </select>
+
+                                </div>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row mx-0 my-2 bigger-hr">
+                                <hr>
+                            </div>
+                        </div>
+
+
+
+                        <div class="w-100 table-container bg-white rounded-2 col-12 px-3 pt-3 mb-4">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h6 class="fw-bold p-0 col-auto">Profile</h6>
+                                <div class="col-auto">
+                                    <select class="select-blue selectpicker" data-actions-box="true" aria-label="Menu"
+                                        id="Menu">
+                                        <option value="1">My Details</option>
+                                        <option value="2">Manage Payments</option>
+                                        <option value="3">Transactions</option>
+                                        <option value="2">Refer a Friend</option>
+                                        <option value="3">Balance</option>
+                                        <option value="3">Activity Log</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <div class="col-auto d-flex flex-column">
+                                    <p class="fw-medium text-paragroup">
+                                        Account Balance
+                                    </p>
+                                    <h1 class="fw-medium text-dark font-lexend fs-32">
+                                        $489889
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="col-12 py-4 ">
+                                <button wire:click.prevent="addFund"
+                                    class="ms-auto btn button-green w-100 me-0 d-flex"><svg width="16" height="16"
+                                        class="icon icon-plus text-white me-2">
+                                        <use href="https://stage.climance.com/img/icons.svg#icon-new-plus">
+                                        </use>
+                                    </svg>
+                                    Add Funds
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="w-100 table-container bg-white rounded-2 col-12 p-3">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h6 class="fw-bold p-0 col-auto">Balance History</h6>
+                            </div>
+                            <div class="col-12 pt-2 pb-4 ">
+                                <div class="search-wrap">
+                                    <input type="search" class=" grey-search col-12 col-md-4" placeholder="Search"
+                                        id="table_search" wire:model="search">
+                                    <span class="icon">
+                                        <svg class="icon icon-new-search" width="20" height="20">
+                                            <use href="https://stage.climance.com/img/icons.svg#icon-new-search">
+                                            </use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-12 row m-0 grey-bg mb-2">
+                                <p class="d-flex justify-content-between align-items-center  my-0">
+                                    <span class="title text-black-50 col-3">Balance</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">$850</span>
+                                </p>
+                                <div class="row  my-12 mx-0 h-0">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Amount</span><span
+                                        class="result text-black-50 w-75 text-end col-9">$850</span>
+                                </p>
+                                <div class="row  my-12 mx-0 h-0">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Reminder balance</span><span
+                                        class="result text-black-50 w-75 text-end col-9">$850</span>
+                                </p>
+                                <div class="row  my-12 mx-0 h-0">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Date</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">22 Feb 23</span>
+                                </p>
+                                <div class="row  my-12 mx-0 h-0">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-12 row m-0 grey-bg mb-2">
+                                <p class="d-flex justify-content-between align-items-center  my-0">
+                                    <span class="title text-black-50 col-3">Balance</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">$850</span>
+                                </p>
+                                <div class="row  my-12 mx-0 h-0">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Amount</span><span
+                                        class="result text-black-50 w-75 text-end col-9">$850</span>
+                                </p>
+                                <div class="row  my-12 mx-0 h-0">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Reminder
+                                        balance</span><span class="result text-black-50 w-75 text-end col-9">$850</span>
+                                </p>
+                                <div class="row  my-12 mx-0 h-0">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Date</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">22 Feb 23</span>
+                                </p>
+                                <div class="row  my-12 mx-0 h-0">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div id="carouselExampleSlidesOnly" class="carousel slide px-0" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner mb-5">
+                                <div class="carousel-item active">
+                                    <div class="bg-white block-main rounded-16 col-12 col-md row m-0">
+                                        <div class="col-auto col-12 mb-2 mb-md-0">
+                                            <svg width="50" height="50" class="icon icon-new-totalCarbon">
+                                                <use
+                                                    href="https://stage.climance.com/img/icons.svg#icon-new-totalCarbon">
+                                                </use>
+                                            </svg>
+                                        </div>
+                                        <div class="col col-12 mt-0 mt-md-3">
+                                            <div class="col-12">
+                                                <p class="m-0 text-grey-sec fs-14">Total Tons of Carbon</p>
+                                            </div>
+                                            <div class="col-12 mt-2 d-flex justify-content-between align-items-end">
+                                                <p class="m-0 text-black-big fs-24">456 Tons</p>
+                                                <span class="statistics d-flex ms-1 statistics-down">
+                                                    4.4%
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="bg-white block-main rounded-16 col-12 col-md row m-0">
+                                        <div class="col-auto col-12 mb-2 mb-md-0">
+                                            <svg width="50" height="50" class="icon icon-new-totalOffsets">
+                                                <use
+                                                    href="https://stage.climance.com/img/icons.svg#icon-new-totalOffsets">
+                                                </use>
+                                            </svg>
+                                        </div>
+                                        <div class="col col-12 mt-0 mt-md-3">
+                                            <div class="col-12">
+                                                <p class="m-0 text-grey-sec fs-14">Total Offsets</p>
+                                            </div>
+                                            <div class="col-12 mt-2 d-flex justify-content-between align-items-end">
+                                                <p class="m-0 text-black-big fs-24">11</p>
+                                                <span class="statistics d-flex ms-1 statistics-up">
+                                                    22%
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="bg-white block-main rounded-16 col-12 col-md row m-0">
+                                        <div class="col-auto col-12 mb-2 mb-md-0">
+                                            <svg width="50" height="50" class="icon icon-new-totalCountries">
+                                                <use
+                                                    href="https://stage.climance.com/img/icons.svg#icon-new-totalCountries">
+                                                </use>
+                                            </svg>
+                                        </div>
+                                        <div class="col col-12 mt-0 mt-md-3">
+                                            <div class="col-12">
+                                                <p class="m-0 text-grey-sec fs-14">Total Countries</p>
+                                            </div>
+                                            <div class="col-12 mt-2 d-flex justify-content-between align-items-end">
+                                                <p class="m-0 text-black-big fs-24">4</p>
+                                                <span class="statistics d-flex ms-1 statistics-up">
+                                                    0%
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 table-container col-12 p-0 mb-3">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h6 class="fw-bold p-0 col-auto">Index List</h6>
+
+                            </div>
+                        </div>
+                        <div class="w-100 table-container bg-white rounded-2 col-12 px-3 pt-3">
+                            <div class="col-12" type="button" data-bs-toggle="collapse" data-bs-target=".collapse-1"
+                                aria-expanded="false" aria-bs-controls="">
+                                <div class="card-header d-flex justify-content-between">
+
+                                    <div class="d-flex align-items-center">
+                                        <svg class="flex-shrink-0 icon icon-Forest-ERB me-2" width="48" height="48">
+                                            <use href="./img/icons.svg#icon-new-Rice-ARB">
+                                            </use>
+                                        </svg>
+                                        <div class="d-flex flex-column w-100">
+                                            <div class="d-flex flex-column w-75">
+                                                <div class="title fw-semibold text-overflow">Energy Efficiency</div>
+                                                <div class="text-sec fs-12">QTY 366</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="d-flex flex-column align-items-end justify-content-space-between">
+                                        <span class="price fw-bold"> $52.00</span>
+
+
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row mx-0 my-12 bigger-hr">
+                                <hr>
+                            </div>
+                            <div class="card-body collapse collapse-1 ">
+                                <p class="d-flex justify-content-between align-items-center  my-0">
+                                    <span class="title text-black-50 col-3">Type:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">Wallet Balance</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Date:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">22 Feb 23</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">OTY:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">12</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Amount:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">$33.66</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">sale Type:</span>
+                                    <span class="result text-black-50 w-50 text-end col-6">Credit</span>
+                                </p>
+
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <a href="javascript:void(0);" wire:click="followCredit(5)" class="button-white me-2"
+                                        type="button" :disabled="false">
+                                        <svg class="icon-new-bell" width="24" height="24">
+                                            <use href="https://stage.climance.com/img/icons.svg#icon-new-bell"></use>
+                                        </svg>
+                                    </a><a href="https://stage.climance.com/buy/certificate/5"
+                                        class="col button-white me-2" type="button">
+                                        View
+                                    </a>
+                                    <a href="javascript:void(0);" wire:click="openModal(5)"
+                                        class="col button-green buy-certitficate" type="button" :disabled="false">
+                                        Buy
+                                    </a>
+                                </div>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                            </div>
+
+                            <div class="col-12" type="button" data-bs-toggle="collapse" data-bs-target=".collapse-2"
+                                aria-expanded="false" aria-bs-controls="">
+                                <div class="card-header d-flex justify-content-between">
+
+                                    <div class="d-flex align-items-center">
+                                        <svg class="flex-shrink-0 icon icon-Forest-ERB me-2" width="48" height="48">
+                                            <use href="./img/icons.svg#icon-new-Rice-ARB">
+                                            </use>
+                                        </svg>
+                                        <div class="d-flex flex-column w-100">
+                                            <div class="d-flex flex-column w-75">
+                                                <div class="title fw-semibold text-overflow">Energy Efficiency</div>
+                                                <div class="text-sec fs-12">QTY 366</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="d-flex flex-column align-items-end justify-content-space-between">
+                                        <span class="price fw-bold"> $52.00</span>
+
+
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row mx-0 my-12 bigger-hr">
+                                <hr>
+                            </div>
+                            <div class="card-body collapse collapse-2 ">
+                                <p class="d-flex justify-content-between align-items-center  my-0">
+                                    <span class="title text-black-50 col-3">Type:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">Wallet Balance</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Date:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">22 Feb 23</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">OTY:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">12</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Amount:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">$33.66</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">sale Type:</span>
+                                    <span class="result text-black-50 w-50 text-end col-6">Credit</span>
+                                </p>
+
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <a href="javascript:void(0);" wire:click="followCredit(5)" class="button-white me-2"
+                                        type="button" :disabled="false">
+                                        <svg class="icon-new-bell" width="24" height="24">
+                                            <use href="https://stage.climance.com/img/icons.svg#icon-new-bell"></use>
+                                        </svg>
+                                    </a><a href="https://stage.climance.com/buy/certificate/5"
+                                        class="col button-white me-2" type="button">
+                                        View
+                                    </a>
+                                    <a href="javascript:void(0);" wire:click="openModal(5)"
+                                        class="col button-green buy-certitficate" type="button" :disabled="false">
+                                        Buy
+                                    </a>
+                                </div>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="w-100 table-container bg-white rounded-2 col-12 px-3 pt-3 mt-4">
+
+                            <ul class="nav new-style basic-style row mx-0 p-0 gap-2" id="bidsTabs" role="tablist">
+                                <li class="nav-item col-auto text-center p-0" role="presentation">
+                                    <a class="nav-link " id="bids-tab" data-bs-toggle="tab" data-bs-target="#bids"
+                                        type="button" role="tab" aria-controls="bids" aria-selected="true"
+                                        wire:click="changeUrl('bids', )">Bids</a>
+                                </li>
+                                <li class="nav-item  col-auto text-center p-0" role="presentation">
+                                    <a class="nav-link active " id="purchases-tab" data-bs-toggle="tab"
+                                        data-bs-target="#purchases" type="button" role="tab" aria-controls="purchases"
+                                        aria-selected="false" tabindex="-1" wire:click="changeUrl('purchases', )">Recent
+                                        Purchases</a>
+                                </li>
+                                <li class="nav-item  col-auto text-center p-0" role="presentation">
+                                    <a class="nav-link " id="sale-tab" data-bs-toggle="tab" data-bs-target="#sale"
+                                        type="button" role="tab" aria-controls="sale" aria-selected="false"
+                                        tabindex="-1" wire:click="changeUrl('sale', )">Recent Sale</a>
+                                </li>
+                            </ul>
+
+                            <div id="bidsTabsContent" class="tab-content mx-0 pe-0">
+                                <div class="row mx-0 my-12 mt-4 bigger-hr">
+                                    <hr>
+                                </div>
+                                <div class="tab-pane fade  row" id="bids" role="tabpanel" aria-labelledby="bids-tab">
+                                    <div class="col-12" type="button" data-bs-toggle="collapse"
+                                        data-bs-target=".collapse-bids-1" aria-expanded="false" aria-bs-controls="">
+                                        <div class="card-header d-flex justify-content-between">
+
+                                            <div class="d-flex align-items-center">
+                                                <svg class="flex-shrink-0 icon icon-Forest-ERB me-2" width="48"
+                                                    height="48">
+                                                    <use href="./img/icons.svg#icon-new-Rice-ARB">
+                                                    </use>
+                                                </svg>
+                                                <div class="d-flex flex-column w-100">
+                                                    <div class="d-flex flex-column w-75">
+                                                        <div class="title fw-semibold text-overflow">Energy Efficiency
+                                                        </div>
+                                                        <div class="text-sec fs-12">Bid price $5</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span
+                                                class="d-flex flex-column align-items-end justify-content-space-between">
+                                                <span class="price fw-bold">$13.40</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-0 my-12 bigger-hr">
+                                        <hr>
+                                    </div>
+                                    <div class="card-body px-3 collapse collapse-bids-1 ">
+                                        <p class="d-flex justify-content-between align-items-center  my-0">
+                                            <span class="title text-black-50 col-3 text-uppercase">value</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">$13.40</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                        <p class="d-flex justify-content-between align-items-center my-0"><span
+                                                class="title text-black-50 col-3 text-uppercase">Bid price</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">$5</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                        <p class="d-flex justify-content-between align-items-center my-0"><span
+                                                class="title text-black-50 col-3 text-uppercase">date</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">25/09/2023</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade  show active  row" id="purchases" role="tabpanel"
+                                    aria-labelledby="purchases-tab">
+                                    <div class="col-12" type="button" data-bs-toggle="collapse"
+                                        data-bs-target=".collapse-purchases-1" aria-expanded="false"
+                                        aria-bs-controls="">
+                                        <div class="card-header d-flex justify-content-between">
+
+                                            <div class="d-flex align-items-center">
+                                                <svg class="flex-shrink-0 icon icon-Forest-ERB me-2" width="48"
+                                                    height="48">
+                                                    <use href="./img/icons.svg#icon-new-Rice-ARB">
+                                                    </use>
+                                                </svg>
+                                                <div class="d-flex flex-column w-100">
+                                                    <div class="d-flex flex-column w-75">
+                                                        <div class="title fw-semibold text-overflow">Energy Efficiency
+                                                        </div>
+                                                        <div class="text-sec fs-12">QTY 320</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span
+                                                class="d-flex flex-column align-items-end justify-content-space-between">
+                                                <span class="price fw-bold">$13.40</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-0 my-12 bigger-hr">
+                                        <hr>
+                                    </div>
+                                    <div class="card-body px-3 collapse collapse-purchases-1 ">
+                                        <p class="d-flex justify-content-between align-items-center  my-0">
+                                            <span class="title text-black-50 col-3 text-uppercase">value</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">$13.40</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                        <p class="d-flex justify-content-between align-items-center my-0"><span
+                                                class="title text-black-50 col-3 text-uppercase">QTY</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">5</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                        <p class="d-flex justify-content-between align-items-center my-0"><span
+                                                class="title text-black-50 col-3 text-uppercase">date</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">25/09/2023</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade   row" id="sale" role="tabpanel" aria-labelledby="sale-tab">
+                                    <div class="col-12" type="button" data-bs-toggle="collapse"
+                                        data-bs-target=".collapse-sale-1" aria-expanded="false" aria-bs-controls="">
+                                        <div class="card-header d-flex justify-content-between">
+
+                                            <div class="d-flex align-items-center">
+                                                <svg class="flex-shrink-0 icon icon-Forest-ERB me-2" width="48"
+                                                    height="48">
+                                                    <use href="./img/icons.svg#icon-new-Rice-ARB">
+                                                    </use>
+                                                </svg>
+                                                <div class="d-flex flex-column w-100">
+                                                    <div class="d-flex flex-column w-75">
+                                                        <div class="title fw-semibold text-overflow">Energy Efficiency
+                                                        </div>
+                                                        <div class="text-sec fs-12">QTY 20</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span
+                                                class="d-flex flex-column align-items-end justify-content-space-between">
+                                                <span class="price fw-bold">$13.40</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-0 my-12 bigger-hr">
+                                        <hr>
+                                    </div>
+                                    <div class="card-body px-3 collapse collapse-sale-1 ">
+                                        <p class="d-flex justify-content-between align-items-center  my-0">
+                                            <span class="title text-black-50 col-3 text-uppercase">value</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">$13.40</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                        <p class="d-flex justify-content-between align-items-center my-0"><span
+                                                class="title text-black-50 col-3 text-uppercase">QTY</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">51</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                        <p class="d-flex justify-content-between align-items-center my-0"><span
+                                                class="title text-black-50 col-3 text-uppercase">date</span>
+                                            <span class="result text-black-50 w-75 text-end col-9">25/09/2023</span>
+                                        </p>
+                                        <div class="row mx-0 my-12 bigger-hr">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+
+
+
+                <!--  -->
+                <!-- Livewire Component wire-end:OEBwZeiFP7gnZ6mbURHg -->
+                <div wire:id="ZAly4NXogPdrx5L1IYcc"
+                    wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ZAly4NXogPdrx5L1IYcc&quot;,&quot;name&quot;:&quot;negotation.index&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;offers&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;getStatus&quot;,&quot;openCloseOfferedModal&quot;,&quot;refreshAll&quot;,&quot;updateIsSmallScreen&quot;],&quot;path&quot;:&quot;https:\/\/stage.climance.com\/offers&quot;},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;0414e453&quot;,&quot;data&quot;:{&quot;offeredModal&quot;:false,&quot;selectedBid&quot;:null,&quot;price&quot;:null,&quot;quantity&quot;:null,&quot;counterOfferId&quot;:null,&quot;is_expanded&quot;:false,&quot;expandBidId&quot;:0,&quot;status&quot;:[],&quot;selectedStatus&quot;:0,&quot;page&quot;:1,&quot;paginators&quot;:{&quot;page&quot;:1}},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;d87da01627b4394c4b574b00bca748503da55d9cbf84bc0b4944e5fe9e706711&quot;}}">
+                    <div class="row col-12 p-0 m-0">
+                        <div class="d-sm-none">
+                            <div id="carouselExampleSlidesOnly" class="carousel slide px-0" data-bs-ride="carousel">
+                                <div class="carousel-indicators" style="position: absolute;bottom: -50px;">
+                                    <button type="button" data-bs-target="#carouselExampleSlidesOnly"
+                                        data-bs-slide-to="0" class="active" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleSlidesOnly"
+                                        data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleSlidesOnly"
+                                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner mb-5">
+                                    <div class="carousel-item active">
+                                        <div class="bg-white block-main rounded-16 col-12 col-md row m-0">
+                                            <div class="col-auto col-12 mb-2 mb-md-0">
+                                                <svg width="50" height="50" class="icon icon-new-totalCarbon">
+                                                    <use
+                                                        href="https://stage.climance.com/img/icons.svg#icon-new-totalCarbon">
+                                                    </use>
+                                                </svg>
+                                            </div>
+                                            <div class="col col-12 mt-0 mt-md-3">
+                                                <div class="col-12">
+                                                    <p class="m-0 text-grey-sec fs-14">Total Tons of Carbon</p>
+                                                </div>
+                                                <div class="col-12 mt-2 d-flex justify-content-between align-items-end">
+                                                    <p class="m-0 text-black-big fs-24">456 Tons</p>
+                                                    <span class="statistics d-flex ms-1 statistics-down">
+                                                        4.4%
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="bg-white block-main rounded-16 col-12 col-md row m-0">
+                                            <div class="col-auto col-12 mb-2 mb-md-0">
+                                                <svg width="50" height="50" class="icon icon-new-totalOffsets">
+                                                    <use
+                                                        href="https://stage.climance.com/img/icons.svg#icon-new-totalOffsets">
+                                                    </use>
+                                                </svg>
+                                            </div>
+                                            <div class="col col-12 mt-0 mt-md-3">
+                                                <div class="col-12">
+                                                    <p class="m-0 text-grey-sec fs-14">Total Offsets</p>
+                                                </div>
+                                                <div class="col-12 mt-2 d-flex justify-content-between align-items-end">
+                                                    <p class="m-0 text-black-big fs-24">11</p>
+                                                    <span class="statistics d-flex ms-1 statistics-up">
+                                                        22%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="bg-white block-main rounded-16 col-12 col-md row m-0">
+                                            <div class="col-auto col-12 mb-2 mb-md-0">
+                                                <svg width="50" height="50" class="icon icon-new-totalCountries">
+                                                    <use
+                                                        href="https://stage.climance.com/img/icons.svg#icon-new-totalCountries">
+                                                    </use>
+                                                </svg>
+                                            </div>
+                                            <div class="col col-12 mt-0 mt-md-3">
+                                                <div class="col-12">
+                                                    <p class="m-0 text-grey-sec fs-14">Total Countries</p>
+                                                </div>
+                                                <div class="col-12 mt-2 d-flex justify-content-between align-items-end">
+                                                    <p class="m-0 text-black-big fs-24">4</p>
+                                                    <span class="statistics d-flex ms-1 statistics-up">
+                                                        0%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 table-container col-12 p-0 mb-3">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h6 class="fw-bold p-0 col-auto">Index List</h6>
+
+                            </div>
+                        </div>
+                        <div class="w-100 table-container bg-white rounded-2 col-12 p-3">
+                            <div class="col-12" type="button" data-bs-toggle="collapse" data-bs-target=".collapse-1"
+                                aria-expanded="false" aria-bs-controls="">
+                                <div class="card-header d-flex justify-content-between">
+                                    <a href="https://stage.climance.com/buy/certificate/5"
+                                        class="text-decoration-none text-black">
+                                        <div class="d-flex align-items-center">
+                                            <svg class="flex-shrink-0 icon icon-Forest-ERB me-2" width="48" height="48">
+                                                <use href="./img/icons.svg#icon-new-Rice-ARB">
+                                                </use>
+                                            </svg>
+                                            <div class="d-flex flex-column w-100">
+                                                <div class="d-flex flex-column w-100">
+                                                    <div class="title fw-bold wrap-text">1Energy Efficiency</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <span class="d-flex flex-column align-items-end justify-content-space-between">
+                                        <span class="price fw-bold"> $52.00</span>
+
+
+
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row mx-0 my-12 bigger-hr">
+                                <hr>
+                            </div>
+                            <div class="card-body collapse collapse-1 ">
+                                <p class="d-flex justify-content-between align-items-center  my-0">
+                                    <span class="title text-black-50 col-3">Type:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">Wallet Balance</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Date:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">22 Feb 23</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">OTY:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">12</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Amount:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">$33.66</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">sale Type:</span>
+                                    <span class="result text-black-50 w-50 text-end col-6">Credit</span>
+                                </p>
+
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <a href="" class="button-white me-2 w-100 blue-button" type="button">
+                                    Funded
+                                </a>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-12" type="button" data-bs-toggle="collapse" data-bs-target=".collapse-2"
+                                aria-expanded="false" aria-bs-controls="">
+                                <div class="image image-table d-flex align-items-center me-2">
+                                    <div class="box image rounded-circle">
+                                        <img src="https://storage.googleapis.com/climance-dev-bucket/images/5/profile_img_1698906798.png"
+                                            alt="Floyd Miles">
+                                    </div>
+                                    <div class="name-title text-wrap">
+                                        <div class="d-flex flex-column">
+                                            <div class="title fw-bold wrap-text">Floyd Miles</div>
+                                            <span class=" text-black-50">Amount $33.68</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mx-0 my-12 bigger-hr">
+                                <hr>
+                            </div>
+                            <div class="card-body collapse collapse-2 ">
+                                <p class="d-flex justify-content-between align-items-center  my-0">
+                                    <span class="title text-black-50 col-3">Type:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">Wallet Balance</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Date:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">22 Feb 23</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">OTY:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">12</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-3">Amount:</span>
+                                    <span class="result text-black-50 w-75 text-end col-9">$33.66</span>
+                                </p>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <p class="d-flex justify-content-between align-items-center my-0"><span
+                                        class="title text-black-50 col-6">sale Type:</span>
+                                    <span class="result text-black-50 w-50 text-end col-6">Credit</span>
+                                </p>
+
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                                <a href="" class="button-white me-2 w-100 blue-button" type="button">
+                                    Funded
+                                </a>
+                                <div class="row mx-0 my-12 bigger-hr">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Livewire Component wire-end:ZAly4NXogPdrx5L1IYcc -->
+            </main>
+
+
+            <!-- Livewire Component wire-end:qUnUQIO6942ETbgJ2CRp -->
+            <!-- <script src="/livewire/livewire.js?id=90730a3b0e7144480175" data-turbo-eval="false"
+            data-turbolinks-eval="false"></script>
+        <script data-turbo-eval="false"
+            data-turbolinks-eval="false">window.livewire = new Livewire(); window.Livewire = window.livewire; window.livewire_app_url = ''; window.livewire_token = 'wuhl6D53txvg5FldoY0HVO8kSpTWbjWizwQzGKHX'; window.deferLoadingAlpine = function (callback) { window.addEventListener('livewire:load', function () { callback(); }); }; let started = false; window.addEventListener('alpine:initializing', function () { if (!started) { window.livewire.start(); started = true; } }); document.addEventListener("DOMContentLoaded", function () { if (!started) { window.livewire.start(); started = true; } });</script>
+        <script src="js/editor/ckeditor.min.js"></script>
+
+        <script>
+            document.addEventListener("livewire:load", function (event) {
+                $('select.selectpicker').selectpicker('destroy');
+
+                Livewire.hook('message.processed', () => {
+                    $('.save-phone-btn').click(function () {
+                        $('select.selectpicker').selectpicker('destroy');
+                    })
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener('livewire:load', function () {
+                Livewire.on('changeUrl', (url) => {
+                    window.history.pushState({}, '', url);
+                });
+            });
+        </script>
+
+        <script>
+            var showMessage = "";
+            if (showMessage) {
+                const el = document.getElementById("closeFlashMsg");
+                setTimeout(function () {
+                    el.click();
+                }, 5000);
+            }
+        </script>
+
+        <script>
+            document.addEventListener("livewire:load", function (event) {
+                $('button.notfication-close').click(function () {
+                    location.reload();
+                });
+            });
+        </script>
+        <script type="text/javascript">
+
+            function appendModificationTimeToUrl(url, callback) {
+                fetch(url, { method: 'HEAD' })
+                    .then(response => {
+                        const lastModified = response.headers.get('Last-Modified');
+                        if (lastModified) {
+                            const modificationTime = new Date(lastModified).getTime();
+                            callback(`${url}?v=${modificationTime}`);
+                        } else {
+                            callback(url);
+                        }
+                    })
+                    .catch(error => {
+                        callback(url); // Use the original URL in case of an error
+                    });
+            }
+
+            const linkElements = document.getElementsByTagName('link');
+            const scriptElements = document.getElementsByTagName('script');
+
+            for (const link of linkElements) {
+                if (link.getAttribute('rel') === 'stylesheet' && link.getAttribute('href')) {
+                    link.href = link.getAttribute('href');
+                    appendModificationTimeToUrl(link.href, modifiedUrl => {
+                        link.setAttribute('href', modifiedUrl);
+                    });
+                }
+            }
+
+            for (const script of scriptElements) {
+                if (script.getAttribute('src')) {
+                    script.src = script.getAttribute('src');
+                    appendModificationTimeToUrl(script.src, modifiedUrl => {
+                        script.setAttribute('src', modifiedUrl);
+                    });
+                }
+            }
+        </script> -->
+            <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+                integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
+            <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+            <link href="https://cdn.jsdelivr.net/npm/jquery-treegrid@0.3.0/css/jquery.treegrid.css" rel="stylesheet">
+            <link href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css" rel="stylesheet">
+
+            <script src="https://cdn.jsdelivr.net/npm/jquery-treegrid@0.3.0/js/jquery.treegrid.min.js"></script>
+            <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+            <script
+                src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/treegrid/bootstrap-table-treegrid.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.js"></script>
+            <script src="./js/picker/picker.js"></script>
+            <script src="./js/picker/picker.date.js"></script>
+            <script src="./js/picker/picker.date.js"></script>
+            <style>
+                .maxh-100 {
+                    max-height: calc(100vh - 180px) !important;
+                }
+
+                .fixed-table-body table.classic.borders-table.add-height.table.table-borders.table-borderless.default-search th>div {
+                    color: transparent !important;
+                }
+
+                .collapse.show {
+                    visibility: visible;
+                }
+            </style>
+            <script type="text/javascript" src="./js/script.js"></script>
+            <!-- <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script> -->
+
+            <!-- <script src="./js/bootstrap/bootstrap-table.min.js"></script> -->
+</body>
+
+</html>

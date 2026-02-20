@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
     <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css">
-    <link rel="stylesheet" href="./css/main.min.css">
+    <link rel="stylesheet" href="./css/main_new.css">
 </head>
 
 <body class="overflow-hidden dashboard-page">
@@ -43,46 +43,70 @@
                 </div>
                 <ul class="navflex-column mb-auto list">
                     <li class="nav-item active">
-                        <a href="#" class="nav-link " aria-current="page">
+                        <a href="dashboard.html" class="nav-link " aria-current="page">
                             <svg class="icon icon-home me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-home"></use>
                             </svg>DashBoard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="buy_main_table_new.html" class="nav-link">
                             <svg class="icon icon-home me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-buy"></use>
                             </svg>Buy
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="sell_table_new.html" class="nav-link">
                             <svg class="icon icon-home me-2" width="16" height="16">
                                 <use href="./img/icons.svg#icon-sell"></use>
                             </svg>Sell
                         </a>
                     </li>
                 </ul>
+                <ul class="navflex-column ms-auto list bottom-list">
+                    <li class="nav-item ">
+                        <a href="#" type="button" class="nav-link link-notifications" aria-current="page"
+                            data-bs-container="body" data-bs-placement="right" data-bs-content="Right popover">
+                            <svg class="icon icon-bell-outline me-2" width="16" height="16">
+                                <use href="./img/icons.svg#icon-bell-outline"></use>
+                            </svg>Notifications
+                            <span class="badge rounded-pill bg-danger">
+                                12
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </a>
+                    </li>
+                    </li>
+                </ul>
 
-                <div class="user-panel mb-0 mt-auto">
-                    <div class="image d-flex align-items-center me-4">
+                <div class="user-panel mb-0 mt-auto dropdown">
+                    <div class="image d-flex align-items-center me-4  dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         <div class="box image rounded-circle">
                             <img src="https://picsum.photos/640/360" alt="User Image">
                         </div>
                         <h6 class="text-left mb-0 long text-white d-flex col h-100">
                             <div class="d-flex flex-column col-9">John Doe
-                                <a href="" class="text-white mt-2">View Profile</a>
+
                             </div>
-                            <a href="#" data-bs-target="#logoutModal" data-bs-toggle="modal" data-bs-dismiss="modal"
-                                class="text-white col-3 d-flex justify-content-center align-items-center">
-                                <svg width="24" height="24" class="icon icon-logout">
-                                    <use href="./img/icons.svg#icon-logout"></use>
-                                </svg>
-                            </a>
 
                         </h6>
+
+
                     </div>
+
+                    <ul class="dropdown-menu dropdown-menu-actions">
+                        <li><a class="dropdown-item" href="./admin_dashboard.html">My Details</a></li>
+                        <li><a class="dropdown-item" href="#">Manage Payments</a></li>
+                        <li><a class="dropdown-item" href="#">Transactions</a></li>
+                        <li><a class="dropdown-item" href="#">Activity Log</a></li>
+                        <li><a class="dropdown-item" href="#">Support</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
                 </div>
             </aside>
 
@@ -848,6 +872,25 @@
             </main>
         </div>
     </div>
+    <div wire:id="SPVQUPjBZwLmn6B8qddq" class="visually-hidden notif-content show" id="notif-content"
+        wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;SPVQUPjBZwLmn6B8qddq&quot;,&quot;name&quot;:&quot;buy.notification-modal&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;dashboard&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;openNotificationModal&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;ac684eff&quot;,&quot;data&quot;:{&quot;notifications&quot;:[{&quot;date&quot;:&quot;2023-08-02&quot;,&quot;data&quot;:[{&quot;id&quot;:1,&quot;certificate_id&quot;:2,&quot;user_id&quot;:5,&quot;message&quot;:&quot;Media query is a CSS technique introduced in CSS3.&quot;,&quot;is_read&quot;:1,&quot;created_at&quot;:&quot;2023-08-02T16:16:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2023-08-02T12:26:18.000000Z&quot;},{&quot;id&quot;:2,&quot;certificate_id&quot;:2,&quot;user_id&quot;:5,&quot;message&quot;:&quot;Media query is a CSS technique introduced in CSS3.&quot;,&quot;is_read&quot;:1,&quot;created_at&quot;:&quot;2023-08-02T16:16:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2023-08-02T12:26:18.000000Z&quot;}]}],&quot;showModal&quot;:false},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;49a98e2a95c946687a4f80a472acb46ab69adc5f8a85fe260c2f0055412d2228&quot;}}">
+        <div class="modal-body p-0 row">
+            <div class="row col-12 p-0 m-0">
+                <h5 class="black-color col fw-bold mb-3">
+                    Notifications center
+                </h5>
+                <button type="button" class="btn-close opacity-1 align-top align-self-start ms-auto col-auto me-2"
+                    onclick="$('.link-notifications').popover('hide');"></button>
+            </div>
+            <div class="row col-12 p-0 m-0 mb-3 scrollable-content">
+                <div class="day col-12">
+                    <div class="date">Yesterday</div>
+                    <p class="info">04:16 PM : Media query is a CSS technique introduced in CSS3.</p>
+                    <p class="info">04:16 PM : Media query is a CSS technique introduced in CSS3.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content p-4">
@@ -868,7 +911,7 @@
                         <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
                             href="#">Cancel</a>
 
-                        <a class="button-green rounded-pill ms-2 col" href="#">Log Out</a>
+                        <a class="button-green rounded-pill ms-2 col" href="login.html">Log Out</a>
                     </div>
                 </div>
             </div>

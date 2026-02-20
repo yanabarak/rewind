@@ -17,6 +17,55 @@
     <!-- <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css"> -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="./css/main.min.css">
+    <style>
+        .btn.btn-outline-primary {
+            border: 1px solid #1D7DB2;
+            color: #1D7DB2;
+            background-color: #F2FAFF;
+            min-height: 47px;
+        }
+
+        .btn.btn-outline-primary:hover {
+            background-color: #1D7DB2;
+            border-color: #1D7DB2;
+            color: #F2FAFF;
+        }
+
+        .grey-info {
+            color: #777;
+        }
+
+        .value-block {
+            color: #242647;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.48px;
+        }
+
+        .flag {
+            position: relative;
+            overflow: hidden;
+            width: 26px;
+            height: 26px;
+            transition: all .5s linear;
+            float: left;
+            flex-shrink: 0;
+            border-radius: 100px;
+
+        }
+
+        .flag>img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 28px;
+            height: 28px;
+            -o-object-fit: cover;
+            object-fit: cover;
+            transition: all .5s linear;
+        }
+    </style>
 </head>
 
 <body class="overflow-hidden dashboard-page">
@@ -89,6 +138,95 @@
 
 
             <main class="row w-100 m-0 gap-4">
+
+                <div class="row col-12 p-0 m-0">
+                    <div class="bg-white block-main row m-0 p-0 h-100 pb-32 flex-column">
+                        <div class="col-12 p-32 px-3 row m-0">
+                            <div class="col-12 col-xxl-5 mb-3 mb-xxl-0">
+                                <nav aria-label="breadcrumb" class="mb-40">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item"><a href="#"><i class="fas fa-arrow-left me-3"></i>
+                                                Clean
+                                                Energy Transitions Programme 2024 -
+                                                2025</a></li>
+                                    </ol>
+                                </nav>
+                                <div class="col-auto d-flex align-items-center">
+                                    <svg class="icon icon-Forest-ERB me-3" width="48" height="48">
+                                        <use href="./img/icons.svg#icon-Forest-ERB"></use>
+                                    </svg>
+                                    <div class="info-main d-flex flex-column">
+                                        <span class="fw-bold">Forest - ARB</span>
+                                        <span class="main-info d-flex align-items-baseline">
+                                            <span class="price">$250,586.40</span>
+                                        </span>
+                                    </div>
+                                    <button type="button"
+                                        class="btn btn-outline-primary fs-16 ms-4 align-self-end px-5 fw-bold">Buy</button>
+                                </div>
+                            </div>
+                            <div
+                                class="col-xxl col-6 col-md-3 ms-auto  d-flex align-items-center justify-content-center px-0">
+                                <div
+                                    class=" d-flex flex-column align-items-center justify-content-center gap-3 border-end w-100 px-2">
+                                    <div class="name-block grey-info"><svg class="icon icon-global-search me-1"
+                                            width="24" height="24">
+                                            <use href="./img/icons.svg#icon-global-search"></use>
+                                        </svg>
+                                        Country</div>
+                                    <div class="value-block d-flex justify-content-center align-items-center gap-2">
+                                        <div class="flag"><img
+                                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png"
+                                                alt=""></div>Indonesia
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="col-xxl col-6 col-md-3 ms-auto  d-flex align-items-center justify-content-center  px-0">
+                                <div
+                                    class=" d-flex flex-column align-items-center justify-content-center gap-3 border-end w-100 px-2">
+                                    <div class="name-block grey-info"><svg class="icon icon-dollar-square me-1"
+                                            width="24" height="24">
+                                            <use href="./img/icons.svg#icon-dollar-square"></use>
+                                        </svg>
+                                        Price per unit</div>
+                                    <div class="value-block d-flex justify-content-center align-items-center gap-2">
+                                        $105.20
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="col-xxl col-6 col-md-3 ms-auto  d-flex align-items-center justify-content-center  px-0">
+                                <div
+                                    class=" d-flex flex-column align-items-center justify-content-center gap-3 border-end w-100 px-2">
+                                    <div class="name-block grey-info"><svg class="icon icon-global-search me-1"
+                                            width="24" height="24">
+                                            <use href="./img/icons.svg#icon-global-search"></use>
+                                        </svg>
+                                        Available units</div>
+                                    <div class="value-block d-flex justify-content-center align-items-center gap-2">
+                                        2,382
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="col-xxl col-6 col-md-3 ms-auto  d-flex align-items-center justify-content-center px-0">
+                                <div
+                                    class=" d-flex flex-column align-items-center justify-content-center gap-3  w-100 px-2">
+                                    <div class="name-block grey-info"><svg class="icon icon-global-search me-1"
+                                            width="24" height="24">
+                                            <use href="./img/icons.svg#icon-global-search"></use>
+                                        </svg>
+                                        Vintage</div>
+                                    <div class="value-block d-flex justify-content-center align-items-center gap-2">
+                                        2016
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="row col-12 p-0 m-0">
                     <div class="bg-white block-main row m-0">
 
@@ -537,7 +675,7 @@
                         <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
                             href="#">Cancel</a>
 
-                        <a class="button-green rounded-pill ms-2 col" href="#">Log Out</a>
+                        <a class="button-green rounded-pill ms-2 col" href="login.html">Log Out</a>
                     </div>
                 </div>
             </div>

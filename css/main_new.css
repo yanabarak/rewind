@@ -457,37 +457,49 @@ a.button-green.rounded-pill.white-button.col:hover {
   padding: 0px;
   min-width: 90px;
 }
-.button-green .dropdown-menu li:not(:last-child) > a,
-.button-grey.dropdown-grey .dropdown-menu li:not(:last-child) > a {
+.button-green .dropdown-menu li:not(:last-child) > a, .button-green .dropdown-menu > .dropdown-item:not(:last-child),
+.button-grey.dropdown-grey .dropdown-menu li:not(:last-child) > a,
+.button-grey.dropdown-grey .dropdown-menu > .dropdown-item:not(:last-child) {
   border-bottom: 1px solid #F6F6F7;
   padding: 8px;
+  cursor: pointer;
 }
-.button-green .dropdown-menu li:first-child > a,
-.button-grey.dropdown-grey .dropdown-menu li:first-child > a {
+.button-green .dropdown-menu li:first-child > a, .button-green .dropdown-menu > .dropdown-item:first-child,
+.button-grey.dropdown-grey .dropdown-menu li:first-child > a,
+.button-grey.dropdown-grey .dropdown-menu > .dropdown-item:first-child {
   border-radius: 8px 8px 0 0;
 }
-.button-green .dropdown-menu li:last-child > a,
-.button-grey.dropdown-grey .dropdown-menu li:last-child > a {
+.button-green .dropdown-menu li:last-child > a, .button-green .dropdown-menu > .dropdown-item:last-child,
+.button-grey.dropdown-grey .dropdown-menu li:last-child > a,
+.button-grey.dropdown-grey .dropdown-menu > .dropdown-item:last-child {
   border-radius: 0 0 8px 8px;
   padding: 8px;
 }
 .button-green .dropdown-menu .dropdown-item.active,
 .button-green .dropdown-menu .dropdown-item:active,
 .button-green .dropdown-menu .dropdown-item:hover,
-.button-green .dropdown-menu .dropdown-item:focus,
+.button-green .dropdown-menu .dropdown-item:focus, .button-green .dropdown-menu > .dropdown-item:active, .button-green .dropdown-menu > .dropdown-item:hover, .button-green .dropdown-menu > .dropdown-item:focus,
 .button-grey.dropdown-grey .dropdown-menu .dropdown-item.active,
 .button-grey.dropdown-grey .dropdown-menu .dropdown-item:active,
 .button-grey.dropdown-grey .dropdown-menu .dropdown-item:hover,
-.button-grey.dropdown-grey .dropdown-menu .dropdown-item:focus {
+.button-grey.dropdown-grey .dropdown-menu .dropdown-item:focus,
+.button-grey.dropdown-grey .dropdown-menu > .dropdown-item:active,
+.button-grey.dropdown-grey .dropdown-menu > .dropdown-item:hover,
+.button-grey.dropdown-grey .dropdown-menu > .dropdown-item:focus {
   background: #F6F6F7;
   color: inherit;
 }
 
-.dropdown.bootstrap-select.button-grey.dropdown-grey .filter-option,
-.dropdown.bootstrap-select.button-grey.dropdown-grey .bs-title-option {
+.dropdown.button-grey.dropdown-grey {
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+}
+.dropdown.button-grey.dropdown-grey .filter-option,
+.dropdown.button-grey.dropdown-grey .bs-title-option {
   display: none;
 }
-.dropdown.bootstrap-select.button-grey.dropdown-grey .dropdown-toggle::after {
+.dropdown.button-grey.dropdown-grey .dropdown-toggle::after {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='2' height='11' viewBox='0 0 2 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='1' cy='1.5' r='1' fill='%2319202B'/%3e%3ccircle cx='1' cy='5.5' r='1' fill='%2319202B'/%3e%3ccircle cx='1' cy='9.5' r='1' fill='%2319202B'/%3e%3c/svg%3e ");
   width: 3px;
   height: 10px;
@@ -496,19 +508,20 @@ a.button-green.rounded-pill.white-button.col:hover {
   background-repeat: no-repeat;
   margin: 0px !important;
 }
-.dropdown.bootstrap-select.button-grey.dropdown-grey .btn.dropdown-toggle {
+.dropdown.button-grey.dropdown-grey .btn.dropdown-toggle {
   width: 32px;
   height: 32px;
   background: #E8E9EA;
+  border: 0px solid;
   border-radius: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.dropdown.bootstrap-select.button-grey.dropdown-grey .btn.dropdown-toggle:active, .dropdown.bootstrap-select.button-grey.dropdown-grey .btn.dropdown-toggle:focus {
+.dropdown.button-grey.dropdown-grey .btn.dropdown-toggle:active, .dropdown.button-grey.dropdown-grey .btn.dropdown-toggle:focus {
   outline: transparent !important;
 }
-.dropdown.bootstrap-select.button-grey.dropdown-grey + button.btn.dropdown-toggle {
+.dropdown.button-grey.dropdown-grey + button.btn.dropdown-toggle {
   display: none;
 }
 
@@ -953,6 +966,9 @@ aside.asidebar ul.navflex-column .nav-item.active:before {
 aside.asidebar ul.navflex-column .nav-item.active a {
   color: var(--bs-body-color);
 }
+aside.asidebar ul.navflex-column .nav-item.active a img.icon {
+  filter: invert(1);
+}
 aside.asidebar ul.navflex-column a {
   font-weight: 700;
   font-size: 16px;
@@ -961,6 +977,9 @@ aside.asidebar ul.navflex-column a {
   display: flex;
   align-items: center;
   width: 100%;
+}
+aside.asidebar ul.navflex-column a img.icon {
+  display: block;
 }
 aside.asidebar ul.navflex-column a svg {
   fill: currentColor;
@@ -1366,11 +1385,11 @@ table.tree > tbody > tr.collapse.show::after,
 table.tree > tbody > tr.collapsing::after {
   content: "";
   display: block;
-  width: calc(100% - 8px);
+  width: calc(100% - 8.5px);
   height: 20px;
   position: absolute;
   top: -10px;
-  left: 4px;
+  left: 4.5px;
   background-color: #fff;
   border-left: 1px solid #c7c7c7;
   border-right: 1px solid #c7c7c7;
@@ -1614,45 +1633,6 @@ nav:has(.status-button) {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.46967 5.46967C8.76256 5.17678 9.23744 5.17678 9.53033 5.46967L15.5303 11.4697C15.8232 11.7626 15.8232 12.2374 15.5303 12.5303L9.53033 18.5303C9.23744 18.8232 8.76256 18.8232 8.46967 18.5303C8.17678 18.2374 8.17678 17.7626 8.46967 17.4697L13.9393 12L8.46967 6.53033C8.17678 6.23744 8.17678 5.76256 8.46967 5.46967Z' fill='%23868B91'/%3e%3c/svg%3e ") !important;
 }
 
-.popover.notification-popover {
-  top: 0px !important;
-  bottom: 0px !important;
-  left: 20px !important;
-  border-radius: 16px;
-  border: 0px solid;
-  min-width: 600px;
-  z-index: 100000;
-}
-@media screen and (max-width: 992px) {
-  .popover.notification-popover {
-    transform: none !important;
-    min-width: 100vw;
-    left: 0px !important;
-  }
-}
-.popover.notification-popover .scrollable-content {
-  overflow: auto;
-  max-height: calc(100vh - 100px);
-}
-.popover.notification-popover .date {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 8px;
-  color: #000000;
-}
-.popover.notification-popover .day {
-  margin-bottom: 24px;
-}
-.popover.notification-popover .info {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #000000;
-}
-.popover.notification-popover .info + .info {
-  margin-bottom: 8px;
-}
-
 .popoverCSS::before {
   width: 100vw;
   height: 100vh;
@@ -1665,6 +1645,98 @@ nav:has(.status-button) {
   top: 0;
   bottom: 0;
   z-index: 10000;
+}
+
+.popoverCSS #notif-content {
+  top: 0px !important;
+  bottom: 0px !important;
+  left: 217px !important;
+  border-radius: 16px;
+  border: 0px solid;
+  width: 600px !important;
+  z-index: 100;
+  opacity: 1;
+  height: auto !important;
+  z-index: 100100000;
+  position: fixed !important;
+  margin: 0px !important;
+  clip: unset !important;
+  background-color: #fff !important;
+  box-sizing: border-box;
+  margin: 0px !important;
+  overflow: visible !important;
+}
+
+.popoverCSS #notif-content .modal-body {
+  padding: 32px !important;
+  box-sizing: border-box;
+  width: 100% !important;
+  margin: 0px !important;
+}
+
+.popoverCSS #notif-content::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #ffffff transparent transparent;
+  position: fixed;
+  z-index: 10000;
+  margin-left: -10px;
+  top: calc(100vh - 110px);
+}
+@media screen and (min-height: 600px) {
+  .popoverCSS #notif-content::before {
+    top: calc(100vh - 140px);
+  }
+}
+
+.popover.notification-popover,
+.popoverCSS #notif-content {
+  top: 0px !important;
+  bottom: 0px !important;
+  left: 20px;
+  border-radius: 16px;
+  border: 0px solid;
+  min-width: 600px;
+  z-index: 100000;
+}
+@media screen and (max-width: 992px) {
+  .popover.notification-popover,
+  .popoverCSS #notif-content {
+    transform: none !important;
+    min-width: 100vw;
+    width: 100vw !important;
+    left: 0px !important;
+  }
+}
+.popover.notification-popover .scrollable-content,
+.popoverCSS #notif-content .scrollable-content {
+  overflow: auto;
+  max-height: calc(100vh - 100px);
+}
+.popover.notification-popover .date,
+.popoverCSS #notif-content .date {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #000000;
+}
+.popover.notification-popover .day,
+.popoverCSS #notif-content .day {
+  margin-bottom: 24px;
+}
+.popover.notification-popover .info,
+.popoverCSS #notif-content .info {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+}
+.popover.notification-popover .info + .info,
+.popoverCSS #notif-content .info + .info {
+  margin-bottom: 8px;
 }
 
 .alert.alert-dismissible {
@@ -2046,6 +2118,11 @@ main {
     padding-right: 32px !important;
   }
 }
+.gap-4 .mh-75vh {
+  max-height: 75vh;
+  min-height: 650px;
+}
+
 .mh-75vh {
   max-height: 75vh;
   min-height: 400px;

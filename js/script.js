@@ -74,6 +74,7 @@ jQuery(document).ready(function ($) {
         paging: false,
         deferRender: true,
         scroller: true,
+        ordering: false,
       });
     } else $('.table-datatable').DataTable();
   }

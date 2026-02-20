@@ -82,11 +82,11 @@ table.tree>tbody>tr.collapse.show::after,
 table.tree>tbody>tr.collapsing::after {
     content: "";
     display: block;
-    width: calc(100% - 8px);
+    width: calc(100% - 8.5px);
     height: 20px;
     position: absolute;
     top: -10px;
-    left: 4px;
+    left: 4.5px;
     background-color: #fff;
     border-left: 1px solid #c7c7c7;
     border-right: 1px solid #c7c7c7;
