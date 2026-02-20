@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./css/bootstrap/bootstrap-select.min.css">
     <link rel="stylesheet" href="./css/bootstrap/bootstrap-table.min.css">
-    <link rel="stylesheet" href="./css/main.min.css">
+    <link rel="stylesheet" href="./css/main_new.css">
 </head>
 
 <body class="overflow-hidden buy-main-page">
@@ -162,14 +162,25 @@
                                                 </span>
                                             </div>
                                         </td>
-                                        <td><select name="buy-more-select"
-                                                class="selectpicker button-grey dropdown-grey ms-0 col-auto me-2 buy-more-select"
-                                                data-container="body" title="See more info">
-                                                <option value="Alert">Set price alert</option>
-                                                <option value="View"
-                                                    data-href="https://yanabarak.github.io/rewind/buy_certif.html">View
-                                                </option>
-                                            </select>
+                                        <td>
+                                            <div class="dropdown button-grey dropdown-grey mx-2 col-auto">
+
+                                                <button class="btn dropdown-toggle bs-placeholder btn-light show "
+                                                    type="button" id="genderDropdown" data-bs-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                </button>
+
+                                                <div class="dropdown-menu" aria-labelledby="genderDropdown">
+                                                    <a class="dropdown-item"
+                                                        wire:click="getBuyToggleData('priceAlert_{{$sellCertificate->id}}')">
+                                                        set price alert
+                                                    </a><a class="dropdown-item"
+                                                        wire:click="getBuyToggleData('priceAlert_{{$sellCertificate->id}}')">
+                                                        set price alert
+                                                    </a>
+                                                </div>
+
+                                            </div>
                                             <a href="#" class="button-green buy-table" data-bs-toggle="modal"
                                                 data-bs-target="#buyModal" type="button">buy</a>
                                         </td>
@@ -712,7 +723,7 @@
                         <a class="button-secondary rounded-pill col" data-bs-dismiss="modal" aria-label="Close"
                             href="#">Cancel</a>
 
-                        <a class="button-green rounded-pill ms-2 col" href="#">Log Out</a>
+                        <a class="button-green rounded-pill ms-2 col" href="login.html">Log Out</a>
                     </div>
                 </div>
             </div>

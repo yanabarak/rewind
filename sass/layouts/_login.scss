@@ -5,18 +5,25 @@ body.login-page {
   background-size: cover;
   background-position: left center;
   background-attachment: fixed;
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     background-image: url('./../img/login_bg_new@2x.jpg');
   }
+
   @media screen and (max-width: 768px) {
     background-image: unset;
   }
+
   main {
     gap: 0px !important;
     background-color: transparent;
     padding: 0px;
-    & > div:not(class) {
+
+    &>div:not(class) {
       padding: 0px;
+
       .modal-dialog,
       .modal-content {
         padding: 0px !important;
@@ -29,12 +36,14 @@ body.login-page {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px 0 0 50px;
     min-width: 600px;
+
     @media screen and (max-width: 768px) {
       width: 90%;
       margin: 20px auto;
       border-radius: 50px;
       min-width: unset;
     }
+
     @media screen and (max-width: 480px) {
       width: 100%;
       border-radius: 0px;
@@ -43,6 +52,10 @@ body.login-page {
       margin: 0px;
     }
   }
+
+  .modal-content {
+    padding: 0px !important;
+  }
 }
 
 .sign-up-block,
@@ -50,10 +63,12 @@ body.login-page {
   padding: 15px;
   width: 450px;
   margin-top: 20px;
+
   @media screen and (min-height: 900px) {
     margin-top: 15%;
   }
 }
+
 .ellipse {
   position: relative;
   display: inline-block;
@@ -104,11 +119,12 @@ body.login-page {
       }
     }
 
-    &.active ~ .nav-item.nav-link span:after {
+    &.active~.nav-item.nav-link span:after {
       height: 0%;
     }
   }
 }
+
 .login-block,
 .signup {
   .title {
@@ -116,6 +132,7 @@ body.login-page {
     border-bottom: 1px solid var(--black-10);
     line-height: 0.1em;
     height: 20px;
+
     span {
       bottom: -50%;
       position: relative;
@@ -127,6 +144,7 @@ body.login-page {
     }
   }
 }
+
 .button-login {
   min-width: 136px;
 }
@@ -140,6 +158,7 @@ body.login-page {
 .signup .drop-area.full {
   width: 100%;
 }
+
 .drop-area {
   cursor: pointer;
   width: 100%;
@@ -152,25 +171,31 @@ body.login-page {
   align-items: center;
   text-align: center;
   transition: all 500ms;
+
   &.highlight {
     background: var(--green-20);
   }
-  &.full > span:first-child {
+
+  &.full>span:first-child {
     display: none;
   }
+
   span {
     max-width: 240px;
     font-size: 16px;
     color: var(--black-50);
+
     &.limit {
       font-size: 12px;
     }
+
     svg {
       fill: currentColor;
       display: block;
       margin: 0 auto;
     }
   }
+
   #fileElem {
     display: none;
   }
@@ -184,9 +209,10 @@ body.login-page {
     align-items: flex-start;
     height: 940px;
   }
+
   .gallery img,
   .gallery embed,
-  .gallery > * {
+  .gallery>* {
     object-fit: cover;
     max-height: 100%;
     max-width: 100%;
@@ -206,21 +232,32 @@ body.login-page {
   border-radius: 4px;
   margin-right: 10px;
   cursor: pointer;
+
   & svg {
     fill: transparent;
   }
 }
 
-#remember:checked + label > span {
+#remember:checked+label>span {
   border: none;
   background-color: var(--input-green);
 }
-#remember:checked + label > span svg {
+
+#remember:checked+label>span svg {
   fill: #fff;
 }
+
 .reset-pass {
   font-weight: 700;
   font-size: 14px;
   line-height: 19px;
   color: #000000;
+}
+
+.signup .col.w-50.row {
+  align-content: flex-start;
+}
+
+.jetstream-modal .bg-gray-100.text-right {
+  padding: 0px !important;
 }

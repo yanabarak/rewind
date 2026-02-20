@@ -321,16 +321,20 @@ a.button-green.rounded-pill.white-button.col {
     padding: 0px;
     min-width: 90px;
 
-    li:not(:last-child)>a {
+    li:not(:last-child)>a,
+    &>.dropdown-item:not(:last-child) {
       border-bottom: 1px solid #F6F6F7;
       padding: 8px;
+      cursor: pointer;
     }
 
-    li:first-child>a {
+    li:first-child>a,
+    &>.dropdown-item:first-child {
       border-radius: 8px 8px 0 0;
     }
 
-    li:last-child>a {
+    li:last-child>a,
+    &>.dropdown-item:last-child {
       border-radius: 0 0 8px 8px;
       padding: 8px;
     }
@@ -338,14 +342,20 @@ a.button-green.rounded-pill.white-button.col {
     .dropdown-item.active,
     .dropdown-item:active,
     .dropdown-item:hover,
-    .dropdown-item:focus {
+    .dropdown-item:focus,
+    &>.dropdown-item:active,
+    &>.dropdown-item:hover,
+    &>.dropdown-item:focus {
       background: #F6F6F7;
       color: inherit;
     }
   }
 }
 
-.dropdown.bootstrap-select.button-grey.dropdown-grey {
+
+.dropdown.button-grey.dropdown-grey {
+  width: fit-content;
+  float: right;
 
   .filter-option,
   .bs-title-option {
@@ -366,6 +376,7 @@ a.button-green.rounded-pill.white-button.col {
     width: 32px;
     height: 32px;
     background: #E8E9EA;
+    border: 0px solid;
     border-radius: 45px;
     display: flex;
     justify-content: center;

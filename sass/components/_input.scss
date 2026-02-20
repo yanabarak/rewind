@@ -10,11 +10,13 @@ div.form-control.default .dropdown-toggle {
   font-weight: 400;
   font-size: 14px;
   line-height: calc(19 / 14);
+
   &:hover,
   &:focus {
     border: 1px solid var(--green);
     outline: transparent !important;
   }
+
   &.text-code {
     height: 84px;
     width: 84px;
@@ -25,36 +27,45 @@ div.form-control.default .dropdown-toggle {
     align-items: center;
     text-align: center;
   }
+
   @media screen and (max-width: 480px) {
     font-size: 16px;
   }
+
   &.error {
     color: #ee2e73;
     background: rgba(255, 151, 151, 0.06);
     border: 1px solid #ee2e73;
   }
 }
+
 .error-message {
   color: #ee2e73;
+
   svg {
     fill: currentColor;
   }
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 input[type='number'] {
   -moz-appearance: textfield;
 }
-input[type='password']:placeholder-shown + span svg {
+
+input[type='password']:placeholder-shown+span svg {
   stroke: transparent;
 }
+
 .toggle-password {
   & .icon-Eye-off {
     stroke: transparent;
   }
+
   &.eye-slash .icon-Eye-off {
     fill: var(--input-green);
     stroke: transparent;
@@ -69,9 +80,11 @@ input[type='password']:placeholder-shown + span svg {
     // transform: translate(-50%, -50%) rotate(-45deg);
     // box-shadow: 0px 0 0 2px var(--black-1);
   }
+
   &.eye-slash .icon-Eye {
     stroke: transparent;
   }
+
   svg {
     stroke: var(--input-green);
     fill: transparent;
@@ -94,6 +107,7 @@ input[type='password']:placeholder-shown + span svg {
 }
 
 div.form-control.default .dropdown-toggle {
+
   &:hover,
   &:focus {
     &::after {
@@ -112,13 +126,14 @@ div.form-control.default .dropdown-toggle {
   transition: all 500ms linear;
   padding-left: 44px;
 
-  & + span svg {
+  &+span svg {
     fill: #b2b7ba;
   }
 
   &::placeholder {
     color: #b2b7ba;
   }
+
   &:hover,
   &:focus,
   &:active {
@@ -126,16 +141,19 @@ div.form-control.default .dropdown-toggle {
     border-bottom: 1px solid var(--green);
     outline: transparent !important;
     box-shadow: none;
-    & + span svg {
+
+    &+span svg {
       fill: var(--green);
     }
   }
 }
+
 .search-wrap,
 .date-wrap,
 .input-wrap {
   position: relative;
   height: fit-content;
+
   span {
     position: absolute;
     left: 16px;
@@ -145,14 +163,17 @@ div.form-control.default .dropdown-toggle {
     align-items: center;
   }
 }
+
 .date-wrap,
 .input-wrap {
   span {
     left: 8px;
   }
+
   input {
     padding-left: 32px;
-    & ~ span svg {
+
+    &~span svg {
       fill: #9bce89;
     }
 
@@ -160,7 +181,8 @@ div.form-control.default .dropdown-toggle {
     &:focus,
     &:active {
       color: var(--green);
-      & ~ span svg {
+
+      &~span svg {
         fill: var(--green);
       }
     }
@@ -171,16 +193,20 @@ div.form-control.default .dropdown-toggle {
   span {
     left: 18px;
   }
+
   input {
     padding-left: 48px;
   }
 }
+
 .float-right.search.btn-group {
   display: none;
 }
+
 #Expiration {
   width: 135px;
 }
+
 .w-66 {
   max-width: 66px;
 }
@@ -189,6 +215,7 @@ div.form-control.default .dropdown-toggle {
   border: 0px;
   padding: 0px;
   border-bottom: 1px solid transparent;
+
   &:focus {
     outline: transparent;
     border-bottom: 1px solid var(--black-50);
@@ -202,9 +229,11 @@ input[type='range'] {
   margin: 10px 0;
   width: 100%;
 }
+
 input[type='range']:focus {
   outline: none;
 }
+
 input[type='range']::-webkit-slider-runnable-track {
   width: 100%;
   height: 4px;
@@ -215,6 +244,7 @@ input[type='range']::-webkit-slider-runnable-track {
   border-radius: 5px;
   border: 0px solid #000000;
 }
+
 input[type='range']::-webkit-slider-thumb {
   box-shadow: 0px 0px 0px #000000;
   border: 0px solid #000000;
@@ -226,9 +256,11 @@ input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: -10px;
 }
+
 input[type='range']:focus::-webkit-slider-runnable-track {
   background: #dcdcdc;
 }
+
 input[type='range']::-moz-range-track {
   width: 100%;
   height: 4px;
@@ -239,6 +271,7 @@ input[type='range']::-moz-range-track {
   border-radius: 5px;
   border: 0px solid #000000;
 }
+
 input[type='range']::-moz-range-thumb {
   box-shadow: 0px 0px 0px #000000;
   border: 0px solid #000000;
@@ -248,14 +281,17 @@ input[type='range']::-moz-range-thumb {
   background: #39a935;
   cursor: pointer;
 }
+
 .form-range:focus::-webkit-slider-thumb {
   box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem var(--green-20);
   background: var(--input-green);
 }
+
 .form-range:focus::-moz-range-thumb {
   box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem var(--green-20);
   background: var(--input-green);
 }
+
 input[type='range']::-ms-track {
   width: 100%;
   height: 4px;
@@ -265,18 +301,21 @@ input[type='range']::-ms-track {
   border-color: transparent;
   color: transparent;
 }
+
 input[type='range']::-ms-fill-lower {
   background: #dcdcdc;
   border: 0px solid #000000;
   border-radius: 10px;
   box-shadow: 0px 0px 0px #000000;
 }
+
 input[type='range']::-ms-fill-upper {
   background: #dcdcdc;
   border: 0px solid #000000;
   border-radius: 10px;
   box-shadow: 0px 0px 0px #000000;
 }
+
 input[type='range']::-ms-thumb {
   margin-top: 1px;
   box-shadow: 0px 0px 0px #000000;
@@ -287,21 +326,26 @@ input[type='range']::-ms-thumb {
   background: #39a935;
   cursor: pointer;
 }
+
 input[type='range']:focus::-ms-fill-lower {
   background: #dcdcdc;
 }
+
 input[type='range']:focus::-ms-fill-upper {
   background: #dcdcdc;
 }
-th .bootstrap-select > .dropdown-toggle {
+
+th .bootstrap-select>.dropdown-toggle {
   background: transparent !important;
   padding: 0px;
   border: 0px;
   outline: transparent !important;
+
   &:focus {
     outline: transparent !important;
   }
 }
+
 .fixed-table-body[style*='inherit'] th button .filter-option-inner-inner {
   opacity: 0;
   transition: all 0s;
